@@ -13,12 +13,16 @@
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "typescript": "5.9.2"
+    "@vitest/ui": "^2.1.0",
+    "typescript": "5.9.2",
+    "vitest": "^2.1.0"
   },
   "sideEffects": false
 }

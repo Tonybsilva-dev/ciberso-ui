@@ -11,7 +11,7 @@ export const colors = {
       200: '#80FFFF',
       300: '#50FFFF',
       400: '#20FFFF',
-      500: '#00FFFF', // Base
+      500: '#00F6FF', // Base - Ciano Neon conforme especificação
       600: '#00CCCC',
       700: '#009999',
       800: '#006666',
@@ -23,11 +23,11 @@ export const colors = {
       200: '#99BFFF',
       300: '#669FFF',
       400: '#337FFF',
-      500: '#1E3A8A', // Base
-      600: '#182E6E',
-      700: '#122252',
-      800: '#0C1636',
-      900: '#060A1A',
+      500: '#007BFF', // Base - Azul Royal conforme especificação
+      600: '#0066CC',
+      700: '#005299',
+      800: '#003D66',
+      900: '#002933',
     },
     darkBlue: {
       50: '#1E293B',
@@ -35,11 +35,11 @@ export const colors = {
       200: '#1E293B',
       300: '#1E293B',
       400: '#1E293B',
-      500: '#0F172A', // Base
-      600: '#0C1221',
-      700: '#090E18',
-      800: '#060A0F',
-      900: '#030506',
+      500: '#0A192F', // Base - Azul Escuro conforme especificação
+      600: '#081420',
+      700: '#060F18',
+      800: '#040A0F',
+      900: '#020506',
     },
     gold: {
       50: '#FFF9E6',
@@ -67,10 +67,18 @@ export const colors = {
     },
   },
   semantic: {
-    success: '#00FFFF', // ciberso.cyan[500]
+    success: '#00F6FF', // ciberso.cyan[500]
     error: '#FF4444',
     warning: '#FFD700', // ciberso.gold[500]
-    info: '#1E3A8A', // ciberso.royalBlue[500]
+    info: '#007BFF', // ciberso.royalBlue[500]
+  },
+  // Cores primárias diretas para compatibilidade (conforme especificação da tarefa)
+  primary: {
+    cianoNeon: '#00F6FF',
+    azulRoyal: '#007BFF',
+    azulEscuro: '#0A192F',
+    dourado: '#FFD700',
+    preto: '#000000',
   },
 } as const;
 
