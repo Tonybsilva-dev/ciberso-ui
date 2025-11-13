@@ -1,0 +1,183 @@
+Ciberso-UI PRD
+<overview>
+Problem Statement:
+Ciberso-UI visa criar um Design System temático inspirado no arquétipo Ciberso de Yu-Gi-Oh, garantindo consistência visual, acessibilidade, animações avançadas e integração simples em qualquer projeto Next.js. Ferramentas existentes como shadcn/ui não oferecem base estética customizada nem animações intensas por padrão.
+
+Target Users:
+– Times de frontend
+– Times de produto
+– Projetos SaaS multi-tenant
+– Designers que precisam padronização visual
+– Desenvolvedores que desejam setup simples e extensível
+
+Success Metrics:
+– Adotar em projetos Next.js em < 10 minutos
+– 100% dos componentes com A11y React Aria
+– 95% de cobertura de tokens e documentação
+– Redução de inconsistência visual em 80%
+
+</overview>
+
+<functional-decomposition>
+Capability: Tokens
+Feature: Tokens de cor
+Description: Set de cores Ciberso (ciano neon, azul royal, azul escuro, dourado, preto)
+Inputs: design theme
+Outputs: lista de tokens
+Behavior: gerar via tailwind preset
+
+Feature: Tokens de tipografia
+Feature: Tokens de animação
+Feature: Tokens de borda
+...
+
+Capability: Componentes Atômicos
+Feature: Botões
+Inputs: variant, size
+Outputs: botão estilizado
+Behavior: React Aria + motion
+
+Feature: Icons
+Feature: Typography
+
+Capability: Molecules
+Feature: Cards
+Feature: Inputs
+Feature: Alerts
+Feature: Badges
+
+Capability: Organisms
+Feature: Navbar
+Feature: Forms
+Feature: Tables
+
+Capability: Providers
+Feature: Theme Provider
+Feature: Motion Provider
+
+Capability: Documentação
+Feature: Storybook
+Feature: Exemplos
+Feature: Props tables
+
+</functional-decomposition>
+
+<structural-decomposition>
+Repository Structure:
+packages/
+  tokens/
+  react/
+  theme/
+  icons/
+  motion/
+  cli/
+apps/
+  docs/ (storybook)
+turbo.json
+
+Modules:
+tokens → capability Tokens
+react → componentes
+motion → framer + gsap
+theme → provider + css vars
+icons → svg
+cli → init setup
+docs → storybook
+
+</structural-decomposition>
+
+<dependency-graph>
+Foundation Layer:
+tokens (sem dependências)
+theme (depende de tokens)
+motion (sem dependências)
+
+UI Layer:
+react-components (depende de tokens, motion, theme)
+icons (depende de nada)
+
+Documentation Layer:
+storybook/docs (depende de react-components, tokens, theme)
+
+</dependency-graph>
+
+<implementation-roadmap>
+Phase 0: Base
+Tasks:
+– Criar tokens base
+– Criar theme provider
+– Criar motion provider
+
+Phase 1: Atoms
+– Botão
+– Typography
+– Icons
+
+Phase 2: Molecules
+– Inputs
+– Cards
+– Alerts
+
+Phase 3: Organisms
+– Navbar
+– Forms base
+– Tables
+
+Phase 4: Documentação
+– Storybook
+– Docs de setup
+– Playground
+
+Phase 5: Publicação
+– Configurar build
+– Release inicial
+
+</implementation-roadmap>
+
+<test-strategy>
+Test Pyramid:
+Unit: 70%
+Integration: 20%
+E2E Storybook: 10%
+
+Coverage:
+90% lines
+
+Scenarios:
+Tokens: validar export
+Botão: interação teclado, foco
+Inputs: estados
+Cards: variantes
+
+</test-strategy>
+
+<architecture>
+System Components:
+React Aria para acessibilidade
+Tailwind preset
+Framer Motion + GSAP para animações
+TurboRepo monorepo
+
+Decision: React Aria
+Rationale: Headless + a11y
+Trade-offs: mais trabalho visual
+Alternatives: Radix UI
+
+</architecture>
+
+<risks>
+– Complexidade de animação (resolver com tokens)
+– Storybook pesado (resolver com lazy docs)
+– Abstrações demais (definir API pública clara)
+
+</risks>
+
+<appendix>
+Glossary:
+Tokens = variáveis de design
+Molecules = componentes compostos
+
+Open Questions:
+– suporte para dark mode?
+– incluir componentes de gráfico?
+</appendix>
