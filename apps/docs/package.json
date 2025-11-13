@@ -8,9 +8,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --max-warnings 0",
-    "check-types": "next typegen && tsc --noEmit"
+    "check-types": "next typegen && tsc --noEmit",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@ciberso/motion": "workspace:*",
+    "@ciberso/react": "workspace:*",
+    "@ciberso/tokens": "workspace:*",
+    "@ciberso/theme": "workspace:*",
     "@repo/ui": "workspace:*",
     "next": "^16.0.1",
     "react": "^19.2.0",
@@ -23,6 +29,12 @@
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "eslint": "^9.39.1",
-    "typescript": "5.9.2"
+    "typescript": "5.9.2",
+    "storybook": "^10.0.7",
+    "@storybook/nextjs": "^10.0.7",
+    "@chromatic-com/storybook": "^4.1.2",
+    "@storybook/addon-docs": "^10.0.7",
+    "@storybook/addon-onboarding": "^10.0.7",
+    "eslint-plugin-storybook": "^10.0.7"
   }
 }
