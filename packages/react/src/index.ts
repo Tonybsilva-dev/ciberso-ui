@@ -4,6 +4,8 @@
  * Seguindo Atomic Design: Atoms → Molecules → Organisms
  */
 
-// Componentes serão adicionados nas próximas fases
-export {};
+// Atoms
+export * from './components/atoms';
+
+// Molecules e Organisms serão adicionados nas próximas fases
 

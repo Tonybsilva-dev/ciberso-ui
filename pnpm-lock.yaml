@@ -201,6 +201,9 @@ importers:
       '@ciberso/tokens':
         specifier: workspace:*
         version: link:../tokens
+      '@react-aria/utils':
+        specifier: ^3.28.0
+        version: 3.31.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       framer-motion:
         specifier: ^10.0.0 || ^11.0.0
         version: 11.18.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
