@@ -2,6 +2,30 @@
  * Tokens de tipografia do Ciberso-UI
  */
 
+// Tokens de tamanho de fonte (fontSizes) - Escala modular conforme especificação
+export const fontSizes = {
+  xs: '12px',
+  sm: '14px',
+  md: '16px',
+  lg: '18px',
+  xl: '20px',
+  '2xl': '24px',
+} as const;
+
+// Tokens de peso de fonte (fontWeights) - Pesos padrão conforme especificação
+export const fontWeights = {
+  regular: 400,
+  medium: 500,
+  bold: 700,
+} as const;
+
+// Tokens de família de fonte (fontFamilies) - Pilhas de fontes
+export const fontFamilies = {
+  default: 'Inter, system-ui, -apple-system, sans-serif',
+  code: 'JetBrains Mono, Menlo, Monaco, monospace',
+} as const;
+
+// Objeto completo de tipografia (mantido para compatibilidade)
 export const typography = {
   fonts: {
     sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
@@ -29,7 +53,14 @@ export const typography = {
     normal: 1.5,
     relaxed: 1.75,
   },
+  // Exports diretos para compatibilidade com especificação da tarefa
+  fontSizes,
+  fontWeights,
+  fontFamilies,
 } as const;
 
 export type Typography = typeof typography;
+export type FontSizes = typeof fontSizes;
+export type FontWeights = typeof fontWeights;
+export type FontFamilies = typeof fontFamilies;
 
