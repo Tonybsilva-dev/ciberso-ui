@@ -4,7 +4,10 @@
  * Usa Framer Motion e GSAP
  */
 
-// Será implementado nas próximas fases
 export * from './framer-motion';
 export * from './gsap';
+export { MotionProvider } from './MotionProvider';
+export type { MotionProviderProps } from './MotionProvider';
+export { AnimatedBox } from './AnimatedBox';
+export type { AnimatedBoxProps } from './AnimatedBox';
 
