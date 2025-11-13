@@ -18,7 +18,8 @@
     "@ciberso/tokens": "workspace:*",
     "@ciberso/theme": "workspace:*",
     "@ciberso/motion": "workspace:*",
-    "@react-aria/utils": "^3.28.0"
+    "@react-aria/utils": "^3.28.0",
+    "react-aria": "^3.28.0"
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
