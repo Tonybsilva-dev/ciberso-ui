@@ -5,4 +5,5 @@
 export * from './HelloWorld';
 export * from './Button';
 export * from './Input';
+export * from './Label';
 
