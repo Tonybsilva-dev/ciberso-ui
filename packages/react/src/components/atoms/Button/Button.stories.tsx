@@ -5,6 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
+import { Add, Delete, Close, Check, ArrowForward, Save, Edit, Search } from '@ciberso/icons';
 
 const meta: Meta<typeof Button> = {
   title: 'Atoms/Button',
@@ -143,7 +144,7 @@ export const AllVariants: Story = {
  */
 export const WithLeftIcon: Story = {
   render: () => (
-    <Button leftIcon={<span>+</span>}>
+    <Button leftIcon={<Add className="w-4 h-4" />}>
       Adicionar
     </Button>
   ),
@@ -154,7 +155,7 @@ export const WithLeftIcon: Story = {
  */
 export const WithRightIcon: Story = {
   render: () => (
-    <Button rightIcon={<span>→</span>}>
+    <Button rightIcon={<ArrowForward className="w-4 h-4" />}>
       Continuar
     </Button>
   ),
@@ -166,9 +167,9 @@ export const WithRightIcon: Story = {
 export const IconOnly: Story = {
   render: () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-      <Button iconOnly rightIcon={<span>+</span>} aria-label="Adicionar" />
-      <Button iconOnly rightIcon={<span>×</span>} aria-label="Fechar" variant="secondary" />
-      <Button iconOnly rightIcon={<span>✓</span>} aria-label="Confirmar" variant="ghost" />
+      <Button iconOnly rightIcon={<Add className="w-5 h-5" />} aria-label="Adicionar" />
+      <Button iconOnly rightIcon={<Close className="w-5 h-5" />} aria-label="Fechar" variant="secondary" />
+      <Button iconOnly rightIcon={<Check className="w-5 h-5" />} aria-label="Confirmar" variant="ghost" />
     </div>
   ),
 };
@@ -179,14 +180,23 @@ export const IconOnly: Story = {
 export const WithIcons: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px' }}>
-      <Button leftIcon={<span>+</span>}>
+      <Button leftIcon={<Add className="w-4 h-4" />}>
         Adicionar Item
       </Button>
-      <Button rightIcon={<span>→</span>}>
+      <Button rightIcon={<ArrowForward className="w-4 h-4" />}>
         Próximo Passo
       </Button>
-      <Button leftIcon={<span>✓</span>} rightIcon={<span>→</span>}>
+      <Button leftIcon={<Save className="w-4 h-4" />} rightIcon={<ArrowForward className="w-4 h-4" />}>
         Salvar e Continuar
+      </Button>
+      <Button leftIcon={<Edit className="w-4 h-4" />} variant="secondary">
+        Editar
+      </Button>
+      <Button leftIcon={<Search className="w-4 h-4" />} variant="ghost">
+        Buscar
+      </Button>
+      <Button leftIcon={<Delete className="w-4 h-4" />} variant="secondary">
+        Excluir
       </Button>
     </div>
   ),

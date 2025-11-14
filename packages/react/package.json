@@ -17,6 +17,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@ciberso/icons": "workspace:*",
     "@ciberso/motion": "workspace:*",
     "@ciberso/theme": "workspace:*",
     "@ciberso/tokens": "workspace:*",
