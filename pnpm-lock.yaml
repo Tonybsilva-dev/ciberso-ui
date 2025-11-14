@@ -252,6 +252,9 @@ importers:
 
   packages/react:
     dependencies:
+      '@ciberso/icons':
+        specifier: workspace:*
+        version: link:../icons
       '@ciberso/motion':
         specifier: workspace:*
         version: link:../motion
