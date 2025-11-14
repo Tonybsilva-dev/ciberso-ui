@@ -38,6 +38,14 @@ export const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
     const fastDurationValue: string = animations.duration.fast ?? '150ms';
     const fastDuration = parseDuration(fastDurationValue);
 
+    // Extrair props que podem conflitar com Framer Motion
+    const {
+      onDrag,
+      onDragStart,
+      onDragEnd,
+      ...restProps
+    } = props;
+
     return (
       <motion.div
         ref={ref}
@@ -73,7 +81,7 @@ export const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
             ease: [0.4, 0, 1, 1], // easeIn
           },
         }}
-        {...props}
+        {...restProps}
       >
         <div className="relative z-10">
           {children}

@@ -152,26 +152,38 @@ export const Grid: Story = {
     }}>
       <Card>
         <CardHeader>
-          <Heading level={4}>Card 1</Heading>
+          <Heading level={4} color="primary" style={{ color: '#00F6FF' }}>
+            Card 1
+          </Heading>
         </CardHeader>
         <CardBody>
-          <Text size="sm">Conteúdo do primeiro card.</Text>
+          <Text size="sm" style={{ color: '#E0FFFF' }}>
+            Conteúdo do primeiro card.
+          </Text>
         </CardBody>
       </Card>
       <Card>
         <CardHeader>
-          <Heading level={4}>Card 2</Heading>
+          <Heading level={4} color="primary" style={{ color: '#00F6FF' }}>
+            Card 2
+          </Heading>
         </CardHeader>
         <CardBody>
-          <Text size="sm">Conteúdo do segundo card.</Text>
+          <Text size="sm" style={{ color: '#E0FFFF' }}>
+            Conteúdo do segundo card.
+          </Text>
         </CardBody>
       </Card>
       <Card>
         <CardHeader>
-          <Heading level={4}>Card 3</Heading>
+          <Heading level={4} color="primary" style={{ color: '#00F6FF' }}>
+            Card 3
+          </Heading>
         </CardHeader>
         <CardBody>
-          <Text size="sm">Conteúdo do terceiro card.</Text>
+          <Text size="sm" style={{ color: '#E0FFFF' }}>
+            Conteúdo do terceiro card.
+          </Text>
         </CardBody>
       </Card>
     </div>
@@ -183,25 +195,29 @@ export const Grid: Story = {
  */
 export const ComplexContent: Story = {
   render: () => (
-    <Card>
+    <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
+      <Card>
       <CardHeader>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Heading level={3}>Card com Conteúdo Complexo</Heading>
+          <Heading level={3} color="primary" style={{ color: '#00F6FF' }}>
+            Card com Conteúdo Complexo
+          </Heading>
           <Button variant="ghost" size="sm">Ações</Button>
         </div>
       </CardHeader>
       <CardBody>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <Text>
+          <Text style={{ color: '#E0FFFF' }}>
             Este card demonstra como diferentes tipos de conteúdo podem ser organizados
             dentro de um card usando os sub-componentes.
           </Text>
           <div style={{ 
             padding: '1rem', 
-            backgroundColor: '#F3F4F6', 
-            borderRadius: '0.5rem' 
+            backgroundColor: '#1E293B', 
+            borderRadius: '0.5rem',
+            border: '1px solid rgba(0, 246, 255, 0.2)'
           }}>
-            <Text size="sm" color="muted">
+            <Text size="sm" style={{ color: '#B0FFFF' }}>
               Área de conteúdo destacado
             </Text>
           </div>
@@ -209,14 +225,17 @@ export const ComplexContent: Story = {
       </CardBody>
       <CardFooter>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Text size="sm" color="muted">Última atualização: hoje</Text>
+          <Text size="sm" style={{ color: '#80FFFF' }}>
+            Última atualização: hoje
+          </Text>
           <div style={{ display: 'flex', gap: '0.5rem' }}>
             <Button variant="outline" size="sm">Editar</Button>
             <Button variant="primary" size="sm">Salvar</Button>
           </div>
         </div>
       </CardFooter>
-    </Card>
+      </Card>
+    </div>
   ),
 };
 
