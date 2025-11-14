@@ -11,11 +11,11 @@ Sistema de grid de baseline para alinhamento vertical consistente no Ciberso-UI 
 
 O baseline grid é um sistema invisível de linhas horizontais que ajuda a alinhar elementos verticalmente, criando uma aparência mais organizada e profissional.
 
-## Grid System
+## Sistema de Grid
 
 O Ciberso-UI utiliza um sistema de baseline baseado em **4px**, garantindo alinhamento consistente em todos os componentes.
 
-### Spacing Scale
+### Escala de Espaçamento
 
 A escala de espaçamento segue múltiplos de 4px:
 
@@ -84,7 +84,7 @@ Os line heights são calculados para alinhar com o baseline grid:
 <div style={{ marginTop: '2rem' }}>
   <h3>Visualização do Baseline Grid</h3>
   <div style={{ position: 'relative', border: '1px solid #dad9d4', borderRadius: '8px', padding: '2rem', backgroundColor: '#faf9f5' }}>
-    {/* Grid lines */}
+    {/* Linhas do grid */}
     {Array.from({ length: 20 }, (_, i) => (
       <div
         key={i}
@@ -101,7 +101,7 @@ Os line heights são calculados para alinhar com o baseline grid:
       />
     ))}
     
-    {/* Sample content aligned to grid */}
+    {/* Conteúdo de exemplo alinhado ao grid */}
     <div style={{ position: 'relative', zIndex: 1 }}>
       <h2 style={{ fontSize: '24px', lineHeight: '32px', marginTop: '0', marginBottom: '16px', color: '#3d3929' }}>
         Exemplo de Título
@@ -116,28 +116,28 @@ Os line heights são calculados para alinhar com o baseline grid:
   </div>
 </div>
 
-## Implementation Guidelines
+## Diretrizes de Implementação
 
 ### 1. Use Line Heights Múltiplos de 4px
 
 ```css
-/* ✅ DO: Line heights alinhados ao grid */
+/* ✅ FAÇA: Line heights alinhados ao grid */
 .text-base {
   font-size: 16px;
   line-height: 24px; /* 6 × 4px */
 }
 
-/* ❌ DON'T: Line heights não alinhados */
+/* ❌ NÃO FAÇA: Line heights não alinhados */
 .text-base {
   font-size: 16px;
   line-height: 23px; /* Não é múltiplo de 4px */
 }
 ```
 
-### 2. Use Spacing Múltiplos de 4px
+### 2. Use Espaçamentos Múltiplos de 4px
 
 ```css
-/* ✅ DO: Spacing alinhado ao grid */
+/* ✅ FAÇA: Espaçamento alinhado ao grid */
 .component {
   margin-bottom: 16px; /* 4 × 4px */
   padding: 12px; /* 3 × 4px */
