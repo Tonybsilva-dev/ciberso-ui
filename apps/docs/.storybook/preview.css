@@ -1,2 +1,32 @@
 /* Importar tema do Ciberso-UI (contém @tailwind directives e variáveis CSS) */
 @import "../../../packages/theme/src/globals.css";
+
+/* 
+ * Forçar cores de texto corretas em elementos dentro de backgrounds coloridos
+ * Sobrescreve o CSS global do body que define color: oklch(var(--foreground))
+ * Usa seletores específicos para elementos com estilos inline
+ */
+div[style*="background-color: #c96442"] div,
+div[style*="background-color: #3d3929"] div,
+div[style*="background-color: #141413"] div,
+div[style*="background-color: #83827d"] div,
+div[style*="background-color: #535146"] div,
+div[style*="background-color: #28261b"] div,
+div[style*="background-color: #3d3d3a"] div,
+div[style*="background-color: #b05730"] div,
+div[style*="background-color: #b4552d"] div {
+  color: #ffffff !important;
+}
+
+/* Garantir que spans dentro de divs coloridos também tenham cor branca */
+div[style*="background-color: #c96442"] span,
+div[style*="background-color: #3d3929"] span,
+div[style*="background-color: #141413"] span,
+div[style*="background-color: #83827d"] span,
+div[style*="background-color: #535146"] span,
+div[style*="background-color: #28261b"] span,
+div[style*="background-color: #3d3d3a"] span,
+div[style*="background-color: #b05730"] span,
+div[style*="background-color: #b4552d"] span {
+  color: #ffffff !important;
+}
