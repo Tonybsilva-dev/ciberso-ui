@@ -4,12 +4,15 @@
  * Baseado na referência: Primary (azul), Secondary (cinza), com suporte a ícones
  * 
  * Estilização gerenciada via Class Variance Authority (cva) para type-safe variants
+ * Animações com Framer Motion usando tokens de animação do @ciberso/tokens
  */
 
 import { useButton, type AriaButtonProps } from 'react-aria';
 import { forwardRef, useRef } from 'react';
 import type { ReactNode } from 'react';
+import { motion } from 'framer-motion';
 import { buttonVariants, buttonIconOnlyVariants, iconSizeClasses } from './Button.variants';
+import { animations } from '@ciberso/tokens';
 import { cn } from '../../../utils/cn';
 
 export interface ButtonProps extends AriaButtonProps {
@@ -78,14 +81,14 @@ export interface ButtonProps extends AriaButtonProps {
  * ```
  */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ 
-    children, 
-    variant = 'primary', 
-    size = 'md', 
+  ({
+    children,
+    variant = 'primary',
+    size = 'md',
     leftIcon,
     rightIcon,
     iconOnly = false,
-    ...props 
+    ...props
   }, forwardedRef) => {
     const internalRef = useRef<HTMLButtonElement>(null);
     const ref = forwardedRef || internalRef;
@@ -106,15 +109,84 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const buttonClasses = cn(baseButtonClasses, iconOnlyClasses);
 
+    // Animações usando tokens de animação do @ciberso/tokens
+    // Converter durações de string (ex: '150ms') para número (ex: 0.15)
+    const parseDuration = (duration: string): number => {
+      const match = duration.match(/(\d+)ms/);
+      return match && match[1] ? parseInt(match[1], 10) / 1000 : 0.3;
+    };
+
+    // Animações para hover, tap e focus usando tokens
+    // Framer Motion aceita cubic-bezier como string diretamente
+    // Garantir que fastDuration seja sempre uma string válida
+    const fastDurationValue: string = animations.duration.fast ?? '150ms';
+    const fastDuration = parseDuration(fastDurationValue);
+
+    // Extrair apenas as props necessárias do buttonProps para evitar conflitos de tipo
+    const {
+      id,
+      className: buttonPropsClassName,
+      'aria-label': ariaLabel,
+      'aria-describedby': ariaDescribedBy,
+      'aria-pressed': ariaPressed,
+      'aria-disabled': ariaDisabled,
+      tabIndex,
+      disabled,
+      onClick,
+      onKeyDown,
+      onKeyUp,
+      onFocus,
+      onBlur,
+      onMouseDown,
+      onMouseUp,
+      onMouseEnter,
+      onMouseLeave,
+    } = buttonProps as React.ButtonHTMLAttributes<HTMLButtonElement>;
+
     return (
-      <button
-        {...buttonProps}
+      <motion.button
+        id={id}
+        className={cn(buttonClasses, buttonPropsClassName, props.className)}
+        aria-label={iconOnly && !children ? props['aria-label'] || ariaLabel : ariaLabel}
+        aria-describedby={ariaDescribedBy}
+        aria-pressed={ariaPressed}
+        aria-disabled={ariaDisabled}
+        tabIndex={tabIndex}
+        disabled={disabled}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
+        onKeyUp={onKeyUp}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        onMouseDown={onMouseDown}
+        onMouseUp={onMouseUp}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
         ref={ref}
-        className={cn(buttonClasses, props.className)}
         data-variant={variant}
         data-size={size}
         data-pressed={isPressed ? '' : undefined}
-        aria-label={iconOnly && !children ? props['aria-label'] : undefined}
+        whileHover={{
+          scale: 1.02,
+          transition: {
+            duration: fastDuration,
+            ease: animations.easing.easeOut,
+          },
+        }}
+        whileTap={{
+          scale: 0.98,
+          transition: {
+            duration: fastDuration,
+            ease: animations.easing.easeIn,
+          },
+        }}
+        whileFocus={{
+          scale: 1.01,
+          transition: {
+            duration: fastDuration,
+            ease: animations.easing.easeOut,
+          },
+        }}
       >
         {iconOnly ? (
           <span className={iconSizeClasses[size]}>{icon}</span>
@@ -133,7 +205,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             )}
           </>
         )}
-      </button>
+      </motion.button>
     );
   }
 );
