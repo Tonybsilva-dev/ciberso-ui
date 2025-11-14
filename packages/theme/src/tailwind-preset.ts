@@ -11,6 +11,7 @@ export const cibersoThemePreset: Partial<Config> = {
       colors: {
         ciberso: colors.ciberso,
         semantic: colors.semantic,
+        ui: colors.ui,
       },
       spacing,
       fontFamily: {

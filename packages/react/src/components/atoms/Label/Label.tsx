@@ -1,6 +1,7 @@
 /**
  * Label - Componente de label acessível do Ciberso-UI
  * Utiliza React Aria para garantir acessibilidade completa
+ * Baseado na referência: Texto escuro (#111827), asterisco vermelho para obrigatório
  */
 
 import { useLabel } from 'react-aria';
@@ -40,9 +41,14 @@ export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
  * associação correta com campos de formulário, incluindo navegação por teclado
  * e atributos ARIA apropriados.
  * 
+ * Baseado na referência:
+ * - Texto: cinza escuro/preto (#111827)
+ * - Font weight: medium (500)
+ * - Asterisco obrigatório: vermelho (#FF4444)
+ * 
  * @example
  * ```tsx
- * <Label htmlFor="email">Email</Label>
+ * <Label htmlFor="email" isRequired>Email</Label>
  * <Input id="email" />
  * ```
  * 
@@ -62,16 +68,29 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>(
 
     const Element = elementType;
 
+    const sizeClasses = {
+      sm: 'text-sm',
+      md: 'text-base',
+      lg: 'text-lg',
+    };
+
     return (
       <Element
         {...labelProps}
         ref={elementType === 'label' ? (ref as React.RefObject<HTMLLabelElement>) : undefined}
-        className="ciberso-label"
+        className={`font-medium text-[#111827] ${sizeClasses[size]}`}
         data-size={size}
         data-required={isRequired}
       >
         {children}
-        {isRequired && <span aria-label="obrigatório" className="ciberso-label-required"> *</span>}
+        {isRequired && (
+          <span 
+            aria-label="obrigatório" 
+            className="text-[#FF4444] ml-0.5"
+          >
+            *
+          </span>
+        )}
       </Element>
     );
   }
@@ -91,4 +110,3 @@ export function useLabelFieldProps(props: { label?: ReactNode; id?: string }): {
   const { fieldProps } = useLabel(props);
   return fieldProps;
 }
-

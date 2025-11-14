@@ -65,12 +65,75 @@ export const colors = {
       800: '#000000',
       900: '#000000',
     },
+    // Gray scale para secondary buttons e inputs (baseado na referência)
+    gray: {
+      50: '#F9FAFB',
+      100: '#F3F4F6',
+      200: '#E5E7EB',
+      300: '#D1D5DB',
+      400: '#9CA3AF',
+      500: '#6B7280',
+      600: '#4B5563',
+      700: '#374151',
+      800: '#1F2937',
+      900: '#111827',
+    },
   },
   semantic: {
     success: '#00F6FF', // ciberso.cyan[500]
     error: '#FF4444',
-    warning: '#FFD700', // ciberso.gold[500]
+    warning: '#FF9500', // Laranja para warning (baseado na referência)
     info: '#007BFF', // ciberso.royalBlue[500]
+  },
+  // Cores para componentes baseadas na referência
+  ui: {
+    // Primary button: azul (#007BFF)
+    primary: {
+      bg: '#007BFF', // royalBlue[500]
+      text: '#FFFFFF',
+      hover: '#0066CC', // royalBlue[600]
+      active: '#005299', // royalBlue[700]
+    },
+    // Secondary button: cinza
+    secondary: {
+      bg: '#6B7280', // Gray-500
+      text: '#FFFFFF',
+      hover: '#4B5563', // Gray-600
+      active: '#374151', // Gray-700
+    },
+    // Input states
+    input: {
+      border: '#9CA3AF', // Gray-400
+      borderFocused: '#007BFF', // royalBlue[500]
+      borderError: '#FF4444',
+      bg: '#FFFFFF',
+      bgDisabled: '#F3F4F6', // Gray-100
+      text: '#111827', // Gray-900
+      placeholder: '#9CA3AF', // Gray-400
+    },
+    // Tag colors
+    tag: {
+      orange: {
+        bg: '#FFF4E6',
+        text: '#FF9500',
+        dot: '#FF9500',
+      },
+      blue: {
+        bg: '#E6F2FF',
+        text: '#007BFF',
+        dot: '#007BFF',
+      },
+      green: {
+        bg: '#E6FFE6',
+        text: '#00C853',
+        dot: '#00C853',
+      },
+      red: {
+        bg: '#FFE6E6',
+        text: '#FF4444',
+        dot: '#FF4444',
+      },
+    },
   },
   // Cores primárias diretas para compatibilidade (conforme especificação da tarefa)
   primary: {
