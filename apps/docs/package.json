@@ -17,6 +17,7 @@
     "@ciberso/react": "workspace:*",
     "@ciberso/tokens": "workspace:*",
     "@ciberso/theme": "workspace:*",
+    "@emotion/is-prop-valid": "^1.3.1",
     "@repo/ui": "workspace:*",
     "next": "^16.0.1",
     "react": "^19.2.0",
