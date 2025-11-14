@@ -174,7 +174,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           },
         }}
         whileTap={{
-          scale: 0.90,
+          scale: 0.85,
           transition: {
             duration: fastDuration,
             ease: [0.4, 0, 1, 1], // easeIn como array de números
