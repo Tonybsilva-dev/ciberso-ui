@@ -166,25 +166,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-variant={variant}
         data-size={size}
         data-pressed={isPressed ? '' : undefined}
-        whileHover={{
-          scale: 1.02,
-          transition: {
-            duration: fastDuration,
-            ease: [0, 0, 0.2, 1], // easeOut como array de números
-          },
-        }}
         whileTap={{
-          scale: 0.85,
+          scale: 0.90,
           transition: {
             duration: fastDuration,
             ease: [0.4, 0, 1, 1], // easeIn como array de números
-          },
-        }}
-        whileFocus={{
-          scale: 1.01,
-          transition: {
-            duration: fastDuration,
-            ease: [0, 0, 0.2, 1], // easeOut como array de números
           },
         }}
       >

@@ -1,0 +1,108 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { typography } from '@ciberso/tokens';
+
+<Meta title="Foundations/Typography/Web Fonts" />
+
+# Web Fonts
+
+Fontes web utilizadas no Ciberso-UI Design System.
+
+## Font Stack
+
+O Ciberso-UI utiliza uma pilha de fontes (font stack) otimizada para performance e compatibilidade:
+
+### Sans Serif (Default)
+
+```
+{typography.fonts.sans.join(', ')}
+```
+
+Esta pilha garante:
+- **Inter**: Fonte principal moderna e legível
+- **system-ui**: Fallback para fontes do sistema
+- **-apple-system**: Fontes do sistema Apple
+- **sans-serif**: Fallback genérico
+
+### Monospace (Code)
+
+```
+{typography.fonts.mono.join(', ')}
+```
+
+Esta pilha garante:
+- **JetBrains Mono**: Fonte monospace moderna para código
+- **Menlo**: Fallback para sistemas Apple
+- **Monaco**: Fallback adicional
+- **monospace**: Fallback genérico
+
+## Font Loading
+
+### Performance
+
+As fontes são carregadas de forma otimizada:
+
+1. **Font Display**: `swap` para melhor performance
+2. **Preload**: Fontes críticas são pré-carregadas
+3. **Subset**: Apenas caracteres necessários são incluídos
+
+### Implementation
+
+```css
+/* Exemplo de implementação */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/inter.woff2') format('woff2');
+}
+```
+
+## Font Sizes Reference
+
+<div style={{ marginTop: '2rem' }}>
+  <h3>Available Font Sizes</h3>
+  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginTop: '1rem' }}>
+    {Object.entries(typography.sizes).map(([key, value]) => {
+      const sizeInPx = parseFloat(value) * 16;
+      return (
+        <div key={key} style={{ border: '1px solid #e5e7eb', borderRadius: '8px', padding: '1rem' }}>
+          <div style={{ fontSize: '12px', fontWeight: 'bold', color: '#6b7280', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
+            {key}
+          </div>
+          <div style={{ fontSize: value, fontFamily: typography.fonts.sans.join(', '), marginBottom: '0.5rem' }}>
+            Sample Text
+          </div>
+          <div style={{ fontSize: '11px', color: '#9ca3af' }}>
+            {value} ({sizeInPx}px)
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</div>
+
+## Browser Support
+
+O Ciberso-UI suporta todos os navegadores modernos:
+
+- ✅ Chrome/Edge (últimas 2 versões)
+- ✅ Firefox (últimas 2 versões)
+- ✅ Safari (últimas 2 versões)
+- ✅ Opera (últimas 2 versões)
+
+## Custom Fonts
+
+Para adicionar fontes customizadas ao projeto:
+
+1. Adicione os arquivos de fonte em `/public/fonts/`
+2. Configure o `@font-face` no CSS global
+3. Atualize os tokens de tipografia se necessário
+
+## Best Practices
+
+1. **Use font-display: swap** para melhor performance
+2. **Preload fontes críticas** no `<head>`
+3. **Subset fontes** para reduzir tamanho
+4. **Teste fallbacks** em diferentes sistemas
+

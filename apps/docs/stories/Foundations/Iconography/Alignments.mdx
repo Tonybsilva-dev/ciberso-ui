@@ -1,0 +1,161 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Iconography/Alignments" />
+
+# Icon Alignments
+
+Alinhamento e posicionamento de ícones no Ciberso-UI Design System.
+
+## Overview
+
+O alinhamento correto de ícones é essencial para uma interface visualmente consistente e profissional. Este guia define padrões de alinhamento para diferentes contextos.
+
+## Alignment Principles
+
+### 1. Baseline Alignment
+Ícones devem estar alinhados com a baseline do texto quando usados junto com texto.
+
+### 2. Center Alignment
+Ícones em botões icon-only devem estar centralizados vertical e horizontalmente.
+
+### 3. Visual Alignment
+Ajuste visual pode ser necessário para compensar diferenças ópticas entre ícones.
+
+## Icon with Text
+
+### Left Icon
+
+```tsx
+<div className="flex items-center gap-1.5">
+  <Add className="w-5 h-5" />
+  <span>Adicionar</span>
+</div>
+```
+
+**Guidelines:**
+- Gap de `1.5` (6px) entre ícone e texto
+- Alinhamento vertical com `items-center`
+- Ícone e texto na mesma linha de base
+
+### Right Icon
+
+```tsx
+<div className="flex items-center gap-1.5">
+  <span>Continuar</span>
+  <ArrowForward className="w-5 h-5" />
+</div>
+```
+
+**Guidelines:**
+- Mesmo gap de `1.5` (6px)
+- Ícone após o texto
+- Alinhamento vertical consistente
+
+## Icon in Buttons
+
+### Button with Icon
+
+```tsx
+<Button leftIcon={<Add className="w-4 h-4" />}>
+  Adicionar
+</Button>
+```
+
+**Guidelines:**
+- Ícone alinhado verticalmente com o texto
+- Tamanho do ícone baseado no tamanho do botão
+- Espaçamento automático via classes do componente
+
+### Icon Only Button
+
+```tsx
+<Button iconOnly rightIcon={<Add className="w-5 h-5" />} aria-label="Adicionar" />
+```
+
+**Guidelines:**
+- Ícone centralizado vertical e horizontalmente
+- Tamanho do ícone proporcional ao botão
+- Sempre inclua `aria-label` para acessibilidade
+
+## Icon Sizes by Context
+
+### Inline with Text (16px)
+```tsx
+<span className="flex items-center gap-1">
+  <Check className="w-4 h-4" />
+  <span>Item verificado</span>
+</span>
+```
+
+### In Buttons (16-20px)
+```tsx
+<Button leftIcon={<Add className="w-4 h-4" />}>Small</Button>
+<Button leftIcon={<Add className="w-5 h-5" />}>Medium</Button>
+<Button leftIcon={<Add className="w-6 h-6" />}>Large</Button>
+```
+
+### Standalone (24px+)
+```tsx
+<div className="flex items-center justify-center">
+  <Check className="w-6 h-6 text-green-500" />
+</div>
+```
+
+## Visual Alignment Adjustments
+
+Alguns ícones podem precisar de ajustes visuais para parecerem alinhados:
+
+### Optical Alignment
+
+```tsx
+// Ícones com formas diferentes podem precisar de ajuste
+<div className="flex items-center">
+  <Circle className="w-5 h-5" style={{ marginTop: '1px' }} />
+  <span>Texto alinhado</span>
+</div>
+```
+
+### Baseline Compensation
+
+```tsx
+// Ícones com descenders podem precisar de ajuste
+<div className="flex items-baseline">
+  <IconWithDescender className="w-5 h-5" style={{ marginBottom: '2px' }} />
+  <span>Texto</span>
+</div>
+```
+
+## Alignment Examples
+
+<div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '2rem' }}>
+  <div style={{ border: '1px solid #e5e7eb', borderRadius: '8px', padding: '1rem' }}>
+    <h4 style={{ marginTop: 0 }}>Left Icon Alignment</h4>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem', backgroundColor: '#f9fafb', borderRadius: '4px' }}>
+      <div style={{ width: '20px', height: '20px', backgroundColor: '#007BFF', borderRadius: '2px' }} />
+      <span>Texto alinhado com ícone</span>
+    </div>
+  </div>
+  
+  <div style={{ border: '1px solid #e5e7eb', borderRadius: '8px', padding: '1rem' }}>
+    <h4 style={{ marginTop: 0 }}>Right Icon Alignment</h4>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem', backgroundColor: '#f9fafb', borderRadius: '4px' }}>
+      <span>Texto alinhado com ícone</span>
+      <div style={{ width: '20px', height: '20px', backgroundColor: '#007BFF', borderRadius: '2px' }} />
+    </div>
+  </div>
+  
+  <div style={{ border: '1px solid #e5e7eb', borderRadius: '8px', padding: '1rem' }}>
+    <h4 style={{ marginTop: 0 }}>Icon Only (Centered)</h4>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '40px', height: '40px', backgroundColor: '#f9fafb', borderRadius: '4px' }}>
+      <div style={{ width: '20px', height: '20px', backgroundColor: '#007BFF', borderRadius: '2px' }} />
+    </div>
+  </div>
+</div>
+
+## Best Practices
+
+1. **Use flexbox para alinhamento** - `flex items-center` para alinhamento vertical
+2. **Mantenha gaps consistentes** - Use `gap-1.5` (6px) padrão
+3. **Teste visualmente** - Alguns ícones podem precisar de ajustes ópticos
+4. **Considere responsividade** - Ajuste tamanhos em diferentes breakpoints
+

@@ -1,0 +1,94 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Iconography/Pictograms" />
+
+# Pictograms
+
+Pictogramas e símbolos do Ciberso-UI Design System.
+
+## Overview
+
+Os pictogramas são símbolos visuais simples e diretos que representam ações, objetos ou conceitos. No Ciberso-UI, utilizamos Material Icons (Filled style) como base do sistema de ícones.
+
+## Icon Library
+
+O pacote `@ciberso/icons` fornece uma biblioteca completa de ícones SVG otimizados e convertidos em componentes React.
+
+### Available Icons
+
+Os ícones estão disponíveis através do pacote `@ciberso/icons`:
+
+```tsx
+import { Add, Delete, Close, Check, ArrowForward } from '@ciberso/icons';
+
+// Uso em componentes
+<Button leftIcon={<Add className="w-4 h-4" />}>
+  Adicionar
+</Button>
+```
+
+## Icon Sizes
+
+Tamanhos padrão de ícones baseados no tamanho do componente:
+
+| Component Size | Icon Size | Classes |
+|----------------|-----------|---------|
+| Small (sm) | 16px | `w-4 h-4` |
+| Medium (md) | 20px | `w-5 h-5` |
+| Large (lg) | 24px | `w-6 h-6` |
+
+## Usage Guidelines
+
+### 1. Sempre defina tamanho explícito
+
+```tsx
+// ✅ DO: Tamanho explícito
+<Add className="w-5 h-5" />
+
+// ❌ DON'T: Sem tamanho definido
+<Add />
+```
+
+### 2. Use ícones consistentemente
+
+- **Ações primárias**: Use ícones que representem claramente a ação
+- **Navegação**: Use ícones direcionais (ArrowForward, ArrowBack)
+- **Estados**: Use ícones que indiquem o estado (Check, Close, Error)
+
+### 3. Mantenha acessibilidade
+
+```tsx
+// ✅ DO: Com aria-label quando necessário
+<Button iconOnly rightIcon={<Add className="w-5 h-5" />} aria-label="Adicionar item" />
+
+// ✅ DO: Ícone decorativo com aria-hidden
+<span aria-hidden="true">
+  <Check className="w-4 h-4" />
+</span>
+```
+
+## Icon Categories
+
+### Actions
+- Add, Delete, Edit, Save, Search
+- Usados para ações do usuário
+
+### Navigation
+- ArrowForward, ArrowBack, ArrowUp, ArrowDown
+- Usados para navegação e direção
+
+### Status
+- Check, Close, Error, Warning, Info
+- Usados para feedback e estados
+
+### Content
+- File, Folder, Image, Video
+- Usados para tipos de conteúdo
+
+## Best Practices
+
+1. **Use ícones com propósito** - Cada ícone deve ter um significado claro
+2. **Mantenha consistência** - Use o mesmo estilo de ícone em todo o sistema
+3. **Considere contexto** - O mesmo ícone pode ter significados diferentes em contextos diferentes
+4. **Teste acessibilidade** - Sempre verifique com screen readers
+

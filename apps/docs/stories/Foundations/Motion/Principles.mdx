@@ -1,0 +1,162 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Motion/Principles" />
+
+# Motion Principles
+
+Princípios fundamentais de animação no Ciberso-UI Design System.
+
+## Core Principles
+
+### 1. Purpose-Driven Animation
+
+Toda animação deve ter um propósito claro:
+
+- **Feedback**: Confirmar ações do usuário
+- **Orientação**: Guiar a atenção do usuário
+- **Hierarquia**: Estabelecer importância visual
+- **Continuidade**: Manter contexto durante transições
+
+### 2. Performance First
+
+Animações devem ser performáticas:
+
+- **Use GPU**: Prefira `transform` e `opacity` sobre outras propriedades
+- **60fps**: Mantenha 60 frames por segundo
+- **Otimize**: Evite animações pesadas em muitos elementos
+- **Lazy Load**: Carregue animações complexas sob demanda
+
+### 3. Respect User Preferences
+
+Respeite as preferências de acessibilidade:
+
+```tsx
+// ✅ DO: Respeitar prefers-reduced-motion
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+<motion.div
+  animate={prefersReducedMotion ? {} : { scale: 1.1 }}
+  transition={{ duration: 0.3 }}
+>
+  Content
+</motion.div>
+```
+
+### 4. Consistency
+
+Mantenha consistência em:
+
+- **Timing**: Use durações padronizadas
+- **Easing**: Use funções de easing consistentes
+- **Patterns**: Reutilize padrões de animação
+
+## Animation Patterns
+
+### Micro-interactions
+
+Animações sutis para feedback imediato:
+
+- **Hover**: Leve aumento de escala ou mudança de cor
+- **Tap/Press**: Redução de escala (0.90-0.95)
+- **Focus**: Ring de foco animado
+- **Loading**: Spinners e skeletons
+
+### Transitions
+
+Animações para mudanças de estado:
+
+- **Page Transitions**: Fade ou slide entre páginas
+- **Modal**: Fade in/out com backdrop
+- **List Items**: Stagger animation para listas
+- **Form States**: Transições suaves entre estados
+
+### Feedback
+
+Animações que confirmam ações:
+
+- **Success**: Checkmark animado
+- **Error**: Shake ou pulse
+- **Progress**: Barra de progresso animada
+- **Notification**: Slide in/out de toasts
+
+## Best Practices
+
+### ✅ DO
+
+- Use animações para melhorar UX, não apenas decorar
+- Mantenha animações curtas (< 500ms para micro-interactions)
+- Use easing natural (ease-out para entrada, ease-in para saída)
+- Teste em dispositivos de baixa performance
+
+### ❌ DON'T
+
+- Não anime propriedades que causam reflow (width, height, top, left)
+- Não use animações excessivamente longas
+- Não ignore preferências de movimento reduzido
+- Não anime muitos elementos simultaneamente
+
+## Accessibility
+
+### Reduced Motion
+
+Sempre forneça alternativas para usuários que preferem movimento reduzido:
+
+```tsx
+import { useReducedMotion } from 'framer-motion';
+
+const shouldReduceMotion = useReducedMotion();
+
+<motion.div
+  animate={shouldReduceMotion ? {} : { x: 100 }}
+  transition={{ duration: 0.3 }}
+>
+  Content
+</motion.div>
+```
+
+### Focus Management
+
+Animações não devem interferir com navegação por teclado:
+
+- Mantenha elementos focáveis durante animações
+- Não mova elementos focados para fora da viewport
+- Garanta que estados de foco sejam visíveis
+
+## Examples
+
+### Button Hover
+
+```tsx
+<motion.button
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  transition={{ duration: 0.2 }}
+>
+  Button
+</motion.button>
+```
+
+### Fade In
+
+```tsx
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.3 }}
+>
+  Content
+</motion.div>
+```
+
+### Slide In
+
+```tsx
+<motion.div
+  initial={{ x: -100, opacity: 0 }}
+  animate={{ x: 0, opacity: 1 }}
+  transition={{ duration: 0.3, ease: 'easeOut' }}
+>
+  Content
+</motion.div>
+```
+

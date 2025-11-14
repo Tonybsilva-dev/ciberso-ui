@@ -1,0 +1,108 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Iconography/Icon Fonts" />
+
+# Icon Fonts
+
+Fontes de ícones utilizadas no Ciberso-UI Design System.
+
+## Overview
+
+O Ciberso-UI utiliza **Material Icons (Filled style)** do Google Fonts como fonte principal de ícones.
+
+## Material Icons
+
+### Source
+- **Provider**: Google Fonts
+- **Style**: Filled
+- **URL**: https://fonts.google.com/icons?icon.set=Material+Icons&icon.style=Filled
+
+### Characteristics
+
+- **Consistent Style**: Todos os ícones seguem o mesmo estilo visual
+- **Comprehensive Library**: Mais de 2000 ícones disponíveis
+- **Optimized**: SVGs otimizados para performance
+- **Accessible**: Suporte completo a acessibilidade
+
+## Implementation
+
+Os ícones são convertidos de SVG para componentes React no pacote `@ciberso/icons`:
+
+```tsx
+// Importação
+import { Add, Delete, Close } from '@ciberso/icons';
+
+// Uso
+<Add className="w-5 h-5" />
+```
+
+## Icon Format
+
+### SVG Components
+Todos os ícones são componentes React que renderizam SVG:
+
+```tsx
+// Estrutura interna
+export const Add = (props: SVGProps<SVGSVGElement>) => (
+  <svg {...props} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+  </svg>
+);
+```
+
+### Benefits
+
+- **Tree-shaking**: Apenas ícones usados são incluídos no bundle
+- **Customizable**: Fácil customizar cor e tamanho via props
+- **Type-safe**: TypeScript completo para autocomplete
+- **Performance**: SVGs otimizados e comprimidos
+
+## Icon Naming
+
+Os ícones seguem a convenção de nomenclatura do Material Icons:
+
+- **PascalCase**: `Add`, `Delete`, `ArrowForward`
+- **Descriptive**: Nomes que descrevem claramente o ícone
+- **Consistent**: Mesma convenção para todos os ícones
+
+## Usage Examples
+
+### With Buttons
+
+```tsx
+<Button leftIcon={<Add className="w-4 h-4" />}>
+  Adicionar
+</Button>
+```
+
+### Icon Only
+
+```tsx
+<Button iconOnly rightIcon={<Close className="w-5 h-5" />} aria-label="Fechar" />
+```
+
+### With Text
+
+```tsx
+<div className="flex items-center gap-2">
+  <Check className="w-5 h-5 text-green-500" />
+  <span>Item adicionado com sucesso</span>
+</div>
+```
+
+## Best Practices
+
+1. **Sempre defina tamanho** - Use classes Tailwind (`w-4 h-4`, `w-5 h-5`, etc.)
+2. **Mantenha consistência** - Use o mesmo tamanho de ícone em contextos similares
+3. **Considere acessibilidade** - Adicione `aria-label` quando necessário
+4. **Otimize imports** - Importe apenas os ícones que você usa
+
+## Adding New Icons
+
+Para adicionar novos ícones ao sistema:
+
+1. Obtenha o SVG do Material Icons
+2. Execute o script de build do pacote `@ciberso/icons`
+3. O ícone será automaticamente convertido em componente React
+4. Exporte no `index.ts` do pacote
+

@@ -1,0 +1,82 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Iconography/Illustration" />
+
+# Illustration
+
+Ilustrações e elementos gráficos do Ciberso-UI Design System.
+
+## Overview
+
+As ilustrações no Ciberso-UI são usadas para:
+
+- **Empty States**: Quando não há conteúdo para exibir
+- **Onboarding**: Guias e tutoriais
+- **Feedback Visual**: Reforçar mensagens e estados
+- **Branding**: Identidade visual do sistema
+
+## Illustration Principles
+
+### 1. Simplicidade
+Ilustrações devem ser simples e diretas, evitando detalhes desnecessários.
+
+### 2. Consistência
+Mantenha um estilo visual consistente em todas as ilustrações.
+
+### 3. Acessibilidade
+Sempre forneça texto alternativo para ilustrações informativas.
+
+### 4. Escalabilidade
+Use formatos vetoriais (SVG) para garantir qualidade em qualquer tamanho.
+
+## Usage Guidelines
+
+### Empty States
+
+Ilustrações para estados vazios devem ser:
+- **Claras**: Comunicar claramente o estado
+- **Acolhedoras**: Não parecer um erro
+- **Acionáveis**: Sugerir próximos passos quando apropriado
+
+```tsx
+// Exemplo de Empty State com ilustração
+<div className="empty-state">
+  <IllustrationEmptyState className="w-48 h-48" />
+  <h3>Nenhum item encontrado</h3>
+  <p>Comece adicionando seu primeiro item</p>
+  <Button>Adicionar Item</Button>
+</div>
+```
+
+### Onboarding
+
+Ilustrações de onboarding devem:
+- **Guiar**: Mostrar o caminho para o usuário
+- **Educar**: Explicar funcionalidades
+- **Motivar**: Encorajar o uso
+
+### Error States
+
+Ilustrações de erro devem:
+- **Comunicar**: Deixar claro que algo deu errado
+- **Não assustar**: Manter tom profissional
+- **Orientar**: Sugerir soluções quando possível
+
+## Illustration Styles
+
+### Line Art
+Ilustrações em estilo linha, minimalistas e limpas.
+
+### Flat Design
+Ilustrações planas com cores sólidas, sem gradientes complexos.
+
+### Isometric
+Ilustrações isométricas para elementos 3D quando necessário.
+
+## Best Practices
+
+1. **Use ilustrações com propósito** - Não adicione apenas por estética
+2. **Mantenha consistência** - Use o mesmo estilo em todo o sistema
+3. **Otimize para performance** - Comprima SVGs e use lazy loading
+4. **Teste em diferentes tamanhos** - Garanta legibilidade em mobile e desktop
+

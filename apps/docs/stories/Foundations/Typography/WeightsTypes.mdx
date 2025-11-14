@@ -1,0 +1,100 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { typography } from '@ciberso/tokens';
+
+<Meta title="Foundations/Typography/Weights & Types" />
+
+# Typography Weights & Types
+
+Pesos de fonte e estilos disponíveis no Ciberso-UI Design System.
+
+## Font Weights
+
+Pesos de fonte disponíveis e seus usos:
+
+<div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '2rem' }}>
+  {Object.entries(typography.weights).map(([key, value]) => (
+    <div key={key} style={{ borderBottom: '1px solid #e5e7eb', paddingBottom: '1rem' }}>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: '2rem' }}>
+        <div style={{ minWidth: '120px' }}>
+          <div style={{ fontSize: '12px', fontWeight: 'bold', color: '#6b7280', textTransform: 'capitalize' }}>
+            {key}
+          </div>
+          <div style={{ fontSize: '11px', color: '#9ca3af', marginTop: '0.25rem' }}>
+            Weight: {value}
+          </div>
+        </div>
+        <div style={{ flex: 1 }}>
+          <div style={{ fontSize: '18px', fontWeight: value, lineHeight: typography.lineHeights.normal }}>
+            The quick brown fox jumps over the lazy dog
+          </div>
+          <div style={{ fontSize: '16px', fontWeight: value, lineHeight: typography.lineHeights.normal, marginTop: '0.5rem' }}>
+            The quick brown fox jumps over the lazy dog (16px)
+          </div>
+          <div style={{ fontSize: '14px', fontWeight: value, lineHeight: typography.lineHeights.normal, marginTop: '0.5rem' }}>
+            The quick brown fox jumps over the lazy dog (14px)
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+## Usage Guidelines
+
+### Normal (400)
+- Texto padrão do corpo
+- Conteúdo longo e legível
+- Labels e descrições
+
+### Medium (500)
+- Destaques sutis
+- Labels importantes
+- Elementos de navegação secundários
+
+### Semibold (600)
+- Subtítulos
+- Destaques moderados
+- Elementos de interface importantes
+
+### Bold (700)
+- Títulos e headings
+- Destaques fortes
+- Elementos de ação importantes
+
+## Font Families
+
+### Sans Serif (Default)
+**Font Stack**: `{typography.fonts.sans.join(', ')}`
+
+Usado para:
+- Texto do corpo
+- Interface de usuário
+- Conteúdo geral
+
+<div style={{ marginTop: '1rem', padding: '1rem', backgroundColor: '#f9fafb', borderRadius: '8px' }}>
+  <div style={{ fontFamily: typography.fonts.sans.join(', '), fontSize: '16px', lineHeight: typography.lineHeights.normal }}>
+    The quick brown fox jumps over the lazy dog. This is the default sans-serif font stack.
+  </div>
+</div>
+
+### Monospace (Code)
+**Font Stack**: `{typography.fonts.mono.join(', ')}`
+
+Usado para:
+- Código e exemplos
+- Elementos técnicos
+- Dados estruturados
+
+<div style={{ marginTop: '1rem', padding: '1rem', backgroundColor: '#f9fafb', borderRadius: '8px' }}>
+  <div style={{ fontFamily: typography.fonts.mono.join(', '), fontSize: '14px', lineHeight: typography.lineHeights.normal }}>
+    const example = 'The quick brown fox jumps over the lazy dog';
+  </div>
+</div>
+
+## Best Practices
+
+1. **Use pesos consistentemente** - Mantenha a hierarquia visual
+2. **Evite muitos pesos** - Use no máximo 2-3 pesos por página
+3. **Priorize legibilidade** - Normal (400) para textos longos
+4. **Destaque com moderação** - Bold (700) apenas para elementos importantes
+

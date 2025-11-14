@@ -1,0 +1,229 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { animations } from '@ciberso/tokens';
+
+<Meta title="Foundations/Motion/Transitions" />
+
+# Motion Transitions
+
+Transições e easing functions do Ciberso-UI Design System.
+
+## Easing Functions
+
+Funções de easing disponíveis e seus usos:
+
+<div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '2rem' }}>
+  {Object.entries(animations.easing).map(([key, value]) => (
+    <div key={key} style={{ border: '1px solid #e5e7eb', borderRadius: '8px', padding: '1.5rem' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+        <div style={{ flex: 1 }}>
+          <div style={{ fontSize: '14px', fontWeight: 'bold', textTransform: 'capitalize', marginBottom: '0.25rem' }}>
+            {key}
+          </div>
+          <div style={{ fontSize: '12px', color: '#6b7280', fontFamily: 'monospace' }}>{value}</div>
+        </div>
+        <div style={{ width: '200px', height: '60px', position: 'relative', border: '1px solid #e5e7eb', borderRadius: '4px', overflow: 'hidden' }}>
+          <svg width="200" height="60" style={{ position: 'absolute', top: 0, left: 0 }}>
+            <path
+              d={`M 0 60 Q ${key === 'easeInOut' ? '50 0, 100 30' : key === 'easeOut' ? '50 0, 100 60' : key === 'easeIn' ? '50 60, 100 0' : '50 20, 100 40'} T 200 30`}
+              stroke="#007BFF"
+              strokeWidth="2"
+              fill="none"
+            />
+          </svg>
+        </div>
+      </div>
+      <div style={{ fontSize: '12px', color: '#6b7280', marginTop: '0.5rem' }}>
+        {key === 'easeInOut' && 'Transições suaves de entrada e saída. Ideal para a maioria dos casos.'}
+        {key === 'easeOut' && 'Acelera no início, desacelera no final. Ideal para elementos que aparecem.'}
+        {key === 'easeIn' && 'Desacelera no início, acelera no final. Ideal para elementos que desaparecem.'}
+        {key === 'bounce' && 'Efeito de bounce. Use com moderação para elementos lúdicos.'}
+      </div>
+    </div>
+  ))}
+</div>
+
+## Usage Guidelines
+
+### Ease In Out
+
+Use para a maioria das transições:
+
+```tsx
+<motion.div
+  animate={{ x: 100 }}
+  transition={{ 
+    duration: 0.3,
+    ease: animations.easing.easeInOut 
+  }}
+>
+  Content
+</motion.div>
+```
+
+**Quando usar:**
+- Transições padrão
+- Mudanças de estado
+- Animações de entrada/saída
+
+### Ease Out
+
+Use para elementos que aparecem:
+
+```tsx
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ 
+    duration: 0.3,
+    ease: animations.easing.easeOut 
+  }}
+>
+  Content
+</motion.div>
+```
+
+**Quando usar:**
+- Elementos que entram na tela
+- Modais e dialogs
+- Dropdowns e menus
+
+### Ease In
+
+Use para elementos que desaparecem:
+
+```tsx
+<motion.div
+  animate={{ opacity: 0, y: -20 }}
+  transition={{ 
+    duration: 0.3,
+    ease: animations.easing.easeIn 
+  }}
+>
+  Content
+</motion.div>
+```
+
+**Quando usar:**
+- Elementos que saem da tela
+- Fechamento de modais
+- Remoção de itens
+
+### Bounce
+
+Use com moderação para efeitos lúdicos:
+
+```tsx
+<motion.div
+  animate={{ scale: [1, 1.2, 1] }}
+  transition={{ 
+    duration: 0.5,
+    ease: animations.easing.bounce 
+  }}
+>
+  Content
+</motion.div>
+```
+
+**Quando usar:**
+- Feedback de sucesso
+- Elementos celebratórios
+- Micro-interactions especiais
+
+## Transition Patterns
+
+### Fade Transition
+
+```tsx
+const fadeTransition = {
+  duration: 0.3,
+  ease: animations.easing.easeInOut,
+};
+
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ opacity: 0 }}
+  transition={fadeTransition}
+>
+  Content
+</motion.div>
+```
+
+### Slide Transition
+
+```tsx
+const slideTransition = {
+  duration: 0.3,
+  ease: animations.easing.easeOut,
+};
+
+<motion.div
+  initial={{ x: -100, opacity: 0 }}
+  animate={{ x: 0, opacity: 1 }}
+  exit={{ x: 100, opacity: 0 }}
+  transition={slideTransition}
+>
+  Content
+</motion.div>
+```
+
+### Scale Transition
+
+```tsx
+const scaleTransition = {
+  duration: 0.2,
+  ease: animations.easing.easeOut,
+};
+
+<motion.div
+  initial={{ scale: 0.8, opacity: 0 }}
+  animate={{ scale: 1, opacity: 1 }}
+  exit={{ scale: 0.8, opacity: 0 }}
+  transition={scaleTransition}
+>
+  Content
+</motion.div>
+```
+
+## Spring Animations
+
+Para animações mais naturais, use spring physics:
+
+```tsx
+<motion.div
+  animate={{ x: 100 }}
+  transition={{
+    type: 'spring',
+    stiffness: 100,
+    damping: 10,
+  }}
+>
+  Content
+</motion.div>
+```
+
+## Custom Easing
+
+Para casos específicos, você pode criar easing customizado:
+
+```tsx
+const customEasing = [0.4, 0, 0.2, 1]; // cubic-bezier
+
+<motion.div
+  animate={{ x: 100 }}
+  transition={{
+    duration: 0.3,
+    ease: customEasing,
+  }}
+>
+  Content
+</motion.div>
+```
+
+## Best Practices
+
+1. **Use easing apropriado** - Ease-out para entrada, ease-in para saída
+2. **Mantenha consistência** - Use os mesmos easings em contextos similares
+3. **Teste a percepção** - Diferentes easings podem parecer diferentes
+4. **Evite bounce excessivo** - Use com moderação
+

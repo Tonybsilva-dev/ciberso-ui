@@ -1,0 +1,209 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Photography" />
+
+# Photography
+
+Diretrizes para uso de fotografias e imagens no Ciberso-UI Design System.
+
+## Overview
+
+As fotografias e imagens são elementos importantes para comunicar a identidade visual e melhorar a experiência do usuário. Este guia estabelece padrões para uso de imagens no Ciberso-UI.
+
+## Principles
+
+### 1. Quality First
+
+Todas as imagens devem ser de alta qualidade:
+
+- **Resolução adequada**: Mínimo 2x para displays retina
+- **Formato otimizado**: WebP ou AVIF quando possível
+- **Compressão balanceada**: Qualidade vs. tamanho de arquivo
+
+### 2. Consistency
+
+Mantenha consistência visual:
+
+- **Estilo**: Filtros e tratamento de imagem consistentes
+- **Composição**: Regras de composição similares
+- **Cores**: Paleta de cores alinhada com o Design System
+
+### 3. Purpose-Driven
+
+Cada imagem deve ter um propósito claro:
+
+- **Comunicação**: Transmitir informação ou emoção
+- **Contexto**: Fornecer contexto visual
+- **Identidade**: Reforçar a identidade da marca
+
+### 4. Accessibility
+
+Garanta acessibilidade:
+
+- **Alt text**: Sempre forneça texto alternativo descritivo
+- **Contrast**: Imagens de texto devem ter contraste adequado
+- **Loading**: Forneça estados de carregamento
+
+## Image Formats
+
+### Recommended Formats
+
+1. **WebP**: Melhor compressão, suporte moderno
+2. **AVIF**: Melhor compressão ainda, suporte crescente
+3. **JPEG**: Fallback para compatibilidade
+4. **PNG**: Para imagens com transparência
+
+### Format Selection
+
+```tsx
+// ✅ DO: Use picture element para múltiplos formatos
+<picture>
+  <source srcSet="/image.avif" type="image/avif" />
+  <source srcSet="/image.webp" type="image/webp" />
+  <img src="/image.jpg" alt="Description" />
+</picture>
+```
+
+## Image Sizes
+
+### Responsive Images
+
+Use `srcSet` para diferentes densidades:
+
+```tsx
+<img
+  src="/image.jpg"
+  srcSet="/image.jpg 1x, /image@2x.jpg 2x"
+  alt="Description"
+  loading="lazy"
+/>
+```
+
+### Aspect Ratios
+
+Mantenha aspect ratios consistentes:
+
+- **Hero images**: 16:9 ou 21:9
+- **Card images**: 4:3 ou 16:9
+- **Avatar**: 1:1 (square)
+- **Thumbnail**: 1:1 ou 4:3
+
+## Usage Guidelines
+
+### Hero Images
+
+Imagens principais de páginas:
+
+- **Purpose**: Criar impacto visual inicial
+- **Size**: Full width, altura mínima de 400px
+- **Content**: Relevante ao conteúdo da página
+- **Overlay**: Considere overlay para melhorar legibilidade de texto
+
+### Card Images
+
+Imagens em cards e componentes:
+
+- **Purpose**: Ilustrar conteúdo do card
+- **Size**: Proporcional ao card
+- **Aspect Ratio**: 16:9 ou 4:3
+- **Loading**: Lazy load quando apropriado
+
+### Avatar Images
+
+Imagens de perfil:
+
+- **Purpose**: Identificar usuários
+- **Size**: Variável (sm: 32px, md: 40px, lg: 64px)
+- **Shape**: Circular
+- **Fallback**: Inicial ou ícone padrão
+
+### Background Images
+
+Imagens de fundo:
+
+- **Purpose**: Contexto visual
+- **Overlay**: Use overlay para melhorar contraste
+- **Performance**: Considere CSS background com lazy loading
+- **Mobile**: Considere imagens diferentes para mobile
+
+## Optimization
+
+### Compression
+
+- **JPEG**: Qualidade 80-85
+- **WebP**: Qualidade 80-85
+- **PNG**: Use ferramentas de compressão (TinyPNG, ImageOptim)
+
+### Lazy Loading
+
+```tsx
+// ✅ DO: Lazy load imagens abaixo do fold
+<img
+  src="/image.jpg"
+  alt="Description"
+  loading="lazy"
+  decoding="async"
+/>
+```
+
+### Responsive Images
+
+```tsx
+// ✅ DO: Diferentes tamanhos para diferentes viewports
+<img
+  srcSet="/image-mobile.jpg 768w, /image-tablet.jpg 1024w, /image-desktop.jpg 1920w"
+  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+  src="/image-desktop.jpg"
+  alt="Description"
+/>
+```
+
+## Accessibility
+
+### Alt Text
+
+Sempre forneça texto alternativo descritivo:
+
+```tsx
+// ✅ DO: Alt text descritivo
+<img src="/hero.jpg" alt="Equipe trabalhando em projeto de design system" />
+
+// ❌ DON'T: Alt text genérico ou vazio
+<img src="/hero.jpg" alt="Imagem" />
+<img src="/hero.jpg" alt="" />
+```
+
+### Decorative Images
+
+Para imagens puramente decorativas:
+
+```tsx
+// ✅ DO: aria-hidden para imagens decorativas
+<img src="/decoration.jpg" alt="" aria-hidden="true" />
+```
+
+## Best Practices
+
+1. **Otimize sempre** - Comprima imagens antes de usar
+2. **Use formatos modernos** - WebP/AVIF com fallbacks
+3. **Lazy load** - Carregue imagens sob demanda
+4. **Teste performance** - Verifique impacto no Core Web Vitals
+5. **Mantenha consistência** - Use estilo visual consistente
+6. **Respeite direitos** - Use apenas imagens com permissão
+
+## Image Guidelines
+
+### Content Guidelines
+
+- **Relevância**: Imagens devem ser relevantes ao conteúdo
+- **Diversidade**: Represente diversidade quando apropriado
+- **Profissionalismo**: Use imagens de qualidade profissional
+- **Contexto**: Imagens devem fazer sentido no contexto
+
+### Technical Guidelines
+
+- **Dimensions**: Defina width e height para evitar layout shift
+- **Aspect Ratio**: Mantenha aspect ratios consistentes
+- **File Size**: Mantenha arquivos < 200KB quando possível
+- **Naming**: Use nomes descritivos para arquivos
+

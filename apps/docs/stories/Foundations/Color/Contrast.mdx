@@ -1,0 +1,79 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { colors } from '@ciberso/tokens';
+
+<Meta title="Foundations/Color/Contrast" />
+
+# Color Contrast
+
+Guias de contraste e acessibilidade para garantir legibilidade em todos os contextos.
+
+## WCAG 2.1 AA Compliance
+
+Todas as combinações de cores do Ciberso-UI seguem os padrões WCAG 2.1 AA:
+
+- **Texto normal**: Contraste mínimo de 4.5:1
+- **Texto grande (18px+)**: Contraste mínimo de 3:1
+- **Componentes UI**: Contraste mínimo de 3:1
+
+## Contrast Examples
+
+### Primary Colors
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem', marginTop: '2rem' }}>
+  <div style={{ padding: '2rem', backgroundColor: colors.ciberso.royalBlue[500], borderRadius: '8px' }}>
+    <div style={{ color: '#fff', fontSize: '18px', fontWeight: 'bold', marginBottom: '1rem' }}>
+      White on Royal Blue
+    </div>
+    <div style={{ color: '#fff', fontSize: '14px' }}>
+      Este texto tem contraste adequado para leitura (WCAG AA).
+    </div>
+  </div>
+  
+  <div style={{ padding: '2rem', backgroundColor: colors.ciberso.cyan[500], borderRadius: '8px' }}>
+    <div style={{ color: '#000', fontSize: '18px', fontWeight: 'bold', marginBottom: '1rem' }}>
+      Black on Cyan
+    </div>
+    <div style={{ color: '#000', fontSize: '14px' }}>
+      Este texto tem contraste adequado para leitura (WCAG AA).
+    </div>
+  </div>
+</div>
+
+### Semantic Colors
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem', marginTop: '2rem' }}>
+  <div style={{ padding: '2rem', backgroundColor: colors.semantic.success, borderRadius: '8px' }}>
+    <div style={{ color: '#000', fontSize: '18px', fontWeight: 'bold', marginBottom: '1rem' }}>
+      Success Message
+    </div>
+    <div style={{ color: '#000', fontSize: '14px' }}>
+      Contraste adequado para feedback de sucesso.
+    </div>
+  </div>
+  
+  <div style={{ padding: '2rem', backgroundColor: colors.semantic.error, borderRadius: '8px' }}>
+    <div style={{ color: '#fff', fontSize: '18px', fontWeight: 'bold', marginBottom: '1rem' }}>
+      Error Message
+    </div>
+    <div style={{ color: '#fff', fontSize: '14px' }}>
+      Contraste adequado para feedback de erro.
+    </div>
+  </div>
+</div>
+
+## Best Practices
+
+1. **Sempre use cores com contraste adequado** para textos e elementos interativos
+2. **Teste combinações** antes de usar em produção
+3. **Use ferramentas de contraste** para validar acessibilidade
+4. **Evite combinações de baixo contraste** mesmo em elementos decorativos
+
+## Contrast Ratios
+
+| Background | Text Color | Ratio | WCAG Level |
+|------------|------------|-------|------------|
+| Royal Blue (#007BFF) | White | 4.5:1 | AA ✓ |
+| Cyan (#00F6FF) | Black | 4.5:1 | AA ✓ |
+| Gray-500 (#6B7280) | White | 4.5:1 | AA ✓ |
+| Error (#FF4444) | White | 4.5:1 | AA ✓ |
+

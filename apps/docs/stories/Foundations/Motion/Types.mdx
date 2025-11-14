@@ -1,0 +1,206 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Motion/Types" />
+
+# Motion Types
+
+Tipos de animações disponíveis no Ciberso-UI Design System.
+
+## Animation Types
+
+### 1. Transform Animations
+
+Animações que usam propriedades de transform (GPU-accelerated):
+
+#### Scale
+```tsx
+<motion.div
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+>
+  Content
+</motion.div>
+```
+
+#### Rotate
+```tsx
+<motion.div
+  animate={{ rotate: 360 }}
+  transition={{ duration: 1, repeat: Infinity }}
+>
+  Loading
+</motion.div>
+```
+
+#### Translate
+```tsx
+<motion.div
+  initial={{ x: -100 }}
+  animate={{ x: 0 }}
+>
+  Content
+</motion.div>
+```
+
+### 2. Opacity Animations
+
+Animações de fade in/out:
+
+```tsx
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ opacity: 0 }}
+>
+  Content
+</motion.div>
+```
+
+### 3. Color Animations
+
+Animações de mudança de cor:
+
+```tsx
+<motion.div
+  animate={{ backgroundColor: '#007BFF' }}
+  transition={{ duration: 0.3 }}
+>
+  Content
+</motion.div>
+```
+
+### 4. Path Animations (GSAP)
+
+Animações de paths SVG usando GSAP:
+
+```tsx
+const pathRef = useRef<SVGPathElement>(null);
+
+useEffect(() => {
+  if (pathRef.current) {
+    gsap.to(pathRef.current, {
+      duration: 0.8,
+      attr: { d: newPath },
+      ease: 'power1.out',
+    });
+  }
+}, []);
+```
+
+### 5. Layout Animations
+
+Animações automáticas quando o layout muda:
+
+```tsx
+<motion.div layout>
+  {items.map((item) => (
+    <motion.div key={item.id} layout>
+      {item.content}
+    </motion.div>
+  ))}
+</motion.div>
+```
+
+## Animation Categories
+
+### Micro-interactions
+
+Animações sutis para feedback:
+
+- **Hover**: Leve mudança visual
+- **Tap**: Feedback tátil
+- **Focus**: Indicação de foco
+- **Loading**: Estados de carregamento
+
+### Transitions
+
+Animações entre estados:
+
+- **Fade**: Desaparecer/aparecer
+- **Slide**: Deslizar de/para
+- **Scale**: Crescer/diminuir
+- **Morph**: Mudança de forma (SVG)
+
+### Complex Animations
+
+Animações mais elaboradas:
+
+- **Stagger**: Sequência de elementos
+- **Orchestration**: Múltiplas animações coordenadas
+- **Path Morphing**: Animação de paths SVG
+- **3D Transforms**: Transformações 3D
+
+## Implementation Examples
+
+### Button Animation
+
+```tsx
+<motion.button
+  whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0, 123, 255, 0.5)' }}
+  whileTap={{ scale: 0.95 }}
+  transition={{ duration: 0.2 }}
+>
+  Button
+</motion.button>
+```
+
+### Card Animation
+
+```tsx
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.3 }}
+>
+  <Card>Content</Card>
+</motion.div>
+```
+
+### List Stagger
+
+```tsx
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+<motion.ul variants={container} initial="hidden" animate="show">
+  {items.map((item) => (
+    <motion.li key={item.id} variants={item}>
+      {item.content}
+    </motion.li>
+  ))}
+</motion.ul>
+```
+
+## Performance Considerations
+
+### GPU-Accelerated Properties
+
+Prefira estas propriedades (melhor performance):
+
+- `transform` (translate, scale, rotate)
+- `opacity`
+- `filter` (com cuidado)
+
+### Avoid These Properties
+
+Evite animar estas propriedades (causam reflow):
+
+- `width`, `height`
+- `top`, `left`, `right`, `bottom`
+- `margin`, `padding`
+- `border-width`
+
+### Best Practices
+
+1. **Use `will-change`** para elementos que serão animados
+2. **Limite animações simultâneas** - Não anime muitos elementos ao mesmo tempo
+3. **Use `transform`** em vez de position para movimento
+4. **Teste em dispositivos móveis** - Performance pode variar
+
