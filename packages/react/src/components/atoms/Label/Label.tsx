@@ -84,8 +84,8 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>(
       >
         {children}
         {isRequired && (
-          <span 
-            aria-label="obrigatório" 
+          <span
+            aria-label="obrigatório"
             className="text-[#FF4444] ml-0.5"
           >
             *

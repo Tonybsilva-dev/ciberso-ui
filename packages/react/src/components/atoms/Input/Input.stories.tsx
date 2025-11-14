@@ -17,6 +17,9 @@ const meta: Meta<typeof Input> = {
       },
     },
   },
+  args: {
+    size: 'md',
+  },
   argTypes: {
     label: {
       control: 'text',
@@ -74,6 +77,7 @@ export const Default: Story = {
     label: 'Email',
     placeholder: 'seu@email.com',
     type: 'email',
+    size: 'md',
   },
 };
 

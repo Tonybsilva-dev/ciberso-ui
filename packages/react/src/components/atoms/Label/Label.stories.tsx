@@ -18,6 +18,9 @@ const meta: Meta<typeof Label> = {
       },
     },
   },
+  args: {
+    size: 'md',
+  },
   argTypes: {
     children: {
       control: 'text',
@@ -53,6 +56,7 @@ type Story = StoryObj<typeof Label>;
 export const Default: Story = {
   args: {
     children: 'Nome',
+    size: 'md',
   },
 };
 
