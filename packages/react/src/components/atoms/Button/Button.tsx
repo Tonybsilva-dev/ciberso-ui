@@ -108,12 +108,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       lg: 'w-6 h-6',
     };
 
-    const gapClasses = {
-      sm: 'gap-1.5',
-      md: 'gap-2',
-      lg: 'gap-2.5',
-    };
-
     return (
       <button
         {...buttonProps}

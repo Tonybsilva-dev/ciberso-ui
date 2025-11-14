@@ -1,0 +1,226 @@
+/**
+ * CSS Variables do Ciberso-UI Design System
+ * Variáveis CSS globais baseadas nos tokens de design
+ */
+
+:root {
+  /* ============================================
+     Cores Ciberso - Escalas completas
+     ============================================ */
+  
+  /* Cyan */
+  --ciberso-cyan-50: #E0FFFF;
+  --ciberso-cyan-100: #B0FFFF;
+  --ciberso-cyan-200: #80FFFF;
+  --ciberso-cyan-300: #50FFFF;
+  --ciberso-cyan-400: #20FFFF;
+  --ciberso-cyan-500: #00F6FF;
+  --ciberso-cyan-600: #00CCCC;
+  --ciberso-cyan-700: #009999;
+  --ciberso-cyan-800: #006666;
+  --ciberso-cyan-900: #003333;
+
+  /* Royal Blue */
+  --ciberso-royal-blue-50: #E6EFFF;
+  --ciberso-royal-blue-100: #CCDFFF;
+  --ciberso-royal-blue-200: #99BFFF;
+  --ciberso-royal-blue-300: #669FFF;
+  --ciberso-royal-blue-400: #337FFF;
+  --ciberso-royal-blue-500: #007BFF;
+  --ciberso-royal-blue-600: #0066CC;
+  --ciberso-royal-blue-700: #005299;
+  --ciberso-royal-blue-800: #003D66;
+  --ciberso-royal-blue-900: #002933;
+
+  /* Dark Blue */
+  --ciberso-dark-blue-50: #1E293B;
+  --ciberso-dark-blue-100: #1E293B;
+  --ciberso-dark-blue-200: #1E293B;
+  --ciberso-dark-blue-300: #1E293B;
+  --ciberso-dark-blue-400: #1E293B;
+  --ciberso-dark-blue-500: #0A192F;
+  --ciberso-dark-blue-600: #081420;
+  --ciberso-dark-blue-700: #060F18;
+  --ciberso-dark-blue-800: #040A0F;
+  --ciberso-dark-blue-900: #020506;
+
+  /* Gold */
+  --ciberso-gold-50: #FFF9E6;
+  --ciberso-gold-100: #FFF3CC;
+  --ciberso-gold-200: #FFE799;
+  --ciberso-gold-300: #FFDB66;
+  --ciberso-gold-400: #FFCF33;
+  --ciberso-gold-500: #FFD700;
+  --ciberso-gold-600: #CCAC00;
+  --ciberso-gold-700: #998100;
+  --ciberso-gold-800: #665600;
+  --ciberso-gold-900: #332B00;
+
+  /* Black */
+  --ciberso-black-50: #E5E5E5;
+  --ciberso-black-100: #CCCCCC;
+  --ciberso-black-200: #999999;
+  --ciberso-black-300: #666666;
+  --ciberso-black-400: #333333;
+  --ciberso-black-500: #000000;
+  --ciberso-black-600: #000000;
+  --ciberso-black-700: #000000;
+  --ciberso-black-800: #000000;
+  --ciberso-black-900: #000000;
+
+  /* Gray */
+  --ciberso-gray-50: #F9FAFB;
+  --ciberso-gray-100: #F3F4F6;
+  --ciberso-gray-200: #E5E7EB;
+  --ciberso-gray-300: #D1D5DB;
+  --ciberso-gray-400: #9CA3AF;
+  --ciberso-gray-500: #6B7280;
+  --ciberso-gray-600: #4B5563;
+  --ciberso-gray-700: #374151;
+  --ciberso-gray-800: #1F2937;
+  --ciberso-gray-900: #111827;
+
+  /* ============================================
+     Cores Semânticas
+     ============================================ */
+  --ciberso-semantic-success: #00F6FF;
+  --ciberso-semantic-error: #FF4444;
+  --ciberso-semantic-warning: #FF9500;
+  --ciberso-semantic-info: #007BFF;
+
+  /* ============================================
+     Cores UI para Componentes
+     ============================================ */
+  
+  /* Primary Button */
+  --ciberso-ui-primary-bg: #007BFF;
+  --ciberso-ui-primary-text: #FFFFFF;
+  --ciberso-ui-primary-hover: #0066CC;
+  --ciberso-ui-primary-active: #005299;
+
+  /* Secondary Button */
+  --ciberso-ui-secondary-bg: #6B7280;
+  --ciberso-ui-secondary-text: #FFFFFF;
+  --ciberso-ui-secondary-hover: #4B5563;
+  --ciberso-ui-secondary-active: #374151;
+
+  /* Input States */
+  --ciberso-ui-input-border: #9CA3AF;
+  --ciberso-ui-input-border-focused: #007BFF;
+  --ciberso-ui-input-border-error: #FF4444;
+  --ciberso-ui-input-bg: #FFFFFF;
+  --ciberso-ui-input-bg-disabled: #F3F4F6;
+  --ciberso-ui-input-text: #111827;
+  --ciberso-ui-input-placeholder: #9CA3AF;
+
+  /* Tag Colors */
+  --ciberso-ui-tag-orange-bg: #FFF4E6;
+  --ciberso-ui-tag-orange-text: #FF9500;
+  --ciberso-ui-tag-orange-dot: #FF9500;
+  --ciberso-ui-tag-blue-bg: #E6F2FF;
+  --ciberso-ui-tag-blue-text: #007BFF;
+  --ciberso-ui-tag-blue-dot: #007BFF;
+  --ciberso-ui-tag-green-bg: #E6FFE6;
+  --ciberso-ui-tag-green-text: #00C853;
+  --ciberso-ui-tag-green-dot: #00C853;
+  --ciberso-ui-tag-red-bg: #FFE6E6;
+  --ciberso-ui-tag-red-text: #FF4444;
+  --ciberso-ui-tag-red-dot: #FF4444;
+
+  /* ============================================
+     Espaçamento
+     ============================================ */
+  --ciberso-spacing-xs: 0.25rem;   /* 4px */
+  --ciberso-spacing-sm: 0.5rem;    /* 8px */
+  --ciberso-spacing-md: 1rem;      /* 16px */
+  --ciberso-spacing-lg: 1.5rem;    /* 24px */
+  --ciberso-spacing-xl: 2rem;      /* 32px */
+  --ciberso-spacing-2xl: 3rem;     /* 48px */
+  --ciberso-spacing-3xl: 4rem;     /* 64px */
+  --ciberso-spacing-4xl: 6rem;     /* 96px */
+
+  /* Space (escala numérica) */
+  --ciberso-space-1: 0.25rem;     /* 4px */
+  --ciberso-space-2: 0.5rem;      /* 8px */
+  --ciberso-space-3: 0.75rem;     /* 12px */
+  --ciberso-space-4: 1rem;        /* 16px */
+  --ciberso-space-5: 1.25rem;     /* 20px */
+  --ciberso-space-6: 1.5rem;      /* 24px */
+  --ciberso-space-8: 2rem;        /* 32px */
+  --ciberso-space-10: 2.5rem;     /* 40px */
+  --ciberso-space-12: 3rem;       /* 48px */
+  --ciberso-space-16: 4rem;       /* 64px */
+  --ciberso-space-20: 5rem;       /* 80px */
+  --ciberso-space-24: 6rem;       /* 96px */
+
+  /* ============================================
+     Tipografia
+     ============================================ */
+  
+  /* Font Sizes */
+  --ciberso-font-size-xs: 12px;
+  --ciberso-font-size-sm: 14px;
+  --ciberso-font-size-md: 16px;
+  --ciberso-font-size-lg: 18px;
+  --ciberso-font-size-xl: 20px;
+  --ciberso-font-size-2xl: 24px;
+  --ciberso-font-size-3xl: 1.875rem;  /* 30px */
+  --ciberso-font-size-4xl: 2.25rem;   /* 36px */
+  --ciberso-font-size-5xl: 3rem;      /* 48px */
+
+  /* Font Weights */
+  --ciberso-font-weight-normal: 400;
+  --ciberso-font-weight-medium: 500;
+  --ciberso-font-weight-semibold: 600;
+  --ciberso-font-weight-bold: 700;
+
+  /* Font Families */
+  --ciberso-font-family-sans: Inter, system-ui, -apple-system, sans-serif;
+  --ciberso-font-family-mono: JetBrains Mono, Menlo, Monaco, monospace;
+
+  /* Line Heights */
+  --ciberso-line-height-tight: 1.25;
+  --ciberso-line-height-normal: 1.5;
+  --ciberso-line-height-relaxed: 1.75;
+
+  /* ============================================
+     Border Radius
+     ============================================ */
+  --ciberso-radius-none: 0px;
+  --ciberso-radius-sm: 4px;
+  --ciberso-radius-md: 8px;
+  --ciberso-radius-lg: 16px;
+  --ciberso-radius-xl: 24px;
+  --ciberso-radius-full: 9999px;
+
+  /* ============================================
+     Border Widths
+     ============================================ */
+  --ciberso-border-width-none: 0px;
+  --ciberso-border-width-thin: 1px;
+  --ciberso-border-width-medium: 2px;
+  --ciberso-border-width-thick: 4px;
+
+  /* ============================================
+     Animações
+     ============================================ */
+  
+  /* Durations */
+  --ciberso-animation-duration-fast: 150ms;
+  --ciberso-animation-duration-normal: 300ms;
+  --ciberso-animation-duration-slow: 500ms;
+  --ciberso-animation-duration-slower: 750ms;
+
+  /* Easing */
+  --ciberso-animation-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ciberso-animation-easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ciberso-animation-easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ciberso-animation-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Delays */
+  --ciberso-animation-delay-none: 0ms;
+  --ciberso-animation-delay-short: 100ms;
+  --ciberso-animation-delay-medium: 200ms;
+  --ciberso-animation-delay-long: 300ms;
+}
+

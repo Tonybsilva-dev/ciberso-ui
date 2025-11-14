@@ -1,9 +1,7 @@
 import type { Preview } from '@storybook/nextjs';
+import React from 'react';
+import { ThemeProvider } from '@ciberso/theme';
 import './preview.css';
-
-// Importação dinâmica para evitar problemas de resolução no webpack
-// O MotionProvider será adicionado quando necessário nas stories individuais
-// ou via webpackFinal se necessário
 
 const preview: Preview = {
   parameters: {
@@ -19,15 +17,13 @@ const preview: Preview = {
       },
     },
   },
-  // Decorators serão adicionados quando o webpack resolver corretamente os módulos
-  // decorators: [
-  //   (Story) =>
-  //     React.createElement(
-  //       MotionProvider,
-  //       {},
-  //       React.createElement(Story),
-  //     ),
-  // ],
+  decorators: [
+    (Story) => (
+      <ThemeProvider>
+        <Story />
+      </ThemeProvider>
+    ),
+  ],
 };
 
 export default preview;
