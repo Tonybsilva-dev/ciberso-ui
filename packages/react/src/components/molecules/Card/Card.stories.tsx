@@ -40,11 +40,15 @@ type Story = StoryObj<typeof Card>;
  */
 export const Default: Story = {
   render: () => (
-    <Card>
-      <CardBody>
-        <Text>Este é um card simples com apenas o corpo.</Text>
-      </CardBody>
-    </Card>
+    <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
+      <Card>
+        <CardBody>
+          <Text color="default" style={{ color: '#E0FFFF' }}>
+            Este é um card simples com apenas o corpo.
+          </Text>
+        </CardBody>
+      </Card>
+    </div>
   ),
 };
 
@@ -53,23 +57,27 @@ export const Default: Story = {
  */
 export const Complete: Story = {
   render: () => (
-    <Card>
-      <CardHeader>
-        <Heading level={3}>Título do Card</Heading>
-      </CardHeader>
-      <CardBody>
-        <Text>
-          Este é o conteúdo principal do card. Pode conter qualquer tipo de conteúdo,
-          incluindo texto, imagens, formulários, etc.
-        </Text>
-      </CardBody>
-      <CardFooter>
-        <div style={{ display: 'flex', gap: '0.5rem' }}>
-          <Button variant="primary">Salvar</Button>
-          <Button variant="secondary">Cancelar</Button>
-        </div>
-      </CardFooter>
-    </Card>
+    <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
+      <Card>
+        <CardHeader>
+          <Heading level={3} color="primary" style={{ color: '#00F6FF' }}>
+            Título do Card
+          </Heading>
+        </CardHeader>
+        <CardBody>
+          <Text style={{ color: '#E0FFFF' }}>
+            Este é o conteúdo principal do card. Pode conter qualquer tipo de conteúdo,
+            incluindo texto, imagens, formulários, etc.
+          </Text>
+        </CardBody>
+        <CardFooter>
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <Button variant="primary">Salvar</Button>
+            <Button variant="secondary">Cancelar</Button>
+          </div>
+        </CardFooter>
+      </Card>
+    </div>
   ),
 };
 
@@ -78,16 +86,20 @@ export const Complete: Story = {
  */
 export const HeaderAndBody: Story = {
   render: () => (
-    <Card>
-      <CardHeader>
-        <Heading level={3}>Card sem Footer</Heading>
-      </CardHeader>
-      <CardBody>
-        <Text>
-          Este card não possui rodapé, apenas cabeçalho e corpo.
-        </Text>
-      </CardBody>
-    </Card>
+    <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
+      <Card>
+        <CardHeader>
+          <Heading level={3} color="primary" style={{ color: '#00F6FF' }}>
+            Card sem Footer
+          </Heading>
+        </CardHeader>
+        <CardBody>
+          <Text style={{ color: '#E0FFFF' }}>
+            Este card não possui rodapé, apenas cabeçalho e corpo.
+          </Text>
+        </CardBody>
+      </Card>
+    </div>
   ),
 };
 
@@ -96,16 +108,18 @@ export const HeaderAndBody: Story = {
  */
 export const BodyAndFooter: Story = {
   render: () => (
-    <Card>
-      <CardBody>
-        <Text>
-          Este card não possui cabeçalho, apenas corpo e rodapé.
-        </Text>
-      </CardBody>
-      <CardFooter>
-        <Button variant="primary">Ação</Button>
-      </CardFooter>
-    </Card>
+    <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
+      <Card>
+        <CardBody>
+          <Text style={{ color: '#E0FFFF' }}>
+            Este card não possui cabeçalho, apenas corpo e rodapé.
+          </Text>
+        </CardBody>
+        <CardFooter>
+          <Button variant="primary">Ação</Button>
+        </CardFooter>
+      </Card>
+    </div>
   ),
 };
 
@@ -114,13 +128,15 @@ export const BodyAndFooter: Story = {
  */
 export const BodyOnly: Story = {
   render: () => (
-    <Card>
-      <CardBody>
-        <Text>
-          Card minimalista com apenas o corpo, sem cabeçalho ou rodapé.
-        </Text>
-      </CardBody>
-    </Card>
+    <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
+      <Card>
+        <CardBody>
+          <Text style={{ color: '#E0FFFF' }}>
+            Card minimalista com apenas o corpo, sem cabeçalho ou rodapé.
+          </Text>
+        </CardBody>
+      </Card>
+    </div>
   ),
 };
 
