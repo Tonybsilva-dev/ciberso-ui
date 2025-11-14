@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/nextjs';
 import React from 'react';
 import { ThemeProvider } from '@ciberso/theme';
+import { MotionProvider } from '@ciberso/motion';
 import './preview.css';
 
 const preview: Preview = {
@@ -20,9 +21,13 @@ const preview: Preview = {
   decorators: [
     (Story) =>
       React.createElement(
-        ThemeProvider,
+        MotionProvider,
         {},
-        React.createElement(Story),
+        React.createElement(
+          ThemeProvider,
+          {},
+          React.createElement(Story),
+        ),
       ),
   ],
 };
