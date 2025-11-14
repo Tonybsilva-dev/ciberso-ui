@@ -41,11 +41,25 @@ function svgToJsx(svgContent) {
     .replace(/height="([^"]*)"/g, 'height="$1"')
     .replace(/viewBox="([^"]*)"/g, 'viewBox="$1"')
     .replace(/#000000/g, 'currentColor')
-    .replace(/#000/g, 'currentColor')
-    .replace(/fill="[^"]*"/g, 'fill="currentColor"')
-    .trim();
+    .replace(/#000/g, 'currentColor');
   
-  return jsx;
+  // Garantir que todos os paths tenham fill="currentColor" se não tiverem fill definido
+  // ou se tiverem fill preto
+  jsx = jsx.replace(/<path([^>]*?)(?:fill="[^"]*")?([^>]*?)>/g, (match, before, after) => {
+    // Se já tem fill, substituir por currentColor se for preto
+    if (match.includes('fill=')) {
+      return match.replace(/fill="[^"]*"/g, 'fill="currentColor"');
+    }
+    // Se não tem fill, adicionar fill="currentColor"
+    return `<path${before}${after} fill="currentColor">`;
+  });
+  
+  // Garantir que o SVG tenha fill="currentColor" como padrão
+  if (!jsx.includes('fill=')) {
+    jsx = jsx.replace(/<svg([^>]*)>/, '<svg$1 fill="currentColor">');
+  }
+  
+  return jsx.trim();
 }
 
 /**
