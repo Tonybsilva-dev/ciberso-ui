@@ -24,7 +24,7 @@ export interface ButtonProps extends AriaButtonProps {
    * Variante visual do botão
    * @default 'primary'
    */
-  variant?: 'primary' | 'secondary' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline' | 'danger';
   /**
    * Tamanho do botão
    * @default 'md'

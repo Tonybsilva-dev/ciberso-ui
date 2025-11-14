@@ -29,7 +29,7 @@ const meta: Meta<typeof Button> = {
     },
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'ghost'],
+      options: ['primary', 'secondary', 'ghost', 'outline', 'danger'],
       description: 'Variante visual do botão',
       table: {
         defaultValue: { summary: 'primary' },
@@ -135,6 +135,8 @@ export const AllVariants: Story = {
       <Button variant="primary">Primary</Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="ghost">Ghost</Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="danger">Danger</Button>
     </div>
   ),
 };

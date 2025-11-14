@@ -22,6 +22,8 @@ export const buttonVariants = cva(
         primary: 'bg-[#007BFF] text-white hover:bg-[#0066CC] active:bg-[#005299] focus-visible:ring-[#007BFF]',
         secondary: 'bg-[#6B7280] text-white hover:bg-[#4B5563] active:bg-[#374151] focus-visible:ring-[#6B7280]',
         ghost: 'bg-transparent text-[#111827] hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus-visible:ring-[#007BFF]',
+        outline: 'bg-transparent border border-[#007BFF] text-[#007BFF] hover:bg-[#007BFF] hover:text-white active:bg-[#0066CC] active:text-white focus-visible:ring-[#007BFF]',
+        danger: 'bg-[#DC2626] text-white hover:bg-[#B91C1C] active:bg-[#991B1B] focus-visible:ring-[#DC2626]',
       },
       size: {
         sm: 'h-9 px-3 text-sm',
