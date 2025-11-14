@@ -29,10 +29,15 @@ import { cn } from '../../../utils/cn';
  */
 export interface CardProps extends Omit<HTMLMotionProps<'div'>, 'children'> {
   children?: ReactNode;
+  /**
+   * Se true, aplica animações de hover e tap
+   * @default false
+   */
+  isAnimated?: boolean;
 }
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ className, children, ...props }, ref) => {
+  ({ className, children, isAnimated = false, ...props }, ref) => {
     // Converter duração de string (ex: '150ms') para número (ex: 0.15)
     const parseDuration = (duration: string): number => {
       const match = duration.match(/(\d+)ms/);
@@ -41,6 +46,59 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
 
     const fastDurationValue: string = animations.duration.fast ?? '150ms';
     const fastDuration = parseDuration(fastDurationValue);
+
+    // Animações condicionais baseadas em isAnimated
+    const hoverAnimation = isAnimated
+      ? {
+          y: -4,
+          scale: 1.01,
+          transition: {
+            duration: fastDuration,
+            ease: [0, 0, 0.2, 1], // easeOut
+          },
+        }
+      : undefined;
+
+    const tapAnimation = isAnimated
+      ? {
+          scale: 0.98,
+          transition: {
+            duration: fastDuration,
+            ease: [0.4, 0, 1, 1], // easeIn
+          },
+        }
+      : undefined;
+
+    // Se não animado, usar div normal em vez de motion.div
+    if (!isAnimated) {
+      return (
+        <div
+          ref={ref}
+          className={cn(
+            // Estilos base Ciberso
+            'rounded-lg',
+            'bg-[#0A192F]', // darkBlue[500] - fundo escuro
+            'border border-[#00F6FF]/30', // ciano neon com opacidade
+            'shadow-lg shadow-[#00F6FF]/10', // sombra com brilho neon
+            // Efeito de brilho neon na borda
+            'relative',
+            'before:absolute before:inset-0 before:rounded-lg',
+            'before:bg-gradient-to-r before:from-[#00F6FF]/20 before:via-transparent before:to-[#007BFF]/20',
+            'before:opacity-0 before:transition-opacity before:duration-300',
+            'hover:before:opacity-100',
+            // Borda interna para efeito neon
+            'after:absolute after:inset-[1px] after:rounded-lg',
+            'after:bg-[#0A192F] after:pointer-events-none',
+            className
+          )}
+          {...(props as HTMLAttributes<HTMLDivElement>)}
+        >
+          <div className="relative z-10">
+            {children}
+          </div>
+        </div>
+      );
+    }
 
     return (
       <motion.div
@@ -62,21 +120,8 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
           'after:bg-[#0A192F] after:pointer-events-none',
           className
         )}
-        whileHover={{
-          y: -4,
-          scale: 1.01,
-          transition: {
-            duration: fastDuration,
-            ease: [0, 0, 0.2, 1], // easeOut
-          },
-        }}
-        whileTap={{
-          scale: 0.98,
-          transition: {
-            duration: fastDuration,
-            ease: [0.4, 0, 1, 1], // easeIn
-          },
-        }}
+        whileHover={hoverAnimation}
+        whileTap={tapAnimation}
         {...props}
       >
         <div className="relative z-10">

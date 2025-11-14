@@ -16,7 +16,7 @@ const meta: Meta<typeof Card> = {
   parameters: {
     docs: {
       description: {
-        component: 'Componente de card composicional com sub-componentes (CardHeader, CardBody, CardFooter) para estrutura flexível.',
+        component: 'Componente de card composicional com sub-componentes (CardHeader, CardBody, CardFooter) para estrutura flexível. Suporta animações opcionais via prop `isAnimated`.',
       },
     },
   },
@@ -29,6 +29,13 @@ const meta: Meta<typeof Card> = {
       control: 'text',
       description: 'Classes CSS adicionais',
     },
+    isAnimated: {
+      control: 'boolean',
+      description: 'Se true, aplica animações de hover e tap',
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
   },
 };
 
@@ -39,9 +46,12 @@ type Story = StoryObj<typeof Card>;
  * Story básica - Card simples
  */
 export const Default: Story = {
-  render: () => (
+  args: {
+    isAnimated: false,
+  },
+  render: (args) => (
     <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
-      <Card>
+      <Card {...args}>
         <CardBody>
           <Text color="default" style={{ color: '#E0FFFF' }}>
             Este é um card simples com apenas o corpo.
@@ -53,12 +63,35 @@ export const Default: Story = {
 };
 
 /**
+ * Story - Card com animações
+ */
+export const Animated: Story = {
+  args: {
+    isAnimated: true,
+  },
+  render: (args) => (
+    <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
+      <Card {...args}>
+        <CardBody>
+          <Text color="default" style={{ color: '#E0FFFF' }}>
+            Este card tem animações de hover e tap ativadas. Passe o mouse e clique para ver.
+          </Text>
+        </CardBody>
+      </Card>
+    </div>
+  ),
+};
+
+/**
  * Story - Card completo com todas as seções
  */
 export const Complete: Story = {
-  render: () => (
+  args: {
+    isAnimated: false,
+  },
+  render: (args) => (
     <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
-      <Card>
+      <Card {...args}>
         <CardHeader>
           <Heading level={3} color="primary" style={{ color: '#00F6FF' }}>
             Título do Card
@@ -85,9 +118,12 @@ export const Complete: Story = {
  * Story - Card apenas com Header e Body
  */
 export const HeaderAndBody: Story = {
-  render: () => (
+  args: {
+    isAnimated: false,
+  },
+  render: (args) => (
     <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
-      <Card>
+      <Card {...args}>
         <CardHeader>
           <Heading level={3} color="primary" style={{ color: '#00F6FF' }}>
             Card sem Footer
@@ -107,9 +143,12 @@ export const HeaderAndBody: Story = {
  * Story - Card apenas com Body e Footer
  */
 export const BodyAndFooter: Story = {
-  render: () => (
+  args: {
+    isAnimated: false,
+  },
+  render: (args) => (
     <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
-      <Card>
+      <Card {...args}>
         <CardBody>
           <Text style={{ color: '#E0FFFF' }}>
             Este card não possui cabeçalho, apenas corpo e rodapé.
@@ -127,9 +166,12 @@ export const BodyAndFooter: Story = {
  * Story - Card apenas com Body
  */
 export const BodyOnly: Story = {
-  render: () => (
+  args: {
+    isAnimated: false,
+  },
+  render: (args) => (
     <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
-      <Card>
+      <Card {...args}>
         <CardBody>
           <Text style={{ color: '#E0FFFF' }}>
             Card minimalista com apenas o corpo, sem cabeçalho ou rodapé.
@@ -144,13 +186,18 @@ export const BodyOnly: Story = {
  * Story - Múltiplos cards em grid
  */
 export const Grid: Story = {
-  render: () => (
+  args: {
+    isAnimated: false,
+  },
+  render: (args) => (
     <div style={{ 
+      padding: '2rem',
+      backgroundColor: '#020506',
       display: 'grid', 
       gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', 
       gap: '1.5rem' 
     }}>
-      <Card>
+      <Card {...args}>
         <CardHeader>
           <Heading level={4} color="primary" style={{ color: '#00F6FF' }}>
             Card 1
@@ -162,7 +209,7 @@ export const Grid: Story = {
           </Text>
         </CardBody>
       </Card>
-      <Card>
+      <Card {...args}>
         <CardHeader>
           <Heading level={4} color="primary" style={{ color: '#00F6FF' }}>
             Card 2
@@ -174,7 +221,7 @@ export const Grid: Story = {
           </Text>
         </CardBody>
       </Card>
-      <Card>
+      <Card {...args}>
         <CardHeader>
           <Heading level={4} color="primary" style={{ color: '#00F6FF' }}>
             Card 3
@@ -194,9 +241,12 @@ export const Grid: Story = {
  * Story - Card com conteúdo complexo
  */
 export const ComplexContent: Story = {
-  render: () => (
+  args: {
+    isAnimated: false,
+  },
+  render: (args) => (
     <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
-      <Card>
+      <Card {...args}>
       <CardHeader>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Heading level={3} color="primary" style={{ color: '#00F6FF' }}>
