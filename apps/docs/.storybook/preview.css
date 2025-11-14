@@ -2,14 +2,23 @@
 @import "../../../packages/theme/src/globals.css";
 
 /* Garantir que estilos inline de cor tenham prioridade nos cards de contraste */
-[style*="background-color: #c96442"],
-[style*="background-color: #3d3929"],
-[style*="background-color: #141413"] {
+/* Usar seletores de atributo mais específicos para sobrescrever CSS global do body */
+div[style*="background-color: #c96442"],
+div[style*="background-color: #3d3929"],
+div[style*="background-color: #141413"] {
   color: #ffffff !important;
 }
 
-[style*="background-color: #c96442"] *,
-[style*="background-color: #3d3929"] *,
-[style*="background-color: #141413"] * {
+/* Forçar cor branca em TODOS os elementos filhos, incluindo divs aninhados */
+div[style*="background-color: #c96442"] *,
+div[style*="background-color: #3d3929"] *,
+div[style*="background-color: #141413"] * {
+  color: #ffffff !important;
+}
+
+/* Seletores específicos para garantir que divs aninhados também tenham texto branco */
+div[style*="background-color: #c96442"] > div,
+div[style*="background-color: #3d3929"] > div,
+div[style*="background-color: #141413"] > div {
   color: #ffffff !important;
 }
