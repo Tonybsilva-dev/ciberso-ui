@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/nextjs';
+import './preview.css';
 
 // Importação dinâmica para evitar problemas de resolução no webpack
 // O MotionProvider será adicionado quando necessário nas stories individuais

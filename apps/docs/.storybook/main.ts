@@ -62,6 +62,7 @@ const config: StorybookConfig = {
       // Garantir que symlinks sejam resolvidos (importante para pnpm workspaces)
       config.resolve.symlinks = true;
     }
+
     return config;
   },
 };
