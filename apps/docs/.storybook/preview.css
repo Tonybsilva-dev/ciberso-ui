@@ -1,2 +1,15 @@
 /* Importar tema do Ciberso-UI (contém @tailwind directives e variáveis CSS) */
 @import "../../../packages/theme/src/globals.css";
+
+/* Garantir que estilos inline de cor tenham prioridade nos cards de contraste */
+[style*="background-color: #c96442"],
+[style*="background-color: #3d3929"],
+[style*="background-color: #141413"] {
+  color: #ffffff !important;
+}
+
+[style*="background-color: #c96442"] *,
+[style*="background-color: #3d3929"] *,
+[style*="background-color: #141413"] * {
+  color: #ffffff !important;
+}
