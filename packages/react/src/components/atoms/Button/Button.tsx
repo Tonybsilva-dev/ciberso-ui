@@ -189,17 +189,17 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         }}
       >
         {iconOnly ? (
-          <span className={iconSizeClasses[size]}>{icon}</span>
+          <span className={cn(iconSizeClasses[size], 'text-current')}>{icon}</span>
         ) : (
           <>
             {leftIcon && (
-              <span className={cn(iconSizeClasses[size], children && 'mr-1.5')}>
+              <span className={cn(iconSizeClasses[size], 'text-current', children && 'mr-1.5')}>
                 {leftIcon}
               </span>
             )}
             {children && <span>{children}</span>}
             {rightIcon && (
-              <span className={cn(iconSizeClasses[size], children && 'ml-1.5')}>
+              <span className={cn(iconSizeClasses[size], 'text-current', children && 'ml-1.5')}>
                 {rightIcon}
               </span>
             )}
