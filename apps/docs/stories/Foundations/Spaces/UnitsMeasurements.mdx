@@ -3,17 +3,17 @@ import { spacing, space } from '@ciberso/tokens';
 
 <Meta title="Foundations/Spaces/Units & Measurements" />
 
-# Units & Measurements
+# Unidades e Medidas
 
-Unidades e medidas do sistema de espaçamento do Ciberso-UI Design System.
+Unidades e medidas do sistema de espaçamento do Ciberso-UI Design System, inspirado no **Cloude**.
 
-## Base Unit
+## Unidade Base
 
 O sistema utiliza **4px (0.25rem)** como unidade base. Todos os espaçamentos são múltiplos desta unidade.
 
-## Spacing Scale
+## Escala de Espaçamento
 
-### Semantic Spacing
+### Espaçamento Semântico
 
 Espaçamentos semânticos para uso em componentes:
 
@@ -26,20 +26,21 @@ Espaçamentos semânticos para uso em componentes:
           style={{
             width: '100%',
             height: value,
-            backgroundColor: '#007BFF',
+            backgroundColor: '#c96442',
             borderRadius: '4px',
             marginBottom: '0.5rem',
+            border: '1px solid #dad9d4',
           }}
         />
-        <div style={{ fontSize: '12px', fontWeight: 'bold', textTransform: 'uppercase' }}>{key}</div>
-        <div style={{ fontSize: '11px', color: '#6b7280' }}>{value}</div>
-        <div style={{ fontSize: '10px', color: '#9ca3af' }}>{sizeInPx}px</div>
+        <div style={{ fontSize: '12px', fontWeight: 'bold', textTransform: 'uppercase', color: '#3d3929' }}>{key}</div>
+        <div style={{ fontSize: '11px', color: '#83827d' }}>{value}</div>
+        <div style={{ fontSize: '10px', color: '#83827d' }}>{sizeInPx}px</div>
       </div>
     );
   })}
 </div>
 
-### Numeric Spacing
+### Espaçamento Numérico
 
 Espaçamentos numéricos para uso direto:
 
@@ -52,22 +53,23 @@ Espaçamentos numéricos para uso direto:
           style={{
             width: '100%',
             height: value,
-            backgroundColor: '#6B7280',
+            backgroundColor: '#83827d',
             borderRadius: '4px',
             marginBottom: '0.5rem',
+            border: '1px solid #dad9d4',
           }}
         />
-        <div style={{ fontSize: '12px', fontWeight: 'bold' }}>{key}</div>
-        <div style={{ fontSize: '11px', color: '#6b7280' }}>{value}</div>
-        <div style={{ fontSize: '10px', color: '#9ca3af' }}>{sizeInPx}px</div>
+        <div style={{ fontSize: '12px', fontWeight: 'bold', color: '#3d3929' }}>{key}</div>
+        <div style={{ fontSize: '11px', color: '#83827d' }}>{value}</div>
+        <div style={{ fontSize: '10px', color: '#83827d' }}>{sizeInPx}px</div>
       </div>
     );
   })}
 </div>
 
-## Units
+## Unidades
 
-### Rem (Recommended)
+### Rem (Recomendado)
 
 Use `rem` para espaçamentos que devem escalar com o tamanho da fonte do usuário:
 
@@ -78,7 +80,7 @@ Use `rem` para espaçamentos que devem escalar com o tamanho da fonte do usuári
 }
 ```
 
-### Px (For Fixed Sizes)
+### Px (Para Tamanhos Fixos)
 
 Use `px` apenas para elementos que devem ter tamanho fixo:
 
@@ -88,23 +90,23 @@ Use `px` apenas para elementos que devem ter tamanho fixo:
 }
 ```
 
-## Usage Examples
+## Exemplos de Uso
 
 ### Padding
 
 ```tsx
 // ✅ DO: Use tokens de espaçamento
-<div className="p-4">Content</div> // padding: 1rem (16px)
+<div className="p-4">Conteúdo</div> // padding: 1rem (16px)
 
 // ✅ DO: Use classes Tailwind
-<div className="px-3 py-2">Content</div> // padding: 0.75rem 0.5rem
+<div className="px-3 py-2">Conteúdo</div> // padding: 0.75rem 0.5rem
 ```
 
 ### Margin
 
 ```tsx
 // ✅ DO: Use tokens consistentes
-<div className="mb-4">Content</div> // margin-bottom: 1rem
+<div className="mb-4">Conteúdo</div> // margin-bottom: 1rem
 
 // ✅ DO: Espaçamento entre elementos
 <div className="space-y-4">
@@ -118,35 +120,36 @@ Use `px` apenas para elementos que devem ter tamanho fixo:
 ```tsx
 // ✅ DO: Gap em flex/grid
 <div className="flex gap-2">
-  <Button>Button 1</Button>
-  <Button>Button 2</Button>
+  <Button>Botão 1</Button>
+  <Button>Botão 2</Button>
 </div>
 ```
 
-## Spacing Guidelines
+## Diretrizes de Espaçamento
 
-### Component Internal Spacing
+### Espaçamento Interno de Componentes
 
-- **Small components**: 4-8px (xs-sm)
-- **Medium components**: 12-16px (md)
-- **Large components**: 24-32px (lg-xl)
+- **Componentes pequenos**: 4-8px (xs-sm)
+- **Componentes médios**: 12-16px (md)
+- **Componentes grandes**: 24-32px (lg-xl)
 
-### Component External Spacing
+### Espaçamento Externo de Componentes
 
-- **Between related elements**: 8-12px
-- **Between sections**: 24-32px
-- **Between major sections**: 48-64px
+- **Entre elementos relacionados**: 8-12px
+- **Entre seções**: 24-32px
+- **Entre seções principais**: 48-64px
 
-### Text Spacing
+### Espaçamento de Texto
 
-- **Line height**: 1.5 (24px para 16px font)
-- **Paragraph spacing**: 16px (1rem)
-- **Heading margin**: 24px (1.5rem)
+- **Altura de linha**: 1.5 (24px para fonte de 16px)
+- **Espaçamento entre parágrafos**: 16px (1rem)
+- **Margem de títulos**: 24px (1.5rem)
 
-## Best Practices
+## Boas Práticas
 
 1. **Use a escala modular** - Sempre múltiplos de 4px
 2. **Mantenha consistência** - Use os mesmos espaçamentos em contextos similares
 3. **Considere hierarquia** - Elementos mais importantes podem ter mais espaço
 4. **Teste em diferentes tamanhos** - Espaçamentos podem parecer diferentes em mobile/desktop
+5. **Use as cores do tema** - Represente espaçamentos visualmente com as cores do Ciberso-UI
 

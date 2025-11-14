@@ -3,19 +3,19 @@ import { spacing } from '@ciberso/tokens';
 
 <Meta title="Foundations/Spaces/Metrics & Keylines" />
 
-# Metrics & Keylines
+# Métricas e Linhas Guia
 
-Métricas e linhas guia para alinhamento e estrutura no Ciberso-UI Design System.
+Métricas e linhas guia para alinhamento e estrutura no Ciberso-UI Design System, inspirado no **Cloude**.
 
-## Keylines
+## Linhas Guia
 
 Linhas guia invisíveis que ajudam a alinhar elementos e criar estrutura visual consistente.
 
-### Baseline Grid
+### Grid de Baseline
 
 Grid de baseline baseado em 4px para alinhamento vertical:
 
-<div style={{ position: 'relative', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '2rem', backgroundColor: '#fff', marginTop: '2rem' }}>
+<div style={{ position: 'relative', border: '1px solid #dad9d4', borderRadius: '8px', padding: '2rem', backgroundColor: '#faf9f5', marginTop: '2rem' }}>
   {/* Grid lines */}
   {Array.from({ length: 20 }, (_, i) => (
     <div
@@ -26,7 +26,7 @@ Grid de baseline baseado em 4px para alinhamento vertical:
         left: 0,
         right: 0,
         height: '1px',
-        backgroundColor: i % 4 === 0 ? '#e5e7eb' : '#f3f4f6',
+        backgroundColor: i % 4 === 0 ? '#dad9d4' : '#ede9de',
         opacity: 0.5,
         pointerEvents: 'none',
       }}
@@ -35,133 +35,134 @@ Grid de baseline baseado em 4px para alinhamento vertical:
   
   {/* Sample content aligned to grid */}
   <div style={{ position: 'relative', zIndex: 1 }}>
-    <h2 style={{ fontSize: '24px', lineHeight: '32px', marginTop: '0', marginBottom: '16px' }}>
-      Heading Example
+    <h2 style={{ fontSize: '24px', lineHeight: '32px', marginTop: '0', marginBottom: '16px', color: '#3d3929' }}>
+      Exemplo de Título
     </h2>
-    <p style={{ fontSize: '16px', lineHeight: '24px', marginBottom: '16px' }}>
-      This paragraph is aligned to the 4px baseline grid. The line height of 24px ensures proper vertical rhythm.
+    <p style={{ fontSize: '16px', lineHeight: '24px', marginBottom: '16px', color: '#3d3929' }}>
+      Este parágrafo está alinhado ao grid de baseline de 4px. A altura de linha de 24px garante ritmo vertical adequado.
     </p>
-    <p style={{ fontSize: '16px', lineHeight: '24px', marginBottom: '0' }}>
-      Multiple paragraphs maintain consistent spacing, creating a harmonious reading experience.
+    <p style={{ fontSize: '16px', lineHeight: '24px', marginBottom: '0', color: '#3d3929' }}>
+      Múltiplos parágrafos mantêm espaçamento consistente, criando uma experiência de leitura harmoniosa.
     </p>
   </div>
 </div>
 
-## Component Metrics
+## Métricas de Componentes
 
-### Button Metrics
+### Métricas de Botão
 
 <div style={{ marginTop: '2rem' }}>
-  <h3>Button Spacing</h3>
+  <h3>Espaçamento de Botão</h3>
   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginTop: '1rem' }}>
-    <div style={{ border: '1px solid #e5e7eb', borderRadius: '8px', padding: '1rem' }}>
-      <div style={{ fontSize: '12px', fontWeight: 'bold', marginBottom: '0.5rem' }}>Small</div>
-      <div style={{ padding: '0.75rem 0.75rem', backgroundColor: '#007BFF', color: '#fff', borderRadius: '4px', textAlign: 'center' }}>
-        Button
+    <div style={{ border: '1px solid #dad9d4', borderRadius: '8px', padding: '1rem', backgroundColor: '#faf9f5' }}>
+      <div style={{ fontSize: '12px', fontWeight: 'bold', marginBottom: '0.5rem', color: '#3d3929' }}>Pequeno</div>
+      <div style={{ padding: '0.75rem 0.75rem', backgroundColor: '#c96442', borderRadius: '4px', textAlign: 'center' }}>
+        <span style={{ color: '#ffffff' }}>Botão</span>
       </div>
-      <div style={{ fontSize: '11px', color: '#6b7280', marginTop: '0.5rem' }}>
+      <div style={{ fontSize: '11px', color: '#83827d', marginTop: '0.5rem' }}>
         Padding: 12px (3 × 4px)
       </div>
     </div>
     
-    <div style={{ border: '1px solid #e5e7eb', borderRadius: '8px', padding: '1rem' }}>
-      <div style={{ fontSize: '12px', fontWeight: 'bold', marginBottom: '0.5rem' }}>Medium</div>
-      <div style={{ padding: '0.625rem 1rem', backgroundColor: '#007BFF', color: '#fff', borderRadius: '4px', textAlign: 'center' }}>
-        Button
+    <div style={{ border: '1px solid #dad9d4', borderRadius: '8px', padding: '1rem', backgroundColor: '#faf9f5' }}>
+      <div style={{ fontSize: '12px', fontWeight: 'bold', marginBottom: '0.5rem', color: '#3d3929' }}>Médio</div>
+      <div style={{ padding: '0.625rem 1rem', backgroundColor: '#c96442', borderRadius: '4px', textAlign: 'center' }}>
+        <span style={{ color: '#ffffff' }}>Botão</span>
       </div>
-      <div style={{ fontSize: '11px', color: '#6b7280', marginTop: '0.5rem' }}>
+      <div style={{ fontSize: '11px', color: '#83827d', marginTop: '0.5rem' }}>
         Padding: 10px 16px
       </div>
     </div>
     
-    <div style={{ border: '1px solid #e5e7eb', borderRadius: '8px', padding: '1rem' }}>
-      <div style={{ fontSize: '12px', fontWeight: 'bold', marginBottom: '0.5rem' }}>Large</div>
-      <div style={{ padding: '0.75rem 1.5rem', backgroundColor: '#007BFF', color: '#fff', borderRadius: '4px', textAlign: 'center' }}>
-        Button
+    <div style={{ border: '1px solid #dad9d4', borderRadius: '8px', padding: '1rem', backgroundColor: '#faf9f5' }}>
+      <div style={{ fontSize: '12px', fontWeight: 'bold', marginBottom: '0.5rem', color: '#3d3929' }}>Grande</div>
+      <div style={{ padding: '0.75rem 1.5rem', backgroundColor: '#c96442', borderRadius: '4px', textAlign: 'center' }}>
+        <span style={{ color: '#ffffff' }}>Botão</span>
       </div>
-      <div style={{ fontSize: '11px', color: '#6b7280', marginTop: '0.5rem' }}>
+      <div style={{ fontSize: '11px', color: '#83827d', marginTop: '0.5rem' }}>
         Padding: 12px 24px
       </div>
     </div>
   </div>
 </div>
 
-### Card Metrics
+### Métricas de Card
 
 <div style={{ marginTop: '2rem' }}>
-  <h3>Card Spacing</h3>
-  <div style={{ border: '1px solid #e5e7eb', borderRadius: '8px', padding: '1.5rem', maxWidth: '400px', marginTop: '1rem' }}>
-    <div style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '0.75rem' }}>Card Title</div>
-    <div style={{ fontSize: '14px', color: '#6b7280', marginBottom: '1rem' }}>
-      Card content with consistent spacing. Padding: 24px (6 × 4px)
+  <h3>Espaçamento de Card</h3>
+  <div style={{ border: '1px solid #dad9d4', borderRadius: '8px', padding: '1.5rem', maxWidth: '400px', marginTop: '1rem', backgroundColor: '#faf9f5' }}>
+    <div style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '0.75rem', color: '#3d3929' }}>Título do Card</div>
+    <div style={{ fontSize: '14px', color: '#83827d', marginBottom: '1rem' }}>
+      Conteúdo do card com espaçamento consistente. Padding: 24px (6 × 4px)
     </div>
-    <div style={{ paddingTop: '1rem', borderTop: '1px solid #e5e7eb' }}>
-      <div style={{ fontSize: '12px', color: '#9ca3af' }}>
-        Footer spacing: 16px (4 × 4px)
+    <div style={{ paddingTop: '1rem', borderTop: '1px solid #dad9d4' }}>
+      <div style={{ fontSize: '12px', color: '#83827d' }}>
+        Espaçamento do rodapé: 16px (4 × 4px)
       </div>
     </div>
   </div>
 </div>
 
-## Alignment Keylines
+## Linhas Guia de Alinhamento
 
-### Text Alignment
+### Alinhamento de Texto
 
-- **Left align**: Padrão para textos longos
-- **Center align**: Títulos e elementos destacados
-- **Right align**: Números e dados tabulares
+- **Alinhamento à esquerda**: Padrão para textos longos
+- **Alinhamento central**: Títulos e elementos destacados
+- **Alinhamento à direita**: Números e dados tabulares
 
-### Component Alignment
+### Alinhamento de Componentes
 
-- **Vertical center**: Ícones com texto
-- **Baseline align**: Texto em diferentes tamanhos
-- **Edge align**: Elementos nas bordas
+- **Centro vertical**: Ícones com texto
+- **Alinhamento de baseline**: Texto em diferentes tamanhos
+- **Alinhamento de borda**: Elementos nas bordas
 
-## Measurement Guidelines
+## Diretrizes de Medição
 
-### Minimum Touch Target
+### Área Mínima de Toque
 
 - **Mobile**: 44px × 44px (11 × 4px)
 - **Desktop**: 40px × 40px (10 × 4px)
 
-### Content Width
+### Largura de Conteúdo
 
 - **Mobile**: Padding lateral de 16px
 - **Tablet**: Padding lateral de 24px
 - **Desktop**: Max-width de 1200px com padding de 32px
 
-### Section Spacing
+### Espaçamento entre Seções
 
-- **Between sections**: 48-64px
-- **Within sections**: 24-32px
-- **Between related items**: 16px
+- **Entre seções**: 48-64px
+- **Dentro de seções**: 24-32px
+- **Entre itens relacionados**: 16px
 
-## Visual Examples
+## Exemplos Visuais
 
 <div style={{ marginTop: '2rem' }}>
-  <h3>Spacing Relationships</h3>
-  <div style={{ border: '1px solid #e5e7eb', borderRadius: '8px', padding: '2rem', marginTop: '1rem' }}>
-    <div style={{ marginBottom: '1rem', padding: '1rem', backgroundColor: '#f9fafb', borderRadius: '4px' }}>
-      <div style={{ fontSize: '14px', fontWeight: 'bold', marginBottom: '0.5rem' }}>Section 1</div>
-      <div style={{ fontSize: '12px', color: '#6b7280' }}>Margin bottom: 16px (4 × 4px)</div>
+  <h3>Relações de Espaçamento</h3>
+  <div style={{ border: '1px solid #dad9d4', borderRadius: '8px', padding: '2rem', marginTop: '1rem', backgroundColor: '#faf9f5' }}>
+    <div style={{ marginBottom: '1rem', padding: '1rem', backgroundColor: '#ede9de', borderRadius: '4px', border: '1px solid #dad9d4' }}>
+      <div style={{ fontSize: '14px', fontWeight: 'bold', marginBottom: '0.5rem', color: '#3d3929' }}>Seção 1</div>
+      <div style={{ fontSize: '12px', color: '#83827d' }}>Margin bottom: 16px (4 × 4px)</div>
     </div>
     
-    <div style={{ marginBottom: '1rem', padding: '1rem', backgroundColor: '#f9fafb', borderRadius: '4px' }}>
-      <div style={{ fontSize: '14px', fontWeight: 'bold', marginBottom: '0.5rem' }}>Section 2</div>
-      <div style={{ fontSize: '12px', color: '#6b7280' }}>Margin bottom: 16px (4 × 4px)</div>
+    <div style={{ marginBottom: '1rem', padding: '1rem', backgroundColor: '#ede9de', borderRadius: '4px', border: '1px solid #dad9d4' }}>
+      <div style={{ fontSize: '14px', fontWeight: 'bold', marginBottom: '0.5rem', color: '#3d3929' }}>Seção 2</div>
+      <div style={{ fontSize: '12px', color: '#83827d' }}>Margin bottom: 16px (4 × 4px)</div>
     </div>
     
-    <div style={{ padding: '1rem', backgroundColor: '#f9fafb', borderRadius: '4px' }}>
-      <div style={{ fontSize: '14px', fontWeight: 'bold', marginBottom: '0.5rem' }}>Section 3</div>
-      <div style={{ fontSize: '12px', color: '#6b7280' }}>No margin (último elemento)</div>
+    <div style={{ padding: '1rem', backgroundColor: '#ede9de', borderRadius: '4px', border: '1px solid #dad9d4' }}>
+      <div style={{ fontSize: '14px', fontWeight: 'bold', marginBottom: '0.5rem', color: '#3d3929' }}>Seção 3</div>
+      <div style={{ fontSize: '12px', color: '#83827d' }}>Sem margin (último elemento)</div>
     </div>
   </div>
 </div>
 
-## Best Practices
+## Boas Práticas
 
-1. **Use keylines consistentemente** - Mantenha alinhamento visual
-2. **Respeite métricas mínimas** - Touch targets e espaçamentos mínimos
+1. **Use linhas guia consistentemente** - Mantenha alinhamento visual
+2. **Respeite métricas mínimas** - Áreas de toque e espaçamentos mínimos
 3. **Teste visualmente** - Verifique alinhamento em diferentes tamanhos
 4. **Documente exceções** - Se precisar quebrar o grid, documente o motivo
+5. **Use as cores do tema** - Represente métricas visualmente com as cores do Ciberso-UI
 
