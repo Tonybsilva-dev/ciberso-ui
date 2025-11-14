@@ -2,11 +2,15 @@
  * Button - Componente de botão acessível do Ciberso-UI
  * Utiliza React Aria para garantir acessibilidade completa
  * Baseado na referência: Primary (azul), Secondary (cinza), com suporte a ícones
+ * 
+ * Estilização gerenciada via Class Variance Authority (cva) para type-safe variants
  */
 
 import { useButton, type AriaButtonProps } from 'react-aria';
 import { forwardRef, useRef } from 'react';
 import type { ReactNode } from 'react';
+import { buttonVariants, buttonIconOnlyVariants, iconSizeClasses } from './Button.variants';
+import { cn } from '../../../utils/cn';
 
 export interface ButtonProps extends AriaButtonProps {
   /**
@@ -36,6 +40,10 @@ export interface ButtonProps extends AriaButtonProps {
    * Requer que leftIcon ou rightIcon seja fornecido
    */
   iconOnly?: boolean;
+  /**
+   * Classes CSS adicionais
+   */
+  className?: string;
 }
 
 /**
@@ -87,32 +95,22 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     // Determinar qual ícone usar para icon-only
     const icon = iconOnly ? (leftIcon || rightIcon) : null;
 
-    // Classes baseadas na referência
-    const baseClasses = 'inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none rounded-md';
-    
-    const variantClasses = {
-      primary: 'bg-[#007BFF] text-white hover:bg-[#0066CC] active:bg-[#005299] focus-visible:ring-[#007BFF]',
-      secondary: 'bg-[#6B7280] text-white hover:bg-[#4B5563] active:bg-[#374151] focus-visible:ring-[#6B7280]',
-      ghost: 'bg-transparent text-[#111827] hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus-visible:ring-[#007BFF]',
-    };
+    // Usar cva para gerar classes baseadas nas variantes
+    const baseButtonClasses = buttonVariants({
+      variant,
+      size,
+    });
 
-    const sizeClasses = {
-      sm: iconOnly ? 'h-9 w-9' : 'h-9 px-3 text-sm',
-      md: iconOnly ? 'h-10 w-10' : 'h-10 px-4 text-sm',
-      lg: iconOnly ? 'h-11 w-11' : 'h-11 px-6 text-base',
-    };
+    // Aplicar classes específicas para icon-only se necessário
+    const iconOnlyClasses = iconOnly ? buttonIconOnlyVariants({ size }) : '';
 
-    const iconSizeClasses = {
-      sm: 'w-4 h-4',
-      md: 'w-5 h-5',
-      lg: 'w-6 h-6',
-    };
+    const buttonClasses = cn(baseButtonClasses, iconOnlyClasses);
 
     return (
       <button
         {...buttonProps}
         ref={ref}
-        className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]}`}
+        className={cn(buttonClasses, props.className)}
         data-variant={variant}
         data-size={size}
         data-pressed={isPressed ? '' : undefined}
@@ -123,13 +121,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ) : (
           <>
             {leftIcon && (
-              <span className={`${iconSizeClasses[size]} ${children ? 'mr-1.5' : ''}`}>
+              <span className={cn(iconSizeClasses[size], children && 'mr-1.5')}>
                 {leftIcon}
               </span>
             )}
             {children && <span>{children}</span>}
             {rightIcon && (
-              <span className={`${iconSizeClasses[size]} ${children ? 'ml-1.5' : ''}`}>
+              <span className={cn(iconSizeClasses[size], children && 'ml-1.5')}>
                 {rightIcon}
               </span>
             )}

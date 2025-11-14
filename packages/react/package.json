@@ -15,17 +15,20 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@ciberso/tokens": "workspace:*",
-    "@ciberso/theme": "workspace:*",
     "@ciberso/motion": "workspace:*",
+    "@ciberso/theme": "workspace:*",
+    "@ciberso/tokens": "workspace:*",
     "@react-aria/utils": "^3.28.0",
-    "react-aria": "^3.28.0"
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "react-aria": "^3.28.0",
+    "tailwind-merge": "^3.4.0"
   },
   "peerDependencies": {
+    "framer-motion": "^10.0.0 || ^11.0.0",
     "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0",
     "react-aria-components": "^1.0.0",
-    "framer-motion": "^10.0.0 || ^11.0.0"
+    "react-dom": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
@@ -37,4 +40,3 @@
   },
   "sideEffects": false
 }
-
