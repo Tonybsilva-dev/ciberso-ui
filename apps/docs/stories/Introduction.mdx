@@ -1,0 +1,205 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Getting Started" />
+
+# Ciberso-UI Design System
+
+Bem-vindo ao **Ciberso-UI**, um Design System temático inspirado no arquétipo Ciberso de Yu-Gi-Oh. Este guia irá ajudá-lo a começar a usar os componentes e tokens do Ciberso-UI em seu projeto Next.js.
+
+## Instalação
+
+Para começar a usar o Ciberso-UI, você precisa instalar os pacotes principais do Design System:
+
+```bash
+npm install @ciberso/react @ciberso/theme @ciberso/tokens
+```
+
+Ou se estiver usando `pnpm`:
+
+```bash
+pnpm add @ciberso/react @ciberso/theme @ciberso/tokens
+```
+
+Ou com `yarn`:
+
+```bash
+yarn add @ciberso/react @ciberso/theme @ciberso/tokens
+```
+
+### Dependências Peer
+
+O Ciberso-UI requer as seguintes dependências peer que você precisa instalar separadamente:
+
+```bash
+npm install react react-dom react-aria react-aria-components framer-motion
+```
+
+## Configuração do Tailwind CSS
+
+O Ciberso-UI fornece um preset do Tailwind CSS que inclui todos os tokens de design (cores, espaçamento, tipografia, animações).
+
+### 1. Instalar Tailwind CSS
+
+Se você ainda não tem o Tailwind CSS instalado:
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+### 2. Configurar o Preset
+
+Edite seu arquivo `tailwind.config.js` (ou `tailwind.config.ts`) e adicione o preset do Ciberso-UI:
+
+```js
+import { cibersoThemePreset } from '@ciberso/theme/tailwind';
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  presets: [cibersoThemePreset],
+  theme: {
+    extend: {
+      // Suas customizações adicionais aqui (opcional)
+    },
+  },
+  plugins: [],
+};
+```
+
+### O que o Preset Inclui
+
+O preset do Ciberso-UI adiciona automaticamente:
+
+- **Cores**: Paleta completa do Ciberso (cyan, royalBlue, darkBlue, gold, black) e cores semânticas
+- **Espaçamento**: Escala modular baseada em 4px
+- **Tipografia**: Tamanhos de fonte, pesos e famílias de fonte
+- **Animações**: Durações e funções de easing pré-configuradas
+
+Agora você pode usar classes Tailwind como:
+
+```tsx
+<div className="bg-ciberso-cyan-500 text-ciberso-darkBlue-500 p-4">
+  Conteúdo estilizado com tokens do Ciberso-UI
+</div>
+```
+
+## Configuração do ThemeProvider (Opcional)
+
+O Ciberso-UI suporta um `ThemeProvider` para gerenciar temas e configurações globais. Atualmente, os componentes funcionam sem um provider, mas você pode envolver sua aplicação com providers adicionais conforme necessário.
+
+### Exemplo com Next.js App Router
+
+Se você estiver usando o Next.js 13+ com App Router, edite seu arquivo `app/layout.tsx`:
+
+```tsx
+import { MotionProvider } from '@ciberso/motion';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Minha Aplicação',
+  description: 'Aplicação usando Ciberso-UI',
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="pt-BR">
+      <body>
+        <MotionProvider>
+          {children}
+        </MotionProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+### Exemplo com Next.js Pages Router
+
+Se você estiver usando o Next.js com Pages Router, edite seu arquivo `pages/_app.tsx`:
+
+```tsx
+import type { AppProps } from 'next/app';
+import { MotionProvider } from '@ciberso/motion';
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <MotionProvider>
+      <Component {...pageProps} />
+    </MotionProvider>
+  );
+}
+```
+
+> **Nota**: O `ThemeProvider` completo será implementado em uma versão futura do Ciberso-UI. Por enquanto, os componentes funcionam perfeitamente sem ele, e você pode usar o `MotionProvider` para habilitar animações quando necessário.
+
+## Usando os Componentes
+
+Após a instalação e configuração, você pode importar e usar os componentes do Ciberso-UI:
+
+```tsx
+import { Button, Input, Label } from '@ciberso/react';
+
+export default function MyPage() {
+  return (
+    <div className="p-8">
+      <Label htmlFor="email" isRequired>
+        Email
+      </Label>
+      <Input
+        id="email"
+        type="email"
+        placeholder="seu@email.com"
+        label="Email"
+      />
+      <Button variant="primary" size="md">
+        Enviar
+      </Button>
+    </div>
+  );
+}
+```
+
+## CSS Variables (Opcional)
+
+Se você preferir usar CSS variables em vez de classes Tailwind, o Ciberso-UI também exporta uma função para gerar variáveis CSS:
+
+```tsx
+import { generateCSSVariables } from '@ciberso/theme/css-variables';
+
+// Em seu arquivo de estilos globais ou componente
+const cssVars = generateCSSVariables();
+// Use cssVars para injetar as variáveis CSS
+```
+
+Ou use diretamente em seu CSS:
+
+```css
+:root {
+  --ciberso-cyan-500: #00F6FF;
+  --ciberso-royalBlue-500: #007BFF;
+  --ciberso-darkBlue-500: #0A192F;
+  /* ... outras variáveis */
+}
+```
+
+## Próximos Passos
+
+- Explore os componentes disponíveis na barra lateral do Storybook
+- Consulte a documentação de cada componente para ver todas as props e variantes
+- Veja exemplos de uso nas stories de cada componente
+
+## Recursos
+
+- **Tokens**: Todos os valores de design (cores, espaçamento, tipografia) estão disponíveis em `@ciberso/tokens`
+- **Theme**: Preset do Tailwind e CSS variables em `@ciberso/theme`
+- **Componentes**: Componentes React acessíveis em `@ciberso/react`
+
