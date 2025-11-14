@@ -55,8 +55,8 @@ describe('Tokens de Cor - Ciberso-UI', () => {
       expect(colors.semantic.success).toBe('#00F6FF');
     });
 
-    it('deve ter warning usando dourado', () => {
-      expect(colors.semantic.warning).toBe('#FFD700');
+    it('deve ter warning usando laranja (baseado na referência)', () => {
+      expect(colors.semantic.warning).toBe('#FF9500');
     });
 
     it('deve ter info usando azul royal', () => {
@@ -100,6 +100,46 @@ describe('Tokens de Cor - Ciberso-UI', () => {
       expect(colors.primary.azulEscuro).toMatch(hexPattern);
       expect(colors.primary.dourado).toMatch(hexPattern);
       expect(colors.primary.preto).toMatch(hexPattern);
+    });
+  });
+
+  describe('Cores UI para componentes', () => {
+    it('deve exportar cores UI', () => {
+      expect(colors.ui).toBeDefined();
+      expect(colors.ui.primary).toBeDefined();
+      expect(colors.ui.secondary).toBeDefined();
+      expect(colors.ui.input).toBeDefined();
+      expect(colors.ui.tag).toBeDefined();
+    });
+
+    it('deve ter primary button com cores corretas', () => {
+      expect(colors.ui.primary.bg).toBe('#007BFF');
+      expect(colors.ui.primary.text).toBe('#FFFFFF');
+      expect(colors.ui.primary.hover).toBe('#0066CC');
+    });
+
+    it('deve ter secondary button com cores corretas', () => {
+      expect(colors.ui.secondary.bg).toBe('#6B7280');
+      expect(colors.ui.secondary.text).toBe('#FFFFFF');
+      expect(colors.ui.secondary.hover).toBe('#4B5563');
+    });
+
+    it('deve ter input com cores corretas', () => {
+      expect(colors.ui.input.border).toBe('#9CA3AF');
+      expect(colors.ui.input.borderFocused).toBe('#007BFF');
+      expect(colors.ui.input.borderError).toBe('#FF4444');
+    });
+  });
+
+  describe('Escala de cinza', () => {
+    it('deve exportar escala de cinza', () => {
+      expect(colors.ciberso.gray).toBeDefined();
+    });
+
+    it('deve ter valores corretos para gray[500], gray[400], gray[900]', () => {
+      expect(colors.ciberso.gray[500]).toBe('#6B7280');
+      expect(colors.ciberso.gray[400]).toBe('#9CA3AF');
+      expect(colors.ciberso.gray[900]).toBe('#111827');
     });
   });
 });
