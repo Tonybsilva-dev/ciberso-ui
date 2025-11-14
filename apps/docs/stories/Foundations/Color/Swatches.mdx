@@ -1,147 +1,329 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { colors } from '@ciberso/tokens';
 
 <Meta title="Foundations/Color/Swatches" />
 
 # Color Swatches
 
-Amostras interativas de todas as cores do Ciberso-UI Design System.
+Amostras interativas de todas as cores do Ciberso-UI Design System, inspirado no **Cloude**.
 
-## Interactive Color Picker
+## Primary Theme Colors
 
-Selecione uma cor para ver seus detalhes e valores.
-
-<div style={{ marginTop: '2rem' }}>
-  <h3>Ciberso Theme Colors</h3>
-  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
-    {Object.entries(colors.ciberso).map(([colorName, colorScale]) => (
-      <div key={colorName} style={{ border: '1px solid #e5e7eb', borderRadius: '8px', overflow: 'hidden' }}>
-        <div style={{ padding: '0.5rem', backgroundColor: '#f9fafb', borderBottom: '1px solid #e5e7eb' }}>
-          <div style={{ fontSize: '12px', fontWeight: 'bold', textTransform: 'capitalize' }}>{colorName}</div>
-        </div>
-        {Object.entries(colorScale).map(([key, value]) => (
-          <div
-            key={key}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              padding: '0.5rem',
-              backgroundColor: value,
-              cursor: 'pointer',
-              transition: 'opacity 0.2s',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.opacity = '0.8';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.opacity = '1';
-            }}
-            onClick={() => {
-              navigator.clipboard.writeText(value);
-              alert(`Cor ${value} copiada para a área de transferência!`);
-            }}
-          >
-            <div style={{ flex: 1, fontSize: '11px', fontWeight: 'bold', color: parseInt(key) >= 500 ? '#fff' : '#000' }}>
-              {key}
-            </div>
-            <div style={{ fontSize: '10px', color: parseInt(key) >= 500 ? '#fff' : '#000', opacity: 0.8 }}>
-              {value}
-            </div>
-          </div>
-        ))}
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
+  {[
+    { name: 'Background', color: '#faf9f5', textColor: '#3d3929' },
+    { name: 'Foreground', color: '#3d3929', textColor: '#ffffff' },
+    { name: 'Primary', color: '#c96442', textColor: '#ffffff' },
+    { name: 'Primary Foreground', color: '#ffffff', textColor: '#3d3929' },
+  ].map((swatch) => (
+    <div
+      key={swatch.name}
+      style={{
+        padding: '1.5rem',
+        backgroundColor: swatch.color,
+        borderRadius: '8px',
+        border: '1px solid #dad9d4',
+        cursor: 'pointer',
+        textAlign: 'center',
+        transition: 'transform 0.2s, box-shadow 0.2s',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'scale(1.02)';
+        e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'scale(1)';
+        e.currentTarget.style.boxShadow = 'none';
+      }}
+      onClick={() => {
+        navigator.clipboard.writeText(swatch.color);
+        alert(`Cor ${swatch.color} copiada para a área de transferência!`);
+      }}
+    >
+      <div style={{ fontSize: '16px', fontWeight: 'bold', color: swatch.textColor, marginBottom: '0.5rem' }}>
+        {swatch.name}
       </div>
-    ))}
-  </div>
-</div>
-
-<div style={{ marginTop: '3rem' }}>
-  <h3>Semantic Colors</h3>
-  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
-    {Object.entries(colors.semantic).map(([key, value]) => (
-      <div
-        key={key}
-        style={{
-          padding: '2rem',
-          backgroundColor: value,
-          borderRadius: '8px',
-          border: '1px solid #e5e7eb',
-          cursor: 'pointer',
-          textAlign: 'center',
-        }}
-        onClick={() => {
-          navigator.clipboard.writeText(value);
-          alert(`Cor ${value} copiada para a área de transferência!`);
-        }}
-      >
-        <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#fff', marginBottom: '0.5rem', textTransform: 'capitalize' }}>
-          {key}
-        </div>
-        <div style={{ fontSize: '12px', color: '#fff', opacity: 0.9 }}>{value}</div>
+      <div style={{ fontSize: '14px', color: swatch.textColor, opacity: 0.9, marginBottom: '0.25rem' }}>
+        {swatch.color}
       </div>
-    ))}
-  </div>
-</div>
-
-<div style={{ marginTop: '3rem' }}>
-  <h3>UI Component Colors</h3>
-  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
-    <div style={{ border: '1px solid #e5e7eb', borderRadius: '8px', padding: '1rem' }}>
-      <h4 style={{ marginTop: 0 }}>Primary Button</h4>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <div style={{ width: '40px', height: '40px', backgroundColor: colors.ui.primary.bg, borderRadius: '4px' }} />
-          <div>
-            <div style={{ fontSize: '12px', fontWeight: 'bold' }}>Background</div>
-            <div style={{ fontSize: '11px', color: '#6b7280' }}>{colors.ui.primary.bg}</div>
-          </div>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <div style={{ width: '40px', height: '40px', backgroundColor: colors.ui.primary.hover, borderRadius: '4px' }} />
-          <div>
-            <div style={{ fontSize: '12px', fontWeight: 'bold' }}>Hover</div>
-            <div style={{ fontSize: '11px', color: '#6b7280' }}>{colors.ui.primary.hover}</div>
-          </div>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <div style={{ width: '40px', height: '40px', backgroundColor: colors.ui.primary.active, borderRadius: '4px' }} />
-          <div>
-            <div style={{ fontSize: '12px', fontWeight: 'bold' }}>Active</div>
-            <div style={{ fontSize: '11px', color: '#6b7280' }}>{colors.ui.primary.active}</div>
-          </div>
-        </div>
+      <div style={{ fontSize: '12px', color: swatch.textColor, opacity: 0.7 }}>
+        Clique para copiar
       </div>
     </div>
-    
-    <div style={{ border: '1px solid #e5e7eb', borderRadius: '8px', padding: '1rem' }}>
-      <h4 style={{ marginTop: 0 }}>Secondary Button</h4>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <div style={{ width: '40px', height: '40px', backgroundColor: colors.ui.secondary.bg, borderRadius: '4px' }} />
-          <div>
-            <div style={{ fontSize: '12px', fontWeight: 'bold' }}>Background</div>
-            <div style={{ fontSize: '11px', color: '#6b7280' }}>{colors.ui.secondary.bg}</div>
-          </div>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <div style={{ width: '40px', height: '40px', backgroundColor: colors.ui.secondary.hover, borderRadius: '4px' }} />
-          <div>
-            <div style={{ fontSize: '12px', fontWeight: 'bold' }}>Hover</div>
-            <div style={{ fontSize: '11px', color: '#6b7280' }}>{colors.ui.secondary.hover}</div>
-          </div>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <div style={{ width: '40px', height: '40px', backgroundColor: colors.ui.secondary.active, borderRadius: '4px' }} />
-          <div>
-            <div style={{ fontSize: '12px', fontWeight: 'bold' }}>Active</div>
-            <div style={{ fontSize: '11px', color: '#6b7280' }}>{colors.ui.secondary.active}</div>
-          </div>
-        </div>
+  ))}
+</div>
+
+## Secondary & Accent Colors
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
+  {[
+    { name: 'Secondary', color: '#e9e6dc', textColor: '#3d3929' },
+    { name: 'Secondary Foreground', color: '#535146', textColor: '#ffffff' },
+    { name: 'Accent', color: '#e9e6dc', textColor: '#28261b' },
+    { name: 'Accent Foreground', color: '#28261b', textColor: '#ffffff' },
+  ].map((swatch) => (
+    <div
+      key={swatch.name}
+      style={{
+        padding: '1.5rem',
+        backgroundColor: swatch.color,
+        borderRadius: '8px',
+        border: '1px solid #dad9d4',
+        cursor: 'pointer',
+        textAlign: 'center',
+        transition: 'transform 0.2s, box-shadow 0.2s',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'scale(1.02)';
+        e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'scale(1)';
+        e.currentTarget.style.boxShadow = 'none';
+      }}
+      onClick={() => {
+        navigator.clipboard.writeText(swatch.color);
+        alert(`Cor ${swatch.color} copiada para a área de transferência!`);
+      }}
+    >
+      <div style={{ fontSize: '16px', fontWeight: 'bold', color: swatch.textColor, marginBottom: '0.5rem' }}>
+        {swatch.name}
+      </div>
+      <div style={{ fontSize: '14px', color: swatch.textColor, opacity: 0.9, marginBottom: '0.25rem' }}>
+        {swatch.color}
+      </div>
+      <div style={{ fontSize: '12px', color: swatch.textColor, opacity: 0.7 }}>
+        Clique para copiar
       </div>
     </div>
-  </div>
+  ))}
+</div>
+
+## UI Component Colors
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
+  {[
+    { name: 'Card', color: '#faf9f5', textColor: '#3d3929' },
+    { name: 'Card Foreground', color: '#141413', textColor: '#ffffff' },
+    { name: 'Muted', color: '#ede9de', textColor: '#3d3929' },
+    { name: 'Muted Foreground', color: '#83827d', textColor: '#ffffff' },
+    { name: 'Popover', color: '#ffffff', textColor: '#3d3929' },
+    { name: 'Popover Foreground', color: '#28261b', textColor: '#ffffff' },
+  ].map((swatch) => (
+    <div
+      key={swatch.name}
+      style={{
+        padding: '1.5rem',
+        backgroundColor: swatch.color,
+        borderRadius: '8px',
+        border: '1px solid #dad9d4',
+        cursor: 'pointer',
+        textAlign: 'center',
+        transition: 'transform 0.2s, box-shadow 0.2s',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'scale(1.02)';
+        e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'scale(1)';
+        e.currentTarget.style.boxShadow = 'none';
+      }}
+      onClick={() => {
+        navigator.clipboard.writeText(swatch.color);
+        alert(`Cor ${swatch.color} copiada para a área de transferência!`);
+      }}
+    >
+      <div style={{ fontSize: '16px', fontWeight: 'bold', color: swatch.textColor, marginBottom: '0.5rem' }}>
+        {swatch.name}
+      </div>
+      <div style={{ fontSize: '14px', color: swatch.textColor, opacity: 0.9, marginBottom: '0.25rem' }}>
+        {swatch.color}
+      </div>
+      <div style={{ fontSize: '12px', color: swatch.textColor, opacity: 0.7 }}>
+        Clique para copiar
+      </div>
+    </div>
+  ))}
+</div>
+
+## Status & Feedback Colors
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
+  {[
+    { name: 'Destructive', color: '#141413', textColor: '#ffffff' },
+    { name: 'Destructive Foreground', color: '#ffffff', textColor: '#3d3929' },
+  ].map((swatch) => (
+    <div
+      key={swatch.name}
+      style={{
+        padding: '1.5rem',
+        backgroundColor: swatch.color,
+        borderRadius: '8px',
+        border: '1px solid #dad9d4',
+        cursor: 'pointer',
+        textAlign: 'center',
+        transition: 'transform 0.2s, box-shadow 0.2s',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'scale(1.02)';
+        e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'scale(1)';
+        e.currentTarget.style.boxShadow = 'none';
+      }}
+      onClick={() => {
+        navigator.clipboard.writeText(swatch.color);
+        alert(`Cor ${swatch.color} copiada para a área de transferência!`);
+      }}
+    >
+      <div style={{ fontSize: '16px', fontWeight: 'bold', color: swatch.textColor, marginBottom: '0.5rem' }}>
+        {swatch.name}
+      </div>
+      <div style={{ fontSize: '14px', color: swatch.textColor, opacity: 0.9, marginBottom: '0.25rem' }}>
+        {swatch.color}
+      </div>
+      <div style={{ fontSize: '12px', color: swatch.textColor, opacity: 0.7 }}>
+        Clique para copiar
+      </div>
+    </div>
+  ))}
+</div>
+
+## Chart & Visualization Colors
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
+  {[
+    { name: 'Chart 1', color: '#b05730', textColor: '#ffffff' },
+    { name: 'Chart 2', color: '#9c87f5', textColor: '#ffffff' },
+    { name: 'Chart 3', color: '#ded8c4', textColor: '#3d3929' },
+    { name: 'Chart 4', color: '#dbd3f0', textColor: '#3d3929' },
+    { name: 'Chart 5', color: '#b4552d', textColor: '#ffffff' },
+  ].map((swatch) => (
+    <div
+      key={swatch.name}
+      style={{
+        padding: '1.5rem',
+        backgroundColor: swatch.color,
+        borderRadius: '8px',
+        border: '1px solid #dad9d4',
+        cursor: 'pointer',
+        textAlign: 'center',
+        transition: 'transform 0.2s, box-shadow 0.2s',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'scale(1.02)';
+        e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'scale(1)';
+        e.currentTarget.style.boxShadow = 'none';
+      }}
+      onClick={() => {
+        navigator.clipboard.writeText(swatch.color);
+        alert(`Cor ${swatch.color} copiada para a área de transferência!`);
+      }}
+    >
+      <div style={{ fontSize: '14px', fontWeight: 'bold', color: swatch.textColor, marginBottom: '0.5rem' }}>
+        {swatch.name}
+      </div>
+      <div style={{ fontSize: '12px', color: swatch.textColor, opacity: 0.9 }}>
+        {swatch.color}
+      </div>
+    </div>
+  ))}
+</div>
+
+## Sidebar & Navigation Colors
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
+  {[
+    { name: 'Sidebar', color: '#f5f4ee', textColor: '#3d3929' },
+    { name: 'Sidebar Foreground', color: '#3d3d3a', textColor: '#ffffff' },
+    { name: 'Sidebar Primary', color: '#c96442', textColor: '#ffffff' },
+    { name: 'Sidebar Accent', color: '#e9e6dc', textColor: '#3d3929' },
+  ].map((swatch) => (
+    <div
+      key={swatch.name}
+      style={{
+        padding: '1.5rem',
+        backgroundColor: swatch.color,
+        borderRadius: '8px',
+        border: '1px solid #dad9d4',
+        cursor: 'pointer',
+        textAlign: 'center',
+        transition: 'transform 0.2s, box-shadow 0.2s',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'scale(1.02)';
+        e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'scale(1)';
+        e.currentTarget.style.boxShadow = 'none';
+      }}
+      onClick={() => {
+        navigator.clipboard.writeText(swatch.color);
+        alert(`Cor ${swatch.color} copiada para a área de transferência!`);
+      }}
+    >
+      <div style={{ fontSize: '14px', fontWeight: 'bold', color: swatch.textColor, marginBottom: '0.5rem' }}>
+        {swatch.name}
+      </div>
+      <div style={{ fontSize: '12px', color: swatch.textColor, opacity: 0.9 }}>
+        {swatch.color}
+      </div>
+    </div>
+  ))}
+</div>
+
+## Utility & Form Colors
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
+  {[
+    { name: 'Border', color: '#dad9d4', textColor: '#3d3929' },
+    { name: 'Input', color: '#b4b2a7', textColor: '#ffffff' },
+    { name: 'Ring', color: '#c96442', textColor: '#ffffff' },
+  ].map((swatch) => (
+    <div
+      key={swatch.name}
+      style={{
+        padding: '1.5rem',
+        backgroundColor: swatch.color,
+        borderRadius: '8px',
+        border: '1px solid #dad9d4',
+        cursor: 'pointer',
+        textAlign: 'center',
+        transition: 'transform 0.2s, box-shadow 0.2s',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'scale(1.02)';
+        e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'scale(1)';
+        e.currentTarget.style.boxShadow = 'none';
+      }}
+      onClick={() => {
+        navigator.clipboard.writeText(swatch.color);
+        alert(`Cor ${swatch.color} copiada para a área de transferência!`);
+      }}
+    >
+      <div style={{ fontSize: '16px', fontWeight: 'bold', color: swatch.textColor, marginBottom: '0.5rem' }}>
+        {swatch.name}
+      </div>
+      <div style={{ fontSize: '14px', color: swatch.textColor, opacity: 0.9, marginBottom: '0.25rem' }}>
+        {swatch.color}
+      </div>
+      <div style={{ fontSize: '12px', color: swatch.textColor, opacity: 0.7 }}>
+        Clique para copiar
+      </div>
+    </div>
+  ))}
 </div>
 
 ## Usage
 
 Clique em qualquer cor para copiar seu valor hexadecimal para a área de transferência.
 
+Todas as cores também estão disponíveis como classes Tailwind CSS (ex: `bg-primary`, `text-foreground`, `border-border`).

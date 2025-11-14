@@ -4,15 +4,18 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Color
 
-A paleta de cores do Ciberso-UI Design System é inspirada no arquétipo Ciberso de Yu-Gi-Oh, criando uma identidade visual única e consistente.
+A paleta de cores do Ciberso-UI Design System é inspirada no **Cloude**, criando uma identidade visual única, elegante e consistente.
 
 ## Visão Geral
 
-O sistema de cores do Ciberso-UI é organizado em três categorias principais:
+O sistema de cores do Ciberso-UI segue o padrão **shadcn/ui** e é organizado em categorias principais:
 
-- **Ciberso Colors**: Paleta temática principal (cyan, royalBlue, darkBlue, gold, black)
-- **Semantic Colors**: Cores semânticas para feedback (success, error, warning, info)
-- **UI Colors**: Cores específicas para componentes (primary, secondary, input, tag)
+- **Primary Theme Colors**: Cores principais do tema (background, foreground, primary, secondary)
+- **UI Component Colors**: Cores específicas para componentes (card, popover, muted, accent)
+- **Status & Feedback Colors**: Cores semânticas para feedback (destructive, success, warning, info)
+- **Chart & Visualization Colors**: Cores para gráficos e visualizações
+- **Sidebar & Navigation Colors**: Cores para navegação e sidebars
+- **Utility & Form Colors**: Cores utilitárias (border, input, ring)
 
 ## Estrutura
 
@@ -24,3 +27,12 @@ Esta seção contém as seguintes páginas:
 - **Meaning**: Significado e uso de cada cor
 - **Swatches**: Amostras interativas de cores
 
+## Sistema de Cores
+
+O Ciberso-UI utiliza **variáveis CSS** com valores **OKLCH** para garantir:
+- Consistência visual em diferentes dispositivos
+- Melhor percepção de cores uniforme
+- Suporte a temas claro e escuro
+- Compatibilidade com padrões modernos de design
+
+Todas as cores são acessíveis via classes Tailwind CSS (ex: `bg-primary`, `text-foreground`, `border-border`).

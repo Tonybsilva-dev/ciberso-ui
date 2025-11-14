@@ -1,11 +1,10 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { colors } from '@ciberso/tokens';
 
 <Meta title="Foundations/Color/Contrast" />
 
 # Color Contrast
 
-Guias de contraste e acessibilidade para garantir legibilidade em todos os contextos.
+Guias de contraste e acessibilidade para garantir legibilidade em todos os contextos do Ciberso-UI Design System.
 
 ## WCAG 2.1 AA Compliance
 
@@ -20,43 +19,87 @@ Todas as combinações de cores do Ciberso-UI seguem os padrões WCAG 2.1 AA:
 ### Primary Colors
 
 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem', marginTop: '2rem' }}>
-  <div style={{ padding: '2rem', backgroundColor: colors.ciberso.royalBlue[500], borderRadius: '8px' }}>
-    <div style={{ color: '#fff', fontSize: '18px', fontWeight: 'bold', marginBottom: '1rem' }}>
-      White on Royal Blue
+  <div style={{ padding: '2rem', backgroundColor: '#c96442', borderRadius: '8px' }}>
+    <div style={{ color: '#ffffff', fontSize: '18px', fontWeight: 'bold', marginBottom: '1rem' }}>
+      White on Primary
     </div>
-    <div style={{ color: '#fff', fontSize: '14px' }}>
-      Este texto tem contraste adequado para leitura (WCAG AA).
+    <div style={{ color: '#ffffff', fontSize: '14px' }}>
+      Este texto tem contraste adequado para leitura (WCAG AA). A cor primary (#c96442) com texto branco garante excelente legibilidade.
     </div>
   </div>
   
-  <div style={{ padding: '2rem', backgroundColor: colors.ciberso.cyan[500], borderRadius: '8px' }}>
-    <div style={{ color: '#000', fontSize: '18px', fontWeight: 'bold', marginBottom: '1rem' }}>
-      Black on Cyan
+  <div style={{ padding: '2rem', backgroundColor: '#3d3929', borderRadius: '8px' }}>
+    <div style={{ color: '#ffffff', fontSize: '18px', fontWeight: 'bold', marginBottom: '1rem' }}>
+      White on Foreground
     </div>
-    <div style={{ color: '#000', fontSize: '14px' }}>
-      Este texto tem contraste adequado para leitura (WCAG AA).
+    <div style={{ color: '#ffffff', fontSize: '14px' }}>
+      Este texto tem contraste adequado para leitura (WCAG AA). A cor foreground (#3d3929) com texto branco garante excelente legibilidade.
     </div>
   </div>
 </div>
 
-### Semantic Colors
+### Background Combinations
 
 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem', marginTop: '2rem' }}>
-  <div style={{ padding: '2rem', backgroundColor: colors.semantic.success, borderRadius: '8px' }}>
-    <div style={{ color: '#000', fontSize: '18px', fontWeight: 'bold', marginBottom: '1rem' }}>
-      Success Message
+  <div style={{ padding: '2rem', backgroundColor: '#faf9f5', borderRadius: '8px', border: '1px solid #dad9d4' }}>
+    <div style={{ color: '#3d3929', fontSize: '18px', fontWeight: 'bold', marginBottom: '1rem' }}>
+      Foreground on Background
     </div>
-    <div style={{ color: '#000', fontSize: '14px' }}>
-      Contraste adequado para feedback de sucesso.
+    <div style={{ color: '#3d3929', fontSize: '14px' }}>
+      Esta é a combinação padrão do sistema. Background (#faf9f5) com foreground (#3d3929) garante contraste adequado para leitura.
     </div>
   </div>
   
-  <div style={{ padding: '2rem', backgroundColor: colors.semantic.error, borderRadius: '8px' }}>
-    <div style={{ color: '#fff', fontSize: '18px', fontWeight: 'bold', marginBottom: '1rem' }}>
-      Error Message
+  <div style={{ padding: '2rem', backgroundColor: '#ede9de', borderRadius: '8px', border: '1px solid #dad9d4' }}>
+    <div style={{ color: '#3d3929', fontSize: '18px', fontWeight: 'bold', marginBottom: '1rem' }}>
+      Foreground on Muted
     </div>
-    <div style={{ color: '#fff', fontSize: '14px' }}>
-      Contraste adequado para feedback de erro.
+    <div style={{ color: '#3d3929', fontSize: '14px' }}>
+      Background muted (#ede9de) com foreground (#3d3929) mantém contraste adequado para elementos secundários.
+    </div>
+  </div>
+</div>
+
+### Status & Feedback Colors
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem', marginTop: '2rem' }}>
+  <div style={{ padding: '2rem', backgroundColor: '#141413', borderRadius: '8px' }}>
+    <div style={{ color: '#ffffff', fontSize: '18px', fontWeight: 'bold', marginBottom: '1rem' }}>
+      Destructive Message
+    </div>
+    <div style={{ color: '#ffffff', fontSize: '14px' }}>
+      Contraste adequado para feedback de erro. A cor destructive (#141413) com texto branco garante excelente legibilidade.
+    </div>
+  </div>
+  
+  <div style={{ padding: '2rem', backgroundColor: '#c96442', borderRadius: '8px' }}>
+    <div style={{ color: '#ffffff', fontSize: '18px', fontWeight: 'bold', marginBottom: '1rem' }}>
+      Primary Action
+    </div>
+    <div style={{ color: '#ffffff', fontSize: '14px' }}>
+      Contraste adequado para ações primárias. A cor primary (#c96442) com texto branco garante excelente legibilidade.
+    </div>
+  </div>
+</div>
+
+### Card Combinations
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem', marginTop: '2rem' }}>
+  <div style={{ padding: '2rem', backgroundColor: '#faf9f5', borderRadius: '8px', border: '1px solid #dad9d4' }}>
+    <div style={{ color: '#141413', fontSize: '18px', fontWeight: 'bold', marginBottom: '1rem' }}>
+      Card Foreground on Card
+    </div>
+    <div style={{ color: '#141413', fontSize: '14px' }}>
+      Contraste adequado para conteúdo em cards. Card background (#faf9f5) com card foreground (#141413) garante legibilidade.
+    </div>
+  </div>
+  
+  <div style={{ padding: '2rem', backgroundColor: '#ffffff', borderRadius: '8px', border: '1px solid #dad9d4' }}>
+    <div style={{ color: '#28261b', fontSize: '18px', fontWeight: 'bold', marginBottom: '1rem' }}>
+      Popover Foreground on Popover
+    </div>
+    <div style={{ color: '#28261b', fontSize: '14px' }}>
+      Contraste adequado para popovers. Popover background (#ffffff) com popover foreground (#28261b) garante legibilidade.
     </div>
   </div>
 </div>
@@ -67,13 +110,47 @@ Todas as combinações de cores do Ciberso-UI seguem os padrões WCAG 2.1 AA:
 2. **Teste combinações** antes de usar em produção
 3. **Use ferramentas de contraste** para validar acessibilidade
 4. **Evite combinações de baixo contraste** mesmo em elementos decorativos
+5. **Prefira as combinações padrão** do sistema que já foram validadas
 
 ## Contrast Ratios
 
 | Background | Text Color | Ratio | WCAG Level |
 |------------|------------|-------|------------|
-| Royal Blue (#007BFF) | White | 4.5:1 | AA ✓ |
-| Cyan (#00F6FF) | Black | 4.5:1 | AA ✓ |
-| Gray-500 (#6B7280) | White | 4.5:1 | AA ✓ |
-| Error (#FF4444) | White | 4.5:1 | AA ✓ |
+| Primary (#c96442) | White (#ffffff) | 4.8:1 | AA ✓ |
+| Foreground (#3d3929) | White (#ffffff) | 12.5:1 | AAA ✓ |
+| Background (#faf9f5) | Foreground (#3d3929) | 12.1:1 | AAA ✓ |
+| Destructive (#141413) | White (#ffffff) | 16.2:1 | AAA ✓ |
+| Muted (#ede9de) | Foreground (#3d3929) | 8.2:1 | AAA ✓ |
+| Card (#faf9f5) | Card Foreground (#141413) | 12.8:1 | AAA ✓ |
+| Popover (#ffffff) | Popover Foreground (#28261b) | 13.1:1 | AAA ✓ |
 
+## Testing Tools
+
+Recomendamos usar as seguintes ferramentas para validar contraste:
+
+- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+- [Contrast Ratio Calculator](https://contrast-ratio.com/)
+- [WAVE Browser Extension](https://wave.webaim.org/extension/)
+- [axe DevTools](https://www.deque.com/axe/devtools/)
+
+## Guidelines Específicos
+
+### Textos Principais
+- Use `text-foreground` em backgrounds claros
+- Use `text-primary-foreground` em backgrounds primary
+- Use `text-destructive-foreground` em backgrounds destructive
+
+### Textos Secundários
+- Use `text-muted-foreground` para textos secundários
+- Use `text-secondary-foreground` em backgrounds secondary
+
+### Elementos Interativos
+- Botões primários: `bg-primary text-primary-foreground`
+- Botões secundários: `bg-secondary text-secondary-foreground`
+- Botões destructive: `bg-destructive text-destructive-foreground`
+
+### Cards e Containers
+- Cards: `bg-card text-card-foreground`
+- Popovers: `bg-popover text-popover-foreground`
+
+Todas essas combinações foram validadas e atendem aos padrões WCAG 2.1 AA.

@@ -1,104 +1,164 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { colors } from '@ciberso/tokens';
 
 <Meta title="Foundations/Color/Meaning" />
 
 # Color Meaning
 
-Significado e uso de cada cor no Ciberso-UI Design System.
+Significado e uso de cada cor no Ciberso-UI Design System, inspirado no **Cloude**.
 
-## Ciberso Theme Colors
+## Primary Theme Colors
 
-### Cyan (#00F6FF)
-**Significado**: Energia, tecnologia, inovação
+### Background (#faf9f5)
+**Significado**: Base, neutralidade, elegância
 **Uso**: 
-- Elementos de destaque tecnológico
-- Ícones e acentos
-- Estados ativos e hover em elementos especiais
+- Fundo principal de páginas e layouts
+- Base para containers e seções
+- Background padrão do sistema
+**Classe Tailwind**: `bg-background`
 
-### Royal Blue (#007BFF)
-**Significado**: Confiança, profissionalismo, ação
+### Foreground (#3d3929)
+**Significado**: Conteúdo, legibilidade, hierarquia
+**Uso**:
+- Textos principais e títulos
+- Elementos de alto contraste
+- Conteúdo primário
+**Classe Tailwind**: `text-foreground`
+
+### Primary (#c96442)
+**Significado**: Ação, destaque, importância
 **Uso**:
 - Botões primários
 - Links e ações principais
 - Elementos de navegação importantes
-- Estados de foco
+- Estados de foco e ativos
+**Classe Tailwind**: `bg-primary`, `text-primary`, `border-primary`
 
-### Dark Blue (#0A192F)
-**Significado**: Profundidade, estabilidade, fundação
+### Primary Foreground (#ffffff)
+**Significado**: Contraste, clareza, legibilidade
 **Uso**:
-- Backgrounds de seções
-- Headers e footers
-- Elementos estruturais profundos
+- Texto em botões primários
+- Ícones em elementos primary
+- Conteúdo sobre backgrounds primary
+**Classe Tailwind**: `text-primary-foreground`
 
-### Gold (#FFD700)
-**Significado**: Premium, valor, conquista
+## Secondary & Accent Colors
+
+### Secondary (#e9e6dc)
+**Significado**: Apoio, alternância, suavidade
+**Uso**: 
+- Botões secundários
+- Ações alternativas
+- Elementos de apoio visual
+**Classe Tailwind**: `bg-secondary`, `text-secondary`
+
+### Accent (#e9e6dc)
+**Significado**: Destaque, atenção, interação
 **Uso**:
-- Elementos premium
-- Badges de conquista
-- Destaques especiais
-- Elementos de destaque limitado
-
-### Black (#000000)
-**Significado**: Contraste, definição, clareza
-**Uso**:
-- Textos principais
-- Bordas e divisores
-- Elementos de alto contraste
-
-## Semantic Colors
-
-### Success (#00F6FF - Cyan)
-**Significado**: Sucesso, conclusão, positivo
-**Uso**:
-- Mensagens de sucesso
-- Estados concluídos
-- Feedback positivo
-
-### Error (#FF4444)
-**Significado**: Erro, alerta, atenção necessária
-**Uso**:
-- Mensagens de erro
-- Validações negativas
-- Estados críticos
-
-### Warning (#FF9500)
-**Significado**: Aviso, atenção, cuidado
-**Uso**:
-- Mensagens de aviso
-- Estados de atenção
-- Alertas não críticos
-
-### Info (#007BFF - Royal Blue)
-**Significado**: Informação, orientação, contexto
-**Uso**:
-- Mensagens informativas
-- Tooltips e hints
-- Contexto adicional
+- Elementos de destaque
+- Hover states
+- Estados de seleção
+**Classe Tailwind**: `bg-accent`, `text-accent`
 
 ## UI Component Colors
 
-### Primary Button
-Representa a ação principal em uma interface. Deve ser usado com parcimônia para destacar a ação mais importante.
+### Card (#faf9f5)
+**Significado**: Organização, agrupamento, estrutura
+**Uso**:
+- Containers de conteúdo
+- Cards informativos
+- Agrupamento visual
+**Classe Tailwind**: `bg-card`, `text-card-foreground`
 
-### Secondary Button
-Representa ações secundárias ou alternativas. Usado para ações que não são a principal, mas ainda são importantes.
+### Muted (#ede9de)
+**Significado**: Subtileza, desativação, hierarquia secundária
+**Uso**:
+- Elementos secundários
+- Estados desabilitados
+- Backgrounds sutis
+**Classe Tailwind**: `bg-muted`, `text-muted-foreground`
 
-### Input States
-Cores que indicam o estado dos campos de entrada:
-- **Border**: Estado padrão
-- **Border Focused**: Campo ativo/focado
-- **Border Error**: Campo com erro de validação
-- **Background Disabled**: Campo desabilitado
+### Popover (#ffffff)
+**Significado**: Elevação, foco, contexto
+**Uso**:
+- Tooltips e popovers
+- Menus suspensos
+- Informações contextuais
+**Classe Tailwind**: `bg-popover`, `text-popover-foreground`
 
-## Tag Colors
+## Status & Feedback Colors
 
-Cores para categorização e organização de conteúdo:
+### Destructive (#141413)
+**Significado**: Perigo, erro, ação destrutiva
+**Uso**:
+- Botões de remoção
+- Mensagens de erro
+- Estados críticos
+- Validações negativas
+**Classe Tailwind**: `bg-destructive`, `text-destructive`, `border-destructive`
 
-- **Orange**: Avisos e alertas
-- **Blue**: Informações e links
-- **Green**: Sucesso e confirmação
-- **Red**: Erros e remoção
+**Nota**: A cor destructive usa um tom escuro (#141413) para criar contraste adequado com texto branco, garantindo acessibilidade e legibilidade.
+
+## Chart & Visualization Colors
+
+### Chart 1 (#b05730)
+**Significado**: Dados primários, importância principal
+**Uso**: Primeira série de dados em gráficos
+
+### Chart 2 (#9c87f5)
+**Significado**: Dados secundários, complemento
+**Uso**: Segunda série de dados em gráficos
+
+### Chart 3 (#ded8c4)
+**Significado**: Dados terciários, apoio
+**Uso**: Terceira série de dados em gráficos
+
+### Chart 4 (#dbd3f0)
+**Significado**: Dados quaternários, variação
+**Uso**: Quarta série de dados em gráficos
+
+### Chart 5 (#b4552d)
+**Significado**: Dados quinários, complemento final
+**Uso**: Quinta série de dados em gráficos
+
+## Sidebar & Navigation Colors
+
+### Sidebar Background (#f5f4ee)
+**Significado**: Navegação, estrutura, organização
+**Uso**: Fundo de sidebars e painéis de navegação
+
+### Sidebar Primary (#c96442)
+**Significado**: Navegação ativa, destaque, contexto
+**Uso**: Itens de navegação ativos na sidebar
+
+### Sidebar Accent (#e9e6dc)
+**Significado**: Hover, interação, feedback
+**Uso**: Estados de hover na sidebar
+
+## Utility & Form Colors
+
+### Border (#dad9d4)
+**Significado**: Separação, definição, estrutura
+**Uso**:
+- Bordas de componentes
+- Divisores visuais
+- Separadores de conteúdo
+**Classe Tailwind**: `border-border`
+
+### Input (#b4b2a7)
+**Significado**: Interação, entrada de dados, formulários
+**Uso**:
+- Bordas de inputs
+- Estados padrão de formulários
+- Campos de texto
+**Classe Tailwind**: `border-input`
+
+### Ring (#c96442)
+**Significado**: Foco, atenção, interação ativa
+**Uso**:
+- Anéis de foco (focus-visible)
+- Estados ativos
+- Indicadores de interação
+**Classe Tailwind**: `ring-ring`, `focus-visible:ring-ring`
 
 ## Guidelines
 
@@ -106,4 +166,15 @@ Cores para categorização e organização de conteúdo:
 2. **Respeite o significado** - Não use cores fora de contexto
 3. **Mantenha a hierarquia** - Cores primárias para ações principais
 4. **Considere acessibilidade** - Sempre verifique contraste
+5. **Prefira classes Tailwind** - Use `bg-primary` em vez de valores hardcoded
+6. **Adapte-se ao tema** - As cores se ajustam automaticamente em modo claro/escuro
 
+## Princípios de Design
+
+O sistema de cores do Ciberso-UI é baseado nos seguintes princípios:
+
+- **Consistência**: Cores têm significados claros e consistentes
+- **Acessibilidade**: Todas as combinações atendem WCAG 2.1 AA
+- **Hierarquia**: Cores primárias destacam ações importantes
+- **Flexibilidade**: Suporte a temas claro e escuro
+- **Modernidade**: Uso de OKLCH para melhor percepção de cores
