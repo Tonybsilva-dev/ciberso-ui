@@ -2,11 +2,15 @@
  * Input - Componente de campo de texto acessível do Ciberso-UI
  * Utiliza React Aria para garantir acessibilidade completa
  * Baseado na referência: Borda cinza, foco azul, placeholder cinza
+ * 
+ * Estilização gerenciada via Class Variance Authority (cva) para type-safe variants
  */
 
 import { useTextField, type AriaTextFieldProps } from 'react-aria';
 import { forwardRef, useRef } from 'react';
 import type { ReactNode } from 'react';
+import { inputVariants, inputLabelVariants } from './Input.variants';
+import { cn } from '../../../utils/cn';
 
 export interface InputProps extends AriaTextFieldProps {
   /**
@@ -26,6 +30,10 @@ export interface InputProps extends AriaTextFieldProps {
    * @default 'md'
    */
   size?: 'sm' | 'md' | 'lg';
+  /**
+   * Classes CSS adicionais
+   */
+  className?: string;
 }
 
 /**
@@ -67,31 +75,20 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       validationErrors,
     } = useTextField(props, ref as React.RefObject<HTMLInputElement>);
 
-    // Classes baseadas na referência
-    const baseInputClasses = 'w-full rounded-md border bg-white text-[#111827] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-[#F3F4F6]';
-    
-    const borderClasses = isInvalid
-      ? 'border-[#FF4444] focus-visible:border-[#FF4444] focus-visible:ring-[#FF4444]'
-      : 'border-[#9CA3AF] focus-visible:border-[#007BFF] focus-visible:ring-[#007BFF]';
+    // Usar cva para gerar classes baseadas nas variantes
+    const inputClasses = inputVariants({
+      state: isInvalid ? 'invalid' : 'default',
+      size,
+    });
 
-    const sizeClasses = {
-      sm: 'h-9 px-3 text-sm',
-      md: 'h-10 px-3 text-base',
-      lg: 'h-11 px-4 text-lg',
-    };
-
-    const labelSizeClasses = {
-      sm: 'text-sm',
-      md: 'text-base',
-      lg: 'text-lg',
-    };
+    const labelClasses = inputLabelVariants({ size });
 
     return (
       <div className="flex flex-col gap-1.5" data-size={size}>
         {label && (
           <label 
             {...labelProps} 
-            className={`font-medium text-[#111827] ${labelSizeClasses[size]}`}
+            className={labelClasses}
           >
             {label}
             {props.isRequired && (
@@ -102,7 +99,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         <input
           {...inputProps}
           ref={ref}
-          className={`${baseInputClasses} ${borderClasses} ${sizeClasses[size]} placeholder:text-[#9CA3AF]`}
+          className={cn(inputClasses, props.className)}
           placeholder={props.placeholder || 'Enter a value'}
           data-invalid={isInvalid ? '' : undefined}
           aria-invalid={isInvalid}
