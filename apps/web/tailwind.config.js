@@ -4,8 +4,6 @@ import cibersoThemePreset from '@ciberso/theme/tailwind';
 export default {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './stories/**/*.{js,ts,jsx,tsx,mdx}',
-    './.storybook/**/*.{js,ts,jsx,tsx}',
     '../../packages/react/src/**/*.{js,ts,jsx,tsx}',
     '../../packages/ui/src/**/*.{js,ts,jsx,tsx}',
   ],
@@ -15,3 +13,4 @@ export default {
   },
   plugins: [],
 };
+

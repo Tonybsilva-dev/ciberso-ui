@@ -1,4 +1,2 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+/* Importar tema do Ciberso-UI (contém @tailwind directives e variáveis CSS) */
+@import "../../../packages/theme/src/globals.css";

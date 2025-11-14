@@ -15,15 +15,15 @@ import { cva, type VariantProps } from 'class-variance-authority';
  */
 export const buttonVariants = cva(
   // Classes base aplicadas a todos os botões
-  'inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none rounded-md',
+  'inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none rounded-md',
   {
     variants: {
       variant: {
-        primary: 'bg-[#007BFF] text-white hover:bg-[#0066CC] active:bg-[#005299] focus-visible:ring-[#007BFF]',
-        secondary: 'bg-[#6B7280] text-white hover:bg-[#4B5563] active:bg-[#374151] focus-visible:ring-[#6B7280]',
-        ghost: 'bg-transparent text-[#111827] hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus-visible:ring-[#007BFF]',
-        outline: 'bg-transparent border border-[#007BFF] text-[#007BFF] hover:bg-[#007BFF] hover:text-white active:bg-[#0066CC] active:text-white focus-visible:ring-[#007BFF]',
-        danger: 'bg-[#DC2626] text-white hover:bg-[#B91C1C] active:bg-[#991B1B] focus-visible:ring-[#DC2626]',
+        primary: 'bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/80 focus-visible:ring-primary',
+        secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 active:bg-secondary/70 focus-visible:ring-secondary',
+        ghost: 'bg-transparent text-foreground hover:bg-muted hover:text-foreground active:bg-muted/80 focus-visible:ring-ring',
+        outline: 'bg-transparent border border-input text-foreground hover:bg-accent hover:text-accent-foreground active:bg-accent/80 focus-visible:ring-ring',
+        danger: 'bg-destructive text-destructive-foreground hover:bg-destructive/90 active:bg-destructive/80 focus-visible:ring-destructive',
       },
       size: {
         sm: 'h-9 px-3 text-sm',

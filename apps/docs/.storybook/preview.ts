@@ -2,6 +2,8 @@ import type { Preview } from '@storybook/nextjs';
 import React from 'react';
 import { ThemeProvider } from '@ciberso/theme';
 import { MotionProvider } from '@ciberso/motion';
+// Importar CSS do theme diretamente (além do preview.css que usa @import)
+import '@ciberso/theme/globals.css';
 import './preview.css';
 
 const preview: Preview = {

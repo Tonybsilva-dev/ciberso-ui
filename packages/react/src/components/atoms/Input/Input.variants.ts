@@ -15,12 +15,12 @@ import { cva, type VariantProps } from 'class-variance-authority';
  */
 export const inputVariants = cva(
   // Classes base aplicadas a todos os inputs
-  'w-full rounded-md border bg-white text-[#111827] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-[#F3F4F6] placeholder:text-[#9CA3AF]',
+  'w-full rounded-md border bg-background text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-muted placeholder:text-muted-foreground',
   {
     variants: {
       state: {
-        default: 'border-[#9CA3AF] focus-visible:border-[#007BFF] focus-visible:ring-[#007BFF]',
-        invalid: 'border-[#FF4444] focus-visible:border-[#FF4444] focus-visible:ring-[#FF4444]',
+        default: 'border-input focus-visible:border-ring focus-visible:ring-ring',
+        invalid: 'border-destructive focus-visible:border-destructive focus-visible:ring-destructive',
       },
       size: {
         sm: 'h-9 px-3 text-sm',
@@ -38,7 +38,7 @@ export const inputVariants = cva(
 /**
  * Variantes para o label do input
  */
-export const inputLabelVariants = cva('font-medium text-[#111827]', {
+export const inputLabelVariants = cva('font-medium text-foreground', {
   variants: {
     size: {
       sm: 'text-sm',

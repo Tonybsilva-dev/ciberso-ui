@@ -32,12 +32,12 @@ export const textVariants = cva(
         bold: 'font-bold',       // 700
       },
       color: {
-        default: 'text-[#111827]',        // Gray-900
-        muted: 'text-[#6B7280]',          // Gray-500
-        primary: 'text-[#007BFF]',        // Royal Blue-500
-        success: 'text-[#00F6FF]',        // Cyan-500
-        error: 'text-[#FF4444]',          // Error
-        warning: 'text-[#FF9500]',        // Warning
+        default: 'text-foreground',
+        muted: 'text-muted-foreground',
+        primary: 'text-primary',
+        success: 'text-primary', // Usando primary como success (pode ser ajustado depois)
+        error: 'text-destructive',
+        warning: 'text-primary', // Usando primary como warning (pode ser ajustado depois)
       },
     },
     defaultVariants: {

@@ -63,6 +63,53 @@ const config: StorybookConfig = {
       config.resolve.symlinks = true;
     }
 
+    // Configurar PostCSS para Tailwind v3
+    if (config.module && config.module.rules) {
+      const postcssConfigPath = join(currentDir, '../postcss.config.mjs');
+      
+      // Função recursiva para processar regras (incluindo oneOf)
+      const processRule = (rule: any) => {
+        if (!rule || typeof rule !== 'object') return;
+        
+        // Processar oneOf se existir
+        if (Array.isArray(rule.oneOf)) {
+          rule.oneOf.forEach(processRule);
+          return;
+        }
+        
+        // Verificar se é regra CSS
+        if (!rule.test || !rule.test.toString().includes('css')) return;
+        
+        // Processar use array
+        if (Array.isArray(rule.use)) {
+          // Configurar postcss-loader
+          const postcssLoader = rule.use.find(
+            (loader: any) => {
+              if (!loader || typeof loader !== 'object') return false;
+              const loaderPath = loader.loader || loader;
+              return typeof loaderPath === 'string' && loaderPath.includes('postcss-loader');
+            }
+          );
+          
+          if (postcssLoader) {
+            postcssLoader.options = {
+              ...(postcssLoader.options || {}),
+              postcssOptions: {
+                config: postcssConfigPath,
+              },
+            };
+          } else {
+            // Se não encontrou postcss-loader, pode ser que precise adicionar
+            // Mas primeiro vamos apenas garantir que o config está sendo usado
+            console.log('[Storybook] PostCSS loader não encontrado na regra CSS');
+          }
+        }
+      };
+      
+      // Processar todas as regras
+      config.module.rules.forEach(processRule);
+    }
+
     return config;
   },
 };
