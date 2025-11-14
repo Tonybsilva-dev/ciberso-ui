@@ -27,7 +27,11 @@ import { cn } from '../../../utils/cn';
  * </Card>
  * ```
  */
-export const Card = forwardRef<HTMLDivElement, HTMLMotionProps<'div'>>(
+export interface CardProps extends Omit<HTMLMotionProps<'div'>, 'children'> {
+  children?: ReactNode;
+}
+
+export const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className, children, ...props }, ref) => {
     // Converter duração de string (ex: '150ms') para número (ex: 0.15)
     const parseDuration = (duration: string): number => {
