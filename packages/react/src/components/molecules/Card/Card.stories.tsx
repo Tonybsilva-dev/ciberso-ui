@@ -50,10 +50,10 @@ export const Default: Story = {
     isAnimated: false,
   },
   render: (args) => (
-    <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
+    <div style={{ padding: '2rem', backgroundColor: '#F9FAFB' }}>
       <Card {...args}>
         <CardBody>
-          <Text color="default" style={{ color: '#E0FFFF' }}>
+          <Text color="default">
             Este é um card simples com apenas o corpo.
           </Text>
         </CardBody>
@@ -70,10 +70,10 @@ export const Animated: Story = {
     isAnimated: true,
   },
   render: (args) => (
-    <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
+    <div style={{ padding: '2rem', backgroundColor: '#F9FAFB' }}>
       <Card {...args}>
         <CardBody>
-          <Text color="default" style={{ color: '#E0FFFF' }}>
+          <Text color="default">
             Este card tem animações de hover e tap ativadas. Passe o mouse e clique para ver.
           </Text>
         </CardBody>
@@ -90,15 +90,15 @@ export const Complete: Story = {
     isAnimated: false,
   },
   render: (args) => (
-    <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
+    <div style={{ padding: '2rem', backgroundColor: '#F9FAFB' }}>
       <Card {...args}>
         <CardHeader>
-          <Heading level={3} color="primary" style={{ color: '#00F6FF' }}>
+          <Heading level={3} color="primary">
             Título do Card
           </Heading>
         </CardHeader>
         <CardBody>
-          <Text style={{ color: '#E0FFFF' }}>
+          <Text>
             Este é o conteúdo principal do card. Pode conter qualquer tipo de conteúdo,
             incluindo texto, imagens, formulários, etc.
           </Text>
@@ -122,15 +122,15 @@ export const HeaderAndBody: Story = {
     isAnimated: false,
   },
   render: (args) => (
-    <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
+    <div style={{ padding: '2rem', backgroundColor: '#F9FAFB' }}>
       <Card {...args}>
         <CardHeader>
-          <Heading level={3} color="primary" style={{ color: '#00F6FF' }}>
+          <Heading level={3} color="primary">
             Card sem Footer
           </Heading>
         </CardHeader>
         <CardBody>
-          <Text style={{ color: '#E0FFFF' }}>
+          <Text>
             Este card não possui rodapé, apenas cabeçalho e corpo.
           </Text>
         </CardBody>
@@ -147,10 +147,10 @@ export const BodyAndFooter: Story = {
     isAnimated: false,
   },
   render: (args) => (
-    <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
+    <div style={{ padding: '2rem', backgroundColor: '#F9FAFB' }}>
       <Card {...args}>
         <CardBody>
-          <Text style={{ color: '#E0FFFF' }}>
+          <Text>
             Este card não possui cabeçalho, apenas corpo e rodapé.
           </Text>
         </CardBody>
@@ -170,10 +170,10 @@ export const BodyOnly: Story = {
     isAnimated: false,
   },
   render: (args) => (
-    <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
+    <div style={{ padding: '2rem', backgroundColor: '#F9FAFB' }}>
       <Card {...args}>
         <CardBody>
-          <Text style={{ color: '#E0FFFF' }}>
+          <Text>
             Card minimalista com apenas o corpo, sem cabeçalho ou rodapé.
           </Text>
         </CardBody>
@@ -192,43 +192,43 @@ export const Grid: Story = {
   render: (args) => (
     <div style={{ 
       padding: '2rem',
-      backgroundColor: '#020506',
+      backgroundColor: '#F9FAFB',
       display: 'grid', 
       gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', 
       gap: '1.5rem' 
     }}>
       <Card {...args}>
         <CardHeader>
-          <Heading level={4} color="primary" style={{ color: '#00F6FF' }}>
+          <Heading level={4} color="primary">
             Card 1
           </Heading>
         </CardHeader>
         <CardBody>
-          <Text size="sm" style={{ color: '#E0FFFF' }}>
+          <Text size="sm">
             Conteúdo do primeiro card.
           </Text>
         </CardBody>
       </Card>
       <Card {...args}>
         <CardHeader>
-          <Heading level={4} color="primary" style={{ color: '#00F6FF' }}>
+          <Heading level={4} color="primary">
             Card 2
           </Heading>
         </CardHeader>
         <CardBody>
-          <Text size="sm" style={{ color: '#E0FFFF' }}>
+          <Text size="sm">
             Conteúdo do segundo card.
           </Text>
         </CardBody>
       </Card>
       <Card {...args}>
         <CardHeader>
-          <Heading level={4} color="primary" style={{ color: '#00F6FF' }}>
+          <Heading level={4} color="primary">
             Card 3
           </Heading>
         </CardHeader>
         <CardBody>
-          <Text size="sm" style={{ color: '#E0FFFF' }}>
+          <Text size="sm">
             Conteúdo do terceiro card.
           </Text>
         </CardBody>
@@ -245,45 +245,45 @@ export const ComplexContent: Story = {
     isAnimated: false,
   },
   render: (args) => (
-    <div style={{ padding: '2rem', backgroundColor: '#020506' }}>
+    <div style={{ padding: '2rem', backgroundColor: '#F9FAFB' }}>
       <Card {...args}>
-      <CardHeader>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Heading level={3} color="primary" style={{ color: '#00F6FF' }}>
-            Card com Conteúdo Complexo
-          </Heading>
-          <Button variant="ghost" size="sm">Ações</Button>
-        </div>
-      </CardHeader>
-      <CardBody>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <Text style={{ color: '#E0FFFF' }}>
-            Este card demonstra como diferentes tipos de conteúdo podem ser organizados
-            dentro de um card usando os sub-componentes.
-          </Text>
-          <div style={{ 
-            padding: '1rem', 
-            backgroundColor: '#1E293B', 
-            borderRadius: '0.5rem',
-            border: '1px solid rgba(0, 246, 255, 0.2)'
-          }}>
-            <Text size="sm" style={{ color: '#B0FFFF' }}>
-              Área de conteúdo destacado
+        <CardHeader>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Heading level={3} color="primary">
+              Card com Conteúdo Complexo
+            </Heading>
+            <Button variant="ghost" size="sm">Ações</Button>
+          </div>
+        </CardHeader>
+        <CardBody>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <Text>
+              Este card demonstra como diferentes tipos de conteúdo podem ser organizados
+              dentro de um card usando os sub-componentes.
             </Text>
+            <div style={{ 
+              padding: '1rem', 
+              backgroundColor: '#F3F4F6', 
+              borderRadius: '0.5rem',
+              border: '1px solid #E5E7EB'
+            }}>
+              <Text size="sm" color="muted">
+                Área de conteúdo destacado
+              </Text>
+            </div>
           </div>
-        </div>
-      </CardBody>
-      <CardFooter>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Text size="sm" style={{ color: '#80FFFF' }}>
-            Última atualização: hoje
-          </Text>
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
-            <Button variant="outline" size="sm">Editar</Button>
-            <Button variant="primary" size="sm">Salvar</Button>
+        </CardBody>
+        <CardFooter>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Text size="sm" color="muted">
+              Última atualização: hoje
+            </Text>
+            <div style={{ display: 'flex', gap: '0.5rem' }}>
+              <Button variant="outline" size="sm">Editar</Button>
+              <Button variant="primary" size="sm">Salvar</Button>
+            </div>
           </div>
-        </div>
-      </CardFooter>
+        </CardFooter>
       </Card>
     </div>
   ),

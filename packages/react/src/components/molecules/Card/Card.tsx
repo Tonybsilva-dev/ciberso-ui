@@ -15,7 +15,8 @@ import { cn } from '../../../utils/cn';
 /**
  * Card - Componente contêiner principal
  *
- * Renderiza um card com estilo Ciberso: fundo escuro, bordas neon, sombras e animações.
+ * Renderiza um card com identidade visual consistente: fundo branco, bordas cinzas, sombras sutis.
+ * Segue o mesmo padrão visual dos componentes Button, Input e Badge.
  * Pode ser composto com CardHeader, CardBody e CardFooter.
  *
  * @example
@@ -50,52 +51,46 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     // Animações condicionais baseadas em isAnimated
     const hoverAnimation = isAnimated
       ? {
-          y: -4,
-          scale: 1.01,
-          transition: {
-            duration: fastDuration,
-            ease: [0, 0, 0.2, 1], // easeOut
-          },
-        }
+        y: -4,
+        scale: 1.01,
+        transition: {
+          duration: fastDuration,
+          ease: [0, 0, 0.2, 1], // easeOut
+        },
+      }
       : undefined;
 
     const tapAnimation = isAnimated
       ? {
-          scale: 0.98,
-          transition: {
-            duration: fastDuration,
-            ease: [0.4, 0, 1, 1], // easeIn
-          },
-        }
+        scale: 0.98,
+        transition: {
+          duration: fastDuration,
+          ease: [0.4, 0, 1, 1], // easeIn
+        },
+      }
       : undefined;
+
+    // Estilos base consistentes com outros componentes (Button, Input, Badge)
+    // Fundo branco, borda cinza, sombra sutil - seguindo identidade visual da referência
+    const baseCardClasses = cn(
+      'rounded-lg',
+      'bg-white', // Fundo branco como Input e Badge
+      'border border-[#E5E7EB]', // Borda cinza como Input (gray-200)
+      'shadow-sm', // Sombra sutil como na referência
+      'transition-shadow', // Transição suave para hover
+      'hover:shadow-md', // Elevação sutil no hover
+      className
+    );
 
     // Se não animado, usar div normal em vez de motion.div
     if (!isAnimated) {
       return (
         <div
           ref={ref}
-          className={cn(
-            // Estilos base Ciberso
-            'rounded-lg',
-            'bg-[#0A192F]', // darkBlue[500] - fundo escuro
-            'border border-[#00F6FF]/30', // ciano neon com opacidade
-            'shadow-lg shadow-[#00F6FF]/10', // sombra com brilho neon
-            // Efeito de brilho neon na borda
-            'relative',
-            'before:absolute before:inset-0 before:rounded-lg',
-            'before:bg-gradient-to-r before:from-[#00F6FF]/20 before:via-transparent before:to-[#007BFF]/20',
-            'before:opacity-0 before:transition-opacity before:duration-300',
-            'hover:before:opacity-100',
-            // Borda interna para efeito neon
-            'after:absolute after:inset-[1px] after:rounded-lg',
-            'after:bg-[#0A192F] after:pointer-events-none',
-            className
-          )}
+          className={baseCardClasses}
           {...(props as HTMLAttributes<HTMLDivElement>)}
         >
-          <div className="relative z-10">
-            {children}
-          </div>
+          {children}
         </div>
       );
     }
@@ -103,30 +98,12 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     return (
       <motion.div
         ref={ref}
-        className={cn(
-          // Estilos base Ciberso
-          'rounded-lg',
-          'bg-[#0A192F]', // darkBlue[500] - fundo escuro
-          'border border-[#00F6FF]/30', // ciano neon com opacidade
-          'shadow-lg shadow-[#00F6FF]/10', // sombra com brilho neon
-          // Efeito de brilho neon na borda
-          'relative',
-          'before:absolute before:inset-0 before:rounded-lg',
-          'before:bg-gradient-to-r before:from-[#00F6FF]/20 before:via-transparent before:to-[#007BFF]/20',
-          'before:opacity-0 before:transition-opacity before:duration-300',
-          'hover:before:opacity-100',
-          // Borda interna para efeito neon
-          'after:absolute after:inset-[1px] after:rounded-lg',
-          'after:bg-[#0A192F] after:pointer-events-none',
-          className
-        )}
+        className={baseCardClasses}
         whileHover={hoverAnimation}
         whileTap={tapAnimation}
         {...props}
       >
-        <div className="relative z-10">
-          {children}
-        </div>
+        {children}
       </motion.div>
     );
   },
@@ -137,7 +114,7 @@ Card.displayName = 'Card';
 /**
  * CardHeader - Cabeçalho do card
  *
- * Renderiza uma seção de cabeçalho com padding e borda inferior com efeito neon.
+ * Renderiza uma seção de cabeçalho com padding e borda inferior cinza.
  *
  * @example
  * ```tsx
@@ -150,7 +127,7 @@ export const CardHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEleme
       <div
         ref={ref}
         className={cn(
-          'px-6 py-4 border-b border-[#00F6FF]/20', // borda neon sutil
+          'px-6 py-4 border-b border-[#E5E7EB]', // Borda cinza consistente com Input (gray-200)
           className
         )}
         {...props}
@@ -197,7 +174,7 @@ CardBody.displayName = 'CardBody';
 /**
  * CardFooter - Rodapé do card
  *
- * Renderiza uma seção de rodapé com padding e borda superior com efeito neon.
+ * Renderiza uma seção de rodapé com padding e borda superior cinza.
  *
  * @example
  * ```tsx
@@ -212,7 +189,7 @@ export const CardFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEleme
       <div
         ref={ref}
         className={cn(
-          'px-6 py-4 border-t border-[#00F6FF]/20', // borda neon sutil
+          'px-6 py-4 border-t border-[#E5E7EB]', // Borda cinza consistente com Input (gray-200)
           className
         )}
         {...props}
