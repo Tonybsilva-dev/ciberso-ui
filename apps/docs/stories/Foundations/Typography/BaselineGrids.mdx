@@ -3,11 +3,11 @@ import { spacing, space } from '@ciberso/tokens';
 
 <Meta title="Foundations/Typography/Baseline Grids" />
 
-# Baseline Grids
+# Grids de Baseline
 
 Sistema de grid de baseline para alinhamento vertical consistente no Ciberso-UI Design System.
 
-## Overview
+## Visão Geral
 
 O baseline grid é um sistema invisível de linhas horizontais que ajuda a alinhar elementos verticalmente, criando uma aparência mais organizada e profissional.
 
@@ -29,61 +29,61 @@ A escala de espaçamento segue múltiplos de 4px:
             style={{
               width: '100%',
               height: value,
-              backgroundColor: '#007BFF',
+              backgroundColor: '#c96442',
               borderRadius: '4px',
               marginBottom: '0.5rem',
             }}
           />
           <div style={{ fontSize: '12px', fontWeight: 'bold' }}>{key}</div>
-          <div style={{ fontSize: '11px', color: '#6b7280' }}>{value}</div>
-          <div style={{ fontSize: '10px', color: '#9ca3af' }}>{sizeInPx}px</div>
+          <div style={{ fontSize: '11px', color: '#83827d' }}>{value}</div>
+          <div style={{ fontSize: '10px', color: '#83827d' }}>{sizeInPx}px</div>
         </div>
       );
     })}
   </div>
 </div>
 
-## Line Height Alignment
+## Alinhamento de Line Height
 
 Os line heights são calculados para alinhar com o baseline grid:
 
 <div style={{ marginTop: '2rem' }}>
-  <h3>Text Alignment Examples</h3>
+  <h3>Exemplos de Alinhamento de Texto</h3>
   <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
-    <div style={{ border: '1px solid #e5e7eb', borderRadius: '8px', padding: '1rem', backgroundColor: '#f9fafb' }}>
-      <div style={{ fontSize: '16px', lineHeight: '24px', marginBottom: '0.5rem' }}>
-        Body text (16px / 24px line-height)
+    <div style={{ border: '1px solid #dad9d4', borderRadius: '8px', padding: '1rem', backgroundColor: '#ede9de' }}>
+      <div style={{ fontSize: '16px', lineHeight: '24px', marginBottom: '0.5rem', color: '#3d3929' }}>
+        Texto do corpo (16px / 24px line-height)
       </div>
-      <div style={{ fontSize: '11px', color: '#6b7280' }}>
+      <div style={{ fontSize: '11px', color: '#83827d' }}>
         Alinhado ao grid de 4px (24px = 6 × 4px)
       </div>
     </div>
     
-    <div style={{ border: '1px solid #e5e7eb', borderRadius: '8px', padding: '1rem', backgroundColor: '#f9fafb' }}>
-      <div style={{ fontSize: '18px', lineHeight: '28px', marginBottom: '0.5rem' }}>
-        Large body text (18px / 28px line-height)
+    <div style={{ border: '1px solid #dad9d4', borderRadius: '8px', padding: '1rem', backgroundColor: '#ede9de' }}>
+      <div style={{ fontSize: '18px', lineHeight: '28px', marginBottom: '0.5rem', color: '#3d3929' }}>
+        Texto do corpo grande (18px / 28px line-height)
       </div>
-      <div style={{ fontSize: '11px', color: '#6b7280' }}>
+      <div style={{ fontSize: '11px', color: '#83827d' }}>
         Alinhado ao grid de 4px (28px = 7 × 4px)
       </div>
     </div>
     
-    <div style={{ border: '1px solid #e5e7eb', borderRadius: '8px', padding: '1rem', backgroundColor: '#f9fafb' }}>
-      <div style={{ fontSize: '14px', lineHeight: '20px', marginBottom: '0.5rem' }}>
-        Small body text (14px / 20px line-height)
+    <div style={{ border: '1px solid #dad9d4', borderRadius: '8px', padding: '1rem', backgroundColor: '#ede9de' }}>
+      <div style={{ fontSize: '14px', lineHeight: '20px', marginBottom: '0.5rem', color: '#3d3929' }}>
+        Texto do corpo pequeno (14px / 20px line-height)
       </div>
-      <div style={{ fontSize: '11px', color: '#6b7280' }}>
+      <div style={{ fontSize: '11px', color: '#83827d' }}>
         Alinhado ao grid de 4px (20px = 5 × 4px)
       </div>
     </div>
   </div>
 </div>
 
-## Visual Grid Example
+## Exemplo Visual do Grid
 
 <div style={{ marginTop: '2rem' }}>
-  <h3>Baseline Grid Visualization</h3>
-  <div style={{ position: 'relative', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '2rem', backgroundColor: '#fff' }}>
+  <h3>Visualização do Baseline Grid</h3>
+  <div style={{ position: 'relative', border: '1px solid #dad9d4', borderRadius: '8px', padding: '2rem', backgroundColor: '#faf9f5' }}>
     {/* Grid lines */}
     {Array.from({ length: 20 }, (_, i) => (
       <div
@@ -94,7 +94,7 @@ Os line heights são calculados para alinhar com o baseline grid:
           left: 0,
           right: 0,
           height: '1px',
-          backgroundColor: i % 4 === 0 ? '#e5e7eb' : '#f3f4f6',
+          backgroundColor: i % 4 === 0 ? '#dad9d4' : '#ede9de',
           opacity: 0.5,
           pointerEvents: 'none',
         }}
@@ -103,14 +103,14 @@ Os line heights são calculados para alinhar com o baseline grid:
     
     {/* Sample content aligned to grid */}
     <div style={{ position: 'relative', zIndex: 1 }}>
-      <h2 style={{ fontSize: '24px', lineHeight: '32px', marginTop: '0', marginBottom: '16px' }}>
-        Heading Example
+      <h2 style={{ fontSize: '24px', lineHeight: '32px', marginTop: '0', marginBottom: '16px', color: '#3d3929' }}>
+        Exemplo de Título
       </h2>
-      <p style={{ fontSize: '16px', lineHeight: '24px', marginBottom: '16px' }}>
-        This paragraph is aligned to the baseline grid. The line height of 24px ensures proper vertical rhythm.
+      <p style={{ fontSize: '16px', lineHeight: '24px', marginBottom: '16px', color: '#3d3929' }}>
+        Este parágrafo está alinhado ao baseline grid. O line height de 24px garante um ritmo vertical adequado.
       </p>
-      <p style={{ fontSize: '16px', lineHeight: '24px', marginBottom: '0' }}>
-        Multiple paragraphs maintain consistent spacing, creating a harmonious reading experience.
+      <p style={{ fontSize: '16px', lineHeight: '24px', marginBottom: '0', color: '#3d3929' }}>
+        Múltiplos parágrafos mantêm espaçamento consistente, criando uma experiência de leitura harmoniosa.
       </p>
     </div>
   </div>
@@ -150,7 +150,7 @@ Os line heights são calculados para alinhar com o baseline grid:
 - Padding interno: múltiplos de 4px
 - Line heights: múltiplos de 4px
 
-## Benefits
+## Benefícios
 
 1. **Consistência Visual**: Elementos alinhados criam uma aparência mais profissional
 2. **Legibilidade**: Espaçamento adequado melhora a leitura

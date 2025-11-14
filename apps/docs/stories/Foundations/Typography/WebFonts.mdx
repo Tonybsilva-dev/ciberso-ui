@@ -3,11 +3,11 @@ import { typography } from '@ciberso/tokens';
 
 <Meta title="Foundations/Typography/Web Fonts" />
 
-# Web Fonts
+# Fontes Web
 
 Fontes web utilizadas no Ciberso-UI Design System.
 
-## Font Stack
+## Pilha de Fontes
 
 O Ciberso-UI utiliza uma pilha de fontes (font stack) otimizada para performance e compatibilidade:
 
@@ -35,7 +35,7 @@ Esta pilha garante:
 - **Monaco**: Fallback adicional
 - **monospace**: Fallback genérico
 
-## Font Loading
+## Carregamento de Fontes
 
 ### Performance
 
@@ -45,7 +45,7 @@ As fontes são carregadas de forma otimizada:
 2. **Preload**: Fontes críticas são pré-carregadas
 3. **Subset**: Apenas caracteres necessários são incluídos
 
-### Implementation
+### Implementação
 
 ```css
 /* Exemplo de implementação */
@@ -58,22 +58,22 @@ As fontes são carregadas de forma otimizada:
 }
 ```
 
-## Font Sizes Reference
+## Referência de Tamanhos de Fonte
 
 <div style={{ marginTop: '2rem' }}>
-  <h3>Available Font Sizes</h3>
+  <h3>Tamanhos de Fonte Disponíveis</h3>
   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginTop: '1rem' }}>
     {Object.entries(typography.sizes).map(([key, value]) => {
       const sizeInPx = parseFloat(value) * 16;
       return (
-        <div key={key} style={{ border: '1px solid #e5e7eb', borderRadius: '8px', padding: '1rem' }}>
-          <div style={{ fontSize: '12px', fontWeight: 'bold', color: '#6b7280', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
+        <div key={key} style={{ border: '1px solid #dad9d4', borderRadius: '8px', padding: '1rem', backgroundColor: '#faf9f5' }}>
+          <div style={{ fontSize: '12px', fontWeight: 'bold', color: '#83827d', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
             {key}
           </div>
-          <div style={{ fontSize: value, fontFamily: typography.fonts.sans.join(', '), marginBottom: '0.5rem' }}>
-            Sample Text
+          <div style={{ fontSize: value, fontFamily: typography.fonts.sans.join(', '), marginBottom: '0.5rem', color: '#3d3929' }}>
+            Texto de Exemplo
           </div>
-          <div style={{ fontSize: '11px', color: '#9ca3af' }}>
+          <div style={{ fontSize: '11px', color: '#83827d' }}>
             {value} ({sizeInPx}px)
           </div>
         </div>
@@ -82,7 +82,7 @@ As fontes são carregadas de forma otimizada:
   </div>
 </div>
 
-## Browser Support
+## Suporte de Navegadores
 
 O Ciberso-UI suporta todos os navegadores modernos:
 
@@ -91,7 +91,7 @@ O Ciberso-UI suporta todos os navegadores modernos:
 - ✅ Safari (últimas 2 versões)
 - ✅ Opera (últimas 2 versões)
 
-## Custom Fonts
+## Fontes Personalizadas
 
 Para adicionar fontes customizadas ao projeto:
 
@@ -99,7 +99,7 @@ Para adicionar fontes customizadas ao projeto:
 2. Configure o `@font-face` no CSS global
 3. Atualize os tokens de tipografia se necessário
 
-## Best Practices
+## Boas Práticas
 
 1. **Use font-display: swap** para melhor performance
 2. **Preload fontes críticas** no `<head>`

@@ -3,11 +3,11 @@ import { typography } from '@ciberso/tokens';
 
 <Meta title="Foundations/Typography/Hierarchy" />
 
-# Typography Hierarchy
+# Hierarquia Tipográfica
 
 Hierarquia tipográfica e uso de tamanhos no Ciberso-UI Design System.
 
-## Font Sizes
+## Tamanhos de Fonte
 
 Escala modular de tamanhos de fonte disponíveis:
 
@@ -15,22 +15,22 @@ Escala modular de tamanhos de fonte disponíveis:
   {Object.entries(typography.sizes).map(([key, value]) => {
     const sizeInPx = parseFloat(value) * 16; // Converter rem para px
     return (
-      <div key={key} style={{ borderBottom: '1px solid #e5e7eb', paddingBottom: '1rem' }}>
+      <div key={key} style={{ borderBottom: '1px solid #dad9d4', paddingBottom: '1rem' }}>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: '2rem' }}>
           <div style={{ minWidth: '100px' }}>
-            <div style={{ fontSize: '12px', fontWeight: 'bold', color: '#6b7280', textTransform: 'uppercase' }}>
+            <div style={{ fontSize: '12px', fontWeight: 'bold', color: '#83827d', textTransform: 'uppercase' }}>
               {key}
             </div>
-            <div style={{ fontSize: '11px', color: '#9ca3af', marginTop: '0.25rem' }}>
+            <div style={{ fontSize: '11px', color: '#83827d', marginTop: '0.25rem' }}>
               {value} ({sizeInPx}px)
             </div>
           </div>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: value, lineHeight: typography.lineHeights.normal, fontWeight: typography.weights.normal }}>
-              The quick brown fox jumps over the lazy dog
+            <div style={{ fontSize: value, lineHeight: typography.lineHeights.normal, fontWeight: typography.weights.normal, color: '#3d3929' }}>
+              A rápida raposa marrom pula sobre o cão preguiçoso
             </div>
-            <div style={{ fontSize: value, lineHeight: typography.lineHeights.normal, fontWeight: typography.weights.bold, marginTop: '0.5rem' }}>
-              The quick brown fox jumps over the lazy dog (Bold)
+            <div style={{ fontSize: value, lineHeight: typography.lineHeights.normal, fontWeight: typography.weights.bold, marginTop: '0.5rem', color: '#3d3929' }}>
+              A rápida raposa marrom pula sobre o cão preguiçoso (Negrito)
             </div>
           </div>
         </div>
@@ -39,41 +39,41 @@ Escala modular de tamanhos de fonte disponíveis:
   })}
 </div>
 
-## Usage Guidelines
+## Diretrizes de Uso
 
-### Headings
+### Títulos
 
-Use a hierarquia de headings (H1-H6) para estruturar o conteúdo:
+Use a hierarquia de títulos (H1-H6) para estruturar o conteúdo:
 
 - **H1**: Títulos principais de página (2xl ou 3xl)
 - **H2**: Seções principais (xl ou 2xl)
 - **H3**: Subseções (lg ou xl)
 - **H4-H6**: Níveis menores de hierarquia (md ou lg)
 
-### Body Text
+### Texto do Corpo
 
-- **Body Large (lg)**: Textos importantes e destaques
-- **Body Medium (md/base)**: Texto padrão para conteúdo
-- **Body Small (sm)**: Textos secundários e labels
+- **Texto Grande (lg)**: Textos importantes e destaques
+- **Texto Médio (md/base)**: Texto padrão para conteúdo
+- **Texto Pequeno (sm)**: Textos secundários e rótulos
 
-### Code
+### Código
 
 Use a fonte monospace para código e elementos técnicos.
 
 ## Line Heights
 
 <div style={{ marginTop: '2rem' }}>
-  <h3>Line Height Options</h3>
+  <h3>Opções de Line Height</h3>
   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginTop: '1rem' }}>
     {Object.entries(typography.lineHeights).map(([key, value]) => (
-      <div key={key} style={{ border: '1px solid #e5e7eb', borderRadius: '8px', padding: '1rem' }}>
-        <div style={{ fontSize: '12px', fontWeight: 'bold', textTransform: 'capitalize', marginBottom: '0.5rem' }}>
+      <div key={key} style={{ border: '1px solid #dad9d4', borderRadius: '8px', padding: '1rem', backgroundColor: '#faf9f5' }}>
+        <div style={{ fontSize: '12px', fontWeight: 'bold', textTransform: 'capitalize', marginBottom: '0.5rem', color: '#3d3929' }}>
           {key}
         </div>
-        <div style={{ fontSize: '14px', lineHeight: value, marginBottom: '0.5rem' }}>
+        <div style={{ fontSize: '14px', lineHeight: value, marginBottom: '0.5rem', color: '#3d3929' }}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </div>
-        <div style={{ fontSize: '11px', color: '#6b7280' }}>
+        <div style={{ fontSize: '11px', color: '#83827d' }}>
           Line Height: {value}
         </div>
       </div>
