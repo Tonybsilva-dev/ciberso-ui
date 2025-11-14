@@ -45,13 +45,18 @@ function svgToJsx(svgContent) {
   
   // Garantir que todos os paths tenham fill="currentColor"
   // Substituir qualquer fill existente por currentColor
-  jsx = jsx.replace(/<path([^>]*?)>/g, (match) => {
+  // Tratar tanto <path ... /> quanto <path ...></path>
+  jsx = jsx.replace(/<path([^>]*?)(\/?)>/g, (match, attrs, selfClose) => {
     // Se já tem fill, substituir por currentColor
     if (match.includes('fill=')) {
       return match.replace(/fill="[^"]*"/g, 'fill="currentColor"');
     }
-    // Se não tem fill, adicionar fill="currentColor" antes do >
-    return match.replace(/(<path[^>]*)(>)/, '$1 fill="currentColor"$2');
+    // Se não tem fill, adicionar fill="currentColor" antes do /> ou >
+    if (selfClose) {
+      return match.replace(/(<path[^>]*)(\/>)/, '$1 fill="currentColor"$2');
+    } else {
+      return match.replace(/(<path[^>]*)(>)/, '$1 fill="currentColor"$2');
+    }
   });
   
   // Garantir que o SVG tenha fill="currentColor" como padrão se não houver paths com fill

@@ -3,7 +3,7 @@ import type { SVGProps } from 'react';
 
 export const ArrowBack = React.forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>(
   (props, ref) => (
-    <svg  width="24" height="24" viewBox="0 -960 960 960" ref={ref} {...props} role="img" aria-hidden="true"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80z"/ fill="currentColor"></svg>
+    <svg  width="24" height="24" viewBox="0 -960 960 960" ref={ref} {...props} role="img" aria-hidden="true"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80z" fill="currentColor"/></svg>
   )
 );
 
