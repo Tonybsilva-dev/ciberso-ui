@@ -102,6 +102,28 @@ export const Ghost: Story = {
 };
 
 /**
+ * Story - Button outline
+ */
+export const Outline: Story = {
+  args: {
+    children: 'Button',
+    variant: 'outline',
+    size: 'md',
+  },
+};
+
+/**
+ * Story - Button danger
+ */
+export const Danger: Story = {
+  args: {
+    children: 'Button',
+    variant: 'danger',
+    size: 'md',
+  },
+};
+
+/**
  * Story - Button desabilitado
  */
 export const Disabled: Story = {
@@ -172,6 +194,8 @@ export const IconOnly: Story = {
       <Button iconOnly rightIcon={<Add className="w-5 h-5" />} aria-label="Adicionar" />
       <Button iconOnly rightIcon={<Close className="w-5 h-5" />} aria-label="Fechar" variant="secondary" />
       <Button iconOnly rightIcon={<Check className="w-5 h-5" />} aria-label="Confirmar" variant="ghost" />
+      <Button iconOnly rightIcon={<Add className="w-5 h-5" />} aria-label="Adicionar" variant="outline" />
+      <Button iconOnly rightIcon={<Delete className="w-5 h-5" />} aria-label="Excluir" variant="danger" />
     </div>
   ),
 };
@@ -197,7 +221,7 @@ export const WithIcons: Story = {
       <Button leftIcon={<Search className="w-4 h-4" />} variant="ghost">
         Buscar
       </Button>
-      <Button leftIcon={<Delete className="w-4 h-4" />} variant="secondary">
+      <Button leftIcon={<Delete className="w-4 h-4" />} variant="danger">
         Excluir
       </Button>
     </div>
