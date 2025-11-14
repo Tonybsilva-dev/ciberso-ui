@@ -8,7 +8,7 @@
 
 import { forwardRef } from 'react';
 import type { ReactNode, HTMLAttributes } from 'react';
-import { motion } from 'framer-motion';
+import { motion, type HTMLMotionProps } from 'framer-motion';
 import { animations } from '@ciberso/tokens';
 import { cn } from '../../../utils/cn';
 
@@ -27,7 +27,7 @@ import { cn } from '../../../utils/cn';
  * </Card>
  * ```
  */
-export const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+export const Card = forwardRef<HTMLDivElement, HTMLMotionProps<'div'>>(
   ({ className, children, ...props }, ref) => {
     // Converter duração de string (ex: '150ms') para número (ex: 0.15)
     const parseDuration = (duration: string): number => {
@@ -37,14 +37,6 @@ export const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 
     const fastDurationValue: string = animations.duration.fast ?? '150ms';
     const fastDuration = parseDuration(fastDurationValue);
-
-    // Extrair props que podem conflitar com Framer Motion
-    const {
-      onDrag,
-      onDragStart,
-      onDragEnd,
-      ...restProps
-    } = props;
 
     return (
       <motion.div
@@ -81,7 +73,7 @@ export const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
             ease: [0.4, 0, 1, 1], // easeIn
           },
         }}
-        {...restProps}
+        {...props}
       >
         <div className="relative z-10">
           {children}
