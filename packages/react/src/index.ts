@@ -7,5 +7,8 @@
 // Atoms
 export * from './components/atoms';
 
-// Molecules e Organisms serão adicionados nas próximas fases
+// Molecules
+export * from './components/molecules';
+
+// Organisms serão adicionados nas próximas fases
 
