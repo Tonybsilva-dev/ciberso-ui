@@ -14,7 +14,7 @@ const meta: Meta<typeof Button> = {
   parameters: {
     docs: {
       description: {
-        component: 'Botão acessível com React Aria. Suporta variantes primary (azul), secondary (cinza) e ghost, com opção de ícones.',
+        component: 'Botão acessível com React Aria. Suporta variantes primary (azul), secondary (cinza), ghost, outline e danger, com opção de ícones.',
       },
     },
   },
