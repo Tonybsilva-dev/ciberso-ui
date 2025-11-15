@@ -111,32 +111,32 @@ describe('Text', () => {
     it('deve aplicar classes de cor corretas', () => {
       const { rerender } = render(<Text color="default">Texto</Text>);
       let text = screen.getByText('Texto');
-      expect(text).toHaveClass('text-[#111827]');
+      expect(text).toHaveClass('text-foreground');
       expect(text).toHaveAttribute('data-color', 'default');
 
       rerender(<Text color="muted">Texto</Text>);
       text = screen.getByText('Texto');
-      expect(text).toHaveClass('text-[#6B7280]');
+      expect(text).toHaveClass('text-muted-foreground');
       expect(text).toHaveAttribute('data-color', 'muted');
 
       rerender(<Text color="primary">Texto</Text>);
       text = screen.getByText('Texto');
-      expect(text).toHaveClass('text-[#007BFF]');
+      expect(text).toHaveClass('text-primary');
       expect(text).toHaveAttribute('data-color', 'primary');
 
       rerender(<Text color="success">Texto</Text>);
       text = screen.getByText('Texto');
-      expect(text).toHaveClass('text-[#00F6FF]');
+      expect(text).toHaveClass('text-primary'); // success usa text-primary conforme Text.variants
       expect(text).toHaveAttribute('data-color', 'success');
 
       rerender(<Text color="error">Texto</Text>);
       text = screen.getByText('Texto');
-      expect(text).toHaveClass('text-[#FF4444]');
+      expect(text).toHaveClass('text-destructive');
       expect(text).toHaveAttribute('data-color', 'error');
 
       rerender(<Text color="warning">Texto</Text>);
       text = screen.getByText('Texto');
-      expect(text).toHaveClass('text-[#FF9500]');
+      expect(text).toHaveClass('text-primary'); // warning usa text-primary conforme Text.variants
       expect(text).toHaveAttribute('data-color', 'warning');
     });
 
@@ -144,7 +144,7 @@ describe('Text', () => {
       render(<Text>Texto padrão</Text>);
       
       const text = screen.getByText('Texto padrão');
-      expect(text).toHaveClass('text-[#111827]');
+      expect(text).toHaveClass('text-foreground');
       expect(text).toHaveAttribute('data-color', 'default');
     });
 
@@ -158,7 +158,7 @@ describe('Text', () => {
       const text = screen.getByText('Texto Completo');
       expect(text).toHaveClass('text-lg');
       expect(text).toHaveClass('font-bold');
-      expect(text).toHaveClass('text-[#007BFF]');
+      expect(text).toHaveClass('text-primary');
       expect(text).toHaveAttribute('data-size', 'lg');
       expect(text).toHaveAttribute('data-weight', 'bold');
       expect(text).toHaveAttribute('data-color', 'primary');
@@ -206,7 +206,7 @@ describe('Text', () => {
       expect(text.tagName).toBe('SPAN');
       expect(text).toHaveClass('text-sm');
       expect(text).toHaveClass('font-bold');
-      expect(text).toHaveClass('text-[#FF4444]');
+      expect(text).toHaveClass('text-destructive');
       expect(text).toHaveClass('extra-class');
       expect(text).toHaveAttribute('data-size', 'sm');
       expect(text).toHaveAttribute('data-weight', 'bold');
