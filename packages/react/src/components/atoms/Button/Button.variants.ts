@@ -19,11 +19,11 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/80 focus-visible:ring-primary',
-        secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 active:bg-secondary/70 focus-visible:ring-secondary',
+        primary: 'bg-primary text-primary-foreground focus-visible:ring-primary',
+        secondary: 'bg-secondary text-secondary-foreground focus-visible:ring-secondary',
         ghost: 'bg-transparent text-foreground hover:bg-muted hover:text-foreground active:bg-muted/80 focus-visible:ring-ring',
         outline: 'bg-transparent border border-input text-foreground hover:bg-accent hover:text-accent-foreground active:bg-accent/80 focus-visible:ring-ring',
-        danger: 'bg-destructive text-destructive-foreground hover:bg-destructive/90 active:bg-destructive/80 focus-visible:ring-destructive',
+        danger: 'bg-destructive text-destructive-foreground focus-visible:ring-destructive',
       },
       size: {
         sm: 'h-9 px-3 text-sm',

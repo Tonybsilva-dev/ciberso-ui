@@ -15,9 +15,13 @@
 
     --primary: oklch(0.6171 0.1375 39.0427);
     --primary-foreground: oklch(1.0000 0 0);
+    --primary-hover: oklch(0.6554 0.1375 39.0427);
+    --primary-active: oklch(0.5788 0.1375 39.0427);
 
     --secondary: oklch(0.9245 0.0138 92.9892);
     --secondary-foreground: oklch(0.4334 0.0177 98.6048);
+    --secondary-hover: oklch(0.9420 0.0138 92.9892);
+    --secondary-active: oklch(0.9070 0.0138 92.9892);
 
     --muted: oklch(0.9341 0.0153 90.2390);
     --muted-foreground: oklch(0.6059 0.0075 97.4233);
@@ -27,6 +31,8 @@
 
     --destructive: oklch(0.1908 0.0020 106.5859);
     --destructive-foreground: oklch(1.0000 0 0);
+    --destructive-hover: oklch(0.2030 0.0020 106.5859);
+    --destructive-active: oklch(0.1786 0.0020 106.5859);
 
     --border: oklch(0.8847 0.0069 97.3627);
     --input: oklch(0.7621 0.0156 98.3528);
@@ -82,6 +88,8 @@
 
     --primary: oklch(0.6724 0.1308 38.7559);
     --primary-foreground: oklch(1.0000 0 0);
+    --primary-hover: oklch(0.7106 0.1308 38.7559);
+    --primary-active: oklch(0.6342 0.1308 38.7559);
 
     --secondary: oklch(0.9818 0.0054 95.0986);
     --secondary-foreground: oklch(0.3085 0.0035 106.6039);
@@ -94,6 +102,8 @@
 
     --destructive: oklch(0.6368 0.2078 25.3313);
     --destructive-foreground: oklch(1.0000 0 0);
+    --destructive-hover: oklch(0.6740 0.2078 25.3313);
+    --destructive-active: oklch(0.5996 0.2078 25.3313);
 
     --border: oklch(0.3618 0.0101 106.8928);
     --input: oklch(0.4336 0.0113 100.2195);
@@ -124,5 +134,32 @@
   body {
     background-color: oklch(var(--background));
     color: oklch(var(--foreground));
+  }
+}
+
+@layer components {
+  /* Hover effects para botões primary e secondary usando variáveis CSS específicas */
+  .bg-primary:hover {
+    background-color: oklch(var(--primary-hover));
+  }
+
+  .bg-primary:active {
+    background-color: oklch(var(--primary-active));
+  }
+
+  .bg-secondary:hover {
+    background-color: oklch(var(--secondary-hover));
+  }
+
+  .bg-secondary:active {
+    background-color: oklch(var(--secondary-active));
+  }
+
+  .bg-destructive:hover {
+    background-color: oklch(var(--destructive-hover));
+  }
+
+  .bg-destructive:active {
+    background-color: oklch(var(--destructive-active));
   }
 }
