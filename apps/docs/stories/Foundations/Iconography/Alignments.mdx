@@ -87,11 +87,13 @@ Ajuste visual pode ser necessário para compensar diferenças ópticas entre íc
 </span>
 ```
 
-### Em Botões (16-20px)
+### Em Botões (12-28px)
 ```tsx
-<Button leftIcon={<Add className="w-4 h-4" />}>Pequeno</Button>
-<Button leftIcon={<Add className="w-5 h-5" />}>Médio</Button>
-<Button leftIcon={<Add className="w-6 h-6" />}>Grande</Button>
+<Button size="xs" leftIcon={<Add className="w-3 h-3" />}>Extra Pequeno</Button>
+<Button size="sm" leftIcon={<Add className="w-4 h-4" />}>Pequeno</Button>
+<Button size="md" leftIcon={<Add className="w-5 h-5" />}>Médio</Button>
+<Button size="lg" leftIcon={<Add className="w-6 h-6" />}>Grande</Button>
+<Button size="xl" leftIcon={<Add className="w-7 h-7" />}>Extra Grande</Button>
 ```
 
 ### Independente (24px+)
