@@ -105,6 +105,8 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
             {...focusProps}
             ref={ref}
             type="checkbox"
+            // Atributos ARIA explícitos para garantir conformidade
+            // React Aria pode não incluir todos os atributos automaticamente
             aria-checked={isSelected}
             aria-pressed={isPressed}
             style={{
