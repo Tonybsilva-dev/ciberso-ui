@@ -170,12 +170,12 @@ describe('Input', () => {
       expect(input).toHaveAttribute('placeholder', 'seu@email.com');
     });
 
-    it('deve usar placeholder padrão quando não fornecido', () => {
+    it('não deve ter placeholder quando não fornecido', () => {
       render(<Input label="Campo" />);
 
-      const input = screen.getByPlaceholderText('Enter a value');
+      const input = screen.getByRole('textbox');
       expect(input).toBeInTheDocument();
-      expect(input).toHaveAttribute('placeholder', 'Enter a value');
+      expect(input).not.toHaveAttribute('placeholder');
     });
   });
 });

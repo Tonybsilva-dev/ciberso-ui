@@ -1,9 +1,9 @@
 /**
  * Input - Componente de campo de texto acessível do Ciberso-UI
  * Utiliza React Aria para garantir acessibilidade completa
- * Baseado na referência: Borda cinza, foco azul, placeholder cinza
  * 
  * Estilização gerenciada via Class Variance Authority (cva) para type-safe variants
+ * Utiliza tokens do tema Ciberso-UI para cores e espaçamentos
  */
 
 import { useTextField, type AriaTextFieldProps } from 'react-aria';
@@ -43,13 +43,13 @@ export interface InputProps extends AriaTextFieldProps {
  * suporte completo a acessibilidade, incluindo navegação por teclado,
  * estados de foco, validação e atributos ARIA apropriados.
  * 
- * Baseado na referência:
- * - Borda padrão: cinza (#9CA3AF)
- * - Borda foco: azul (#007BFF)
- * - Borda erro: vermelho (#FF4444)
- * - Background: branco (#FFFFFF)
- * - Placeholder: cinza (#9CA3AF)
- * - Texto: preto/cinza escuro (#111827)
+ * Utiliza tokens do tema Ciberso-UI:
+ * - Borda padrão: border-input
+ * - Borda foco: border-ring
+ * - Borda erro: border-destructive
+ * - Background: bg-background
+ * - Placeholder: text-muted-foreground
+ * - Texto: text-foreground
  * 
  * @example
  * ```tsx
@@ -92,7 +92,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           >
             {label}
             {props.isRequired && (
-              <span aria-label="obrigatório" className="text-[#FF4444] ml-0.5">*</span>
+              <span aria-label="obrigatório" className="text-destructive ml-0.5">*</span>
             )}
           </label>
         )}
@@ -100,14 +100,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           {...inputProps}
           ref={ref}
           className={cn(inputClasses, props.className)}
-          placeholder={props.placeholder || 'Enter a value'}
+          placeholder={props.placeholder}
           data-invalid={isInvalid ? '' : undefined}
           aria-invalid={isInvalid}
         />
         {description && !isInvalid && (
           <div 
             {...descriptionProps} 
-            className="text-sm text-[#6B7280]"
+            className="text-sm text-muted-foreground"
           >
             {description}
           </div>
@@ -115,7 +115,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {isInvalid && (
           <div 
             {...errorMessageProps} 
-            className="text-sm text-[#FF4444]" 
+            className="text-sm text-destructive" 
             role="alert"
           >
             {typeof errorMessage === 'function'
