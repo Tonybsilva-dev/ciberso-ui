@@ -249,6 +249,18 @@ describe('Button', () => {
       // Apenas verificamos que o botão existe e pode ter esse atributo
       expect(button).toBeInTheDocument();
     });
+
+    it('deve ter data-focus-visible quando focado via teclado', async () => {
+      const user = userEvent.setup();
+
+      render(<Button>Botão</Button>);
+
+      const button = screen.getByRole('button', { name: /botão/i });
+      await user.tab();
+      
+      expect(button).toHaveFocus();
+      expect(button).toHaveAttribute('data-focus-visible');
+    });
   });
 });
 

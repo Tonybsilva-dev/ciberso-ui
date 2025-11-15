@@ -1,13 +1,13 @@
 /**
  * Button - Componente de botão acessível do Ciberso-UI
  * Utiliza React Aria para garantir acessibilidade completa
- * Baseado na referência: Primary (azul), Secondary (cinza), com suporte a ícones
  * 
  * Estilização gerenciada via Class Variance Authority (cva) para type-safe variants
  * Animações com Framer Motion usando tokens de animação do @ciberso/tokens
+ * Utiliza tokens do tema Ciberso-UI para cores e espaçamentos
  */
 
-import { useButton, type AriaButtonProps } from 'react-aria';
+import { useButton, useFocusRing, type AriaButtonProps } from 'react-aria';
 import { forwardRef, useRef } from 'react';
 import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
@@ -56,10 +56,14 @@ export interface ButtonProps extends AriaButtonProps {
  * suporte completo a acessibilidade, incluindo navegação por teclado,
  * estados de foco e atributos ARIA apropriados.
  * 
- * Baseado na referência:
- * - Primary: Fundo azul (#007BFF), texto branco
- * - Secondary: Fundo cinza (#6B7280), texto branco
- * - Suporte a ícones à esquerda, direita ou icon-only
+ * Utiliza tokens do tema Ciberso-UI:
+ * - Primary: bg-primary, text-primary-foreground
+ * - Secondary: bg-secondary, text-secondary-foreground
+ * - Ghost: bg-transparent, text-foreground
+ * - Outline: border-input, text-foreground
+ * - Danger: bg-destructive, text-destructive-foreground
+ * 
+ * Suporte a ícones à esquerda, direita ou icon-only.
  * 
  * @example
  * ```tsx
@@ -94,6 +98,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const ref = forwardedRef || internalRef;
 
     const { buttonProps, isPressed } = useButton(props, ref as React.RefObject<HTMLButtonElement>);
+    const { isFocusVisible, focusProps } = useFocusRing();
 
     // Determinar qual ícone usar para icon-only
     const icon = iconOnly ? (leftIcon || rightIcon) : null;
@@ -142,6 +147,18 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       onMouseEnter,
       onMouseLeave,
     } = buttonProps as React.ButtonHTMLAttributes<HTMLButtonElement>;
+    
+    // Mesclar focusProps com buttonProps para garantir focus ring correto
+    const mergedFocusProps = {
+      onFocus: (e: React.FocusEvent<HTMLButtonElement>) => {
+        focusProps.onFocus?.(e);
+        onFocus?.(e);
+      },
+      onBlur: (e: React.FocusEvent<HTMLButtonElement>) => {
+        focusProps.onBlur?.(e);
+        onBlur?.(e);
+      },
+    };
 
     return (
       <motion.button
@@ -156,8 +173,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         onClick={onClick}
         onKeyDown={onKeyDown}
         onKeyUp={onKeyUp}
-        onFocus={onFocus}
-        onBlur={onBlur}
+        {...mergedFocusProps}
         onMouseDown={onMouseDown}
         onMouseUp={onMouseUp}
         onMouseEnter={onMouseEnter}
@@ -166,6 +182,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-variant={variant}
         data-size={size}
         data-pressed={isPressed ? '' : undefined}
+        data-focus-visible={isFocusVisible ? '' : undefined}
         whileTap={{
           scale: 0.90,
           transition: {
