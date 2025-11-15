@@ -47,8 +47,12 @@ describe('Button', () => {
     });
 
     it('deve renderizar com tamanhos diferentes', () => {
-      const { rerender } = render(<Button size="sm">Small</Button>);
+      const { rerender } = render(<Button size="xs">Extra Small</Button>);
       let button = screen.getByRole('button');
+      expect(button).toHaveAttribute('data-size', 'xs');
+
+      rerender(<Button size="sm">Small</Button>);
+      button = screen.getByRole('button');
       expect(button).toHaveAttribute('data-size', 'sm');
 
       rerender(<Button size="md">Medium</Button>);
@@ -58,6 +62,10 @@ describe('Button', () => {
       rerender(<Button size="lg">Large</Button>);
       button = screen.getByRole('button');
       expect(button).toHaveAttribute('data-size', 'lg');
+
+      rerender(<Button size="xl">Extra Large</Button>);
+      button = screen.getByRole('button');
+      expect(button).toHaveAttribute('data-size', 'xl');
     });
 
     it('deve renderizar com ícone à esquerda', () => {
