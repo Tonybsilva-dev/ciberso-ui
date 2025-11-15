@@ -4,7 +4,7 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Switch } from './Switch';
 
 const meta: Meta<typeof Switch> = {
@@ -20,6 +20,9 @@ const meta: Meta<typeof Switch> = {
   },
   args: {
     size: 'md',
+    isSelected: false,
+    isDisabled: false,
+    children: 'Habilitar notificações',
   },
   argTypes: {
     children: {
@@ -43,7 +46,7 @@ const meta: Meta<typeof Switch> = {
       description: 'Se o switch está desabilitado',
     },
     onChange: {
-      control: false,
+      action: 'onChange',
       description: 'Callback chamado quando o estado muda',
     },
   },
@@ -53,15 +56,26 @@ export default meta;
 type Story = StoryObj<typeof Switch>;
 
 /**
- * Story básica - Switch controlado
+ * Story básica - Switch controlado pelos controles do Storybook
  */
 export const Default: Story = {
-  render: () => {
-    const [isSelected, setIsSelected] = useState(false);
+  render: (args) => {
+    const [isSelected, setIsSelected] = useState(args.isSelected ?? false);
+    
+    // Sincronizar estado interno com args externos
+    useEffect(() => {
+      setIsSelected(args.isSelected ?? false);
+    }, [args.isSelected]);
+    
     return (
-      <Switch isSelected={isSelected} onChange={setIsSelected}>
-        Habilitar notificações
-      </Switch>
+      <Switch
+        {...args}
+        isSelected={isSelected}
+        onChange={(selected) => {
+          setIsSelected(selected);
+          args.onChange?.(selected);
+        }}
+      />
     );
   },
 };
@@ -70,9 +84,28 @@ export const Default: Story = {
  * Story - Switch sem label
  */
 export const WithoutLabel: Story = {
-  render: () => {
-    const [isSelected, setIsSelected] = useState(false);
-    return <Switch isSelected={isSelected} onChange={setIsSelected} />;
+  args: {
+    children: undefined,
+    'aria-label': 'Toggle feature',
+  },
+  render: (args) => {
+    const [isSelected, setIsSelected] = useState(args.isSelected ?? false);
+    
+    // Sincronizar estado interno com args externos
+    useEffect(() => {
+      setIsSelected(args.isSelected ?? false);
+    }, [args.isSelected]);
+    
+    return (
+      <Switch
+        {...args}
+        isSelected={isSelected}
+        onChange={(selected) => {
+          setIsSelected(selected);
+          args.onChange?.(selected);
+        }}
+      />
+    );
   },
 };
 
@@ -80,12 +113,16 @@ export const WithoutLabel: Story = {
  * Story - Switch desabilitado
  */
 export const Disabled: Story = {
-  render: () => (
+  args: {
+    isDisabled: true,
+    isSelected: false,
+  },
+  render: (args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <Switch isSelected={false} isDisabled>
+      <Switch {...args} isSelected={false}>
         Desabilitado (unchecked)
       </Switch>
-      <Switch isSelected={true} isDisabled>
+      <Switch {...args} isSelected={true}>
         Desabilitado (checked)
       </Switch>
     </div>
