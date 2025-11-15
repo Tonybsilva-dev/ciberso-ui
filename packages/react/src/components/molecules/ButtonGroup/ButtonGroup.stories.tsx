@@ -67,6 +67,15 @@ export const Sizes: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <div>
+        <div style={{ marginBottom: '0.5rem', fontSize: '14px', fontWeight: 'bold' }}>Extra Pequeno</div>
+        <ButtonGroup size="xs">
+          <Button variant="outline" size="xs">Extra</Button>
+          <Button variant="outline" size="xs">Pequeno</Button>
+          <Button variant="outline" size="xs">Botão</Button>
+          <Button variant="outline" size="xs" iconOnly rightIcon={<Add className="w-3 h-3" />} aria-label="Adicionar" />
+        </ButtonGroup>
+      </div>
+      <div>
         <div style={{ marginBottom: '0.5rem', fontSize: '14px', fontWeight: 'bold' }}>Pequeno</div>
         <ButtonGroup size="sm">
           <Button variant="outline" size="sm">Pequeno</Button>
@@ -91,6 +100,15 @@ export const Sizes: Story = {
           <Button variant="outline" size="lg">Botão</Button>
           <Button variant="outline" size="lg">Grupo</Button>
           <Button variant="outline" size="lg" iconOnly rightIcon={<Add className="w-6 h-6" />} aria-label="Adicionar" />
+        </ButtonGroup>
+      </div>
+      <div>
+        <div style={{ marginBottom: '0.5rem', fontSize: '14px', fontWeight: 'bold' }}>Extra Grande</div>
+        <ButtonGroup size="xl">
+          <Button variant="outline" size="xl">Extra</Button>
+          <Button variant="outline" size="xl">Grande</Button>
+          <Button variant="outline" size="xl">Botão</Button>
+          <Button variant="outline" size="xl" iconOnly rightIcon={<Add className="w-7 h-7" />} aria-label="Adicionar" />
         </ButtonGroup>
       </div>
     </div>

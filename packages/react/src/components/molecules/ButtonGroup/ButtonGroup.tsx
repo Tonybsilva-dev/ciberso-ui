@@ -23,7 +23,7 @@ export interface ButtonGroupProps extends Omit<HTMLAttributes<HTMLDivElement>, '
    * Tamanho do grupo (afeta os elementos filhos)
    * @default 'md'
    */
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   /**
    * Classes CSS adicionais
    */

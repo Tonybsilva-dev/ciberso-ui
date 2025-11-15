@@ -29,7 +29,7 @@ export interface ButtonProps extends AriaButtonProps {
    * Tamanho do botão
    * @default 'md'
    */
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   /**
    * Ícone à esquerda do texto
    */

@@ -10,7 +10,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 /**
  * Variantes do ButtonGroup usando cva
  * 
- * Define as classes base e tamanhos (sm, md, lg)
+ * Define as classes base e tamanhos (xs, sm, md, lg, xl)
  * baseadas nos tokens de design do Ciberso-UI.
  */
 export const buttonGroupVariants = cva(
@@ -19,9 +19,11 @@ export const buttonGroupVariants = cva(
   {
     variants: {
       size: {
+        xs: '',
         sm: '',
         md: '',
         lg: '',
+        xl: '',
       },
     },
     defaultVariants: {

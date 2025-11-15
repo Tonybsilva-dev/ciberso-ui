@@ -26,9 +26,11 @@ export const buttonVariants = cva(
         danger: 'bg-destructive text-destructive-foreground focus-visible:ring-destructive',
       },
       size: {
+        xs: 'h-7 px-2 text-xs',
         sm: 'h-9 px-3 text-sm',
         md: 'h-10 px-4 text-sm',
         lg: 'h-11 px-6 text-base',
+        xl: 'h-12 px-8 text-lg',
       },
     },
     defaultVariants: {
@@ -45,9 +47,11 @@ export const buttonVariants = cva(
 export const buttonIconOnlyVariants = cva('', {
   variants: {
     size: {
+      xs: 'h-7 w-7 px-0',
       sm: 'h-9 w-9 px-0',
       md: 'h-10 w-10 px-0',
       lg: 'h-11 w-11 px-0',
+      xl: 'h-12 w-12 px-0',
     },
   },
 });
@@ -61,8 +65,10 @@ export type ButtonVariantProps = VariantProps<typeof buttonVariants>;
  * Classes para tamanhos de ícones baseados no tamanho do botão
  */
 export const iconSizeClasses = {
+  xs: 'w-3 h-3',
   sm: 'w-4 h-4',
   md: 'w-5 h-5',
   lg: 'w-6 h-6',
+  xl: 'w-7 h-7',
 } as const;
 

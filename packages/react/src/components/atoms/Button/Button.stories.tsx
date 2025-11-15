@@ -37,7 +37,7 @@ const meta: Meta<typeof Button> = {
     },
     size: {
       control: 'select',
-      options: ['sm', 'md', 'lg'],
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
       description: 'Tamanho do botão',
       table: {
         defaultValue: { summary: 'md' },
@@ -141,9 +141,11 @@ export const Disabled: Story = {
 export const AllSizes: Story = {
   render: () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+      <Button size="xs">Extra Small</Button>
       <Button size="sm">Small</Button>
       <Button size="md">Medium</Button>
       <Button size="lg">Large</Button>
+      <Button size="xl">Extra Large</Button>
     </div>
   ),
 };
