@@ -185,32 +185,32 @@ describe('Heading', () => {
     it('deve aplicar classes de cor corretas', () => {
       const { rerender } = render(<Heading level={1} color="default">Título</Heading>);
       let heading = screen.getByRole('heading', { level: 1 });
-      expect(heading).toHaveClass('text-[#111827]');
+      expect(heading).toHaveClass('text-foreground');
       expect(heading).toHaveAttribute('data-color', 'default');
 
       rerender(<Heading level={1} color="muted">Título</Heading>);
       heading = screen.getByRole('heading', { level: 1 });
-      expect(heading).toHaveClass('text-[#6B7280]');
+      expect(heading).toHaveClass('text-muted-foreground');
       expect(heading).toHaveAttribute('data-color', 'muted');
 
       rerender(<Heading level={1} color="primary">Título</Heading>);
       heading = screen.getByRole('heading', { level: 1 });
-      expect(heading).toHaveClass('text-[#007BFF]');
+      expect(heading).toHaveClass('text-primary');
       expect(heading).toHaveAttribute('data-color', 'primary');
 
       rerender(<Heading level={1} color="success">Título</Heading>);
       heading = screen.getByRole('heading', { level: 1 });
-      expect(heading).toHaveClass('text-[#00F6FF]');
+      expect(heading).toHaveClass('text-primary'); // success usa text-primary conforme Text.variants
       expect(heading).toHaveAttribute('data-color', 'success');
 
       rerender(<Heading level={1} color="error">Título</Heading>);
       heading = screen.getByRole('heading', { level: 1 });
-      expect(heading).toHaveClass('text-[#FF4444]');
+      expect(heading).toHaveClass('text-destructive');
       expect(heading).toHaveAttribute('data-color', 'error');
 
       rerender(<Heading level={1} color="warning">Título</Heading>);
       heading = screen.getByRole('heading', { level: 1 });
-      expect(heading).toHaveClass('text-[#FF9500]');
+      expect(heading).toHaveClass('text-primary'); // warning usa text-primary conforme Text.variants
       expect(heading).toHaveAttribute('data-color', 'warning');
     });
 
@@ -224,7 +224,7 @@ describe('Heading', () => {
       const heading = screen.getByRole('heading', { level: 2 });
       expect(heading).toHaveClass('text-lg');
       expect(heading).toHaveClass('font-medium');
-      expect(heading).toHaveClass('text-[#007BFF]');
+      expect(heading).toHaveClass('text-primary');
       expect(heading).toHaveAttribute('data-size', 'lg');
       expect(heading).toHaveAttribute('data-weight', 'medium');
       expect(heading).toHaveAttribute('data-color', 'primary');
