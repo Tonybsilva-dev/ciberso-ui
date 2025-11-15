@@ -90,9 +90,11 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
     });
 
     return (
-      <label className={cn('inline-flex items-center gap-2 cursor-pointer', isDisabled && 'cursor-not-allowed')}>
+      <label
+        className={cn('inline-flex items-center gap-2 cursor-pointer', isDisabled && 'cursor-not-allowed')}
+      >
         <span
-          className={containerClasses}
+          className={cn(containerClasses, 'relative')}
           data-size={size}
           data-selected={isSelected ? '' : undefined}
           data-pressed={isPressed ? '' : undefined}
@@ -103,22 +105,25 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
             {...focusProps}
             ref={ref}
             type="checkbox"
-            className="sr-only"
             aria-checked={isSelected}
             aria-pressed={isPressed}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              margin: 0,
+              padding: 0,
+              opacity: 0,
+              cursor: isDisabled ? 'not-allowed' : 'pointer',
+              zIndex: 10,
+              pointerEvents: 'auto',
+            }}
           />
-          <motion.span
-            className={trackClasses}
-            animate={{
-              backgroundColor: isSelected
-                ? 'oklch(var(--primary))'
-                : 'oklch(var(--input))',
-              opacity: isPressed ? 0.8 : 1,
-            }}
-            transition={{
-              duration: fastDuration,
-              ease: [0.4, 0, 0.2, 1], // easeOut
-            }}
+          <span
+            className={cn(trackClasses, isPressed && 'opacity-80')}
+            style={{ pointerEvents: 'none' }}
           >
             <motion.span
               className={thumbClasses}
@@ -127,8 +132,8 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
                   ? size === 'sm'
                     ? 16 // 4 * 4px (translate-x-4)
                     : size === 'md'
-                    ? 20 // 5 * 4px (translate-x-5)
-                    : 28 // 7 * 4px (translate-x-7)
+                      ? 20 // 5 * 4px (translate-x-5)
+                      : 28 // 7 * 4px (translate-x-7)
                   : 2, // left-0.5 = 2px
                 scale: isPressed ? 0.95 : 1,
               }}
@@ -137,7 +142,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
                 ease: [0.4, 0, 0.2, 1], // easeOut
               }}
             />
-          </motion.span>
+          </span>
         </span>
         {children && (
           <span className={cn('text-sm text-foreground', isDisabled && 'opacity-50')}>

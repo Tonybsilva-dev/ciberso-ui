@@ -35,12 +35,12 @@ export const switchVariants = cva(
  */
 export const switchTrackVariants = cva(
   // Classes base para o track
-  'relative w-full h-full rounded-full transition-colors',
+  'relative w-full h-full rounded-full transition-colors border',
   {
     variants: {
       checked: {
-        true: 'bg-primary',
-        false: 'bg-input',
+        true: 'bg-primary border-primary',
+        false: 'bg-input border-input',
       },
       size: {
         sm: '',
